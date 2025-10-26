@@ -4,19 +4,52 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-  </PropertyGroup>
-
-  <PropertyGroup>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>InputHandler</PackageId>
-    <Version>1.1.0</Version>
+    <Version>1.2.1</Version>
     <Authors>Tomas Lundqvist</Authors>
-    <Company></Company>
+    <PackageReadmeFile>Readme.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Logging\Logging.csproj" />
-    <ProjectReference Include="..\Util\Util.csproj" />
+    <PackageReference
+        Include="Logging"
+        Version="1.2.1" />
+    <PackageReference
+        Include="Transport"
+        Version="1.2.1" />
+  </ItemGroup>
+
+  <!-- Alla resurser som ska packas -->
+  <ItemGroup>
+    <None
+        Include="Data\**\*.*"
+        Pack="true"
+        PackagePath="contentFiles\any\any\data"
+        PackageCopyToOutput="true"
+        CopyToOutputDirectory="PreserveNewest" />
+
+    <None
+        Include="Resources\**\*.*"
+        Pack="true"
+        PackagePath="contentFiles\any\any\resources"
+        PackageCopyToOutput="true"
+        CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <!-- Endast om du verkligen har en InputHandler.targets -->
+  <ItemGroup>
+    <None
+        Include="buildTransitive\InputHandler.targets"
+        Pack="true"
+        PackagePath="buildTransitive\InputHandler.targets" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

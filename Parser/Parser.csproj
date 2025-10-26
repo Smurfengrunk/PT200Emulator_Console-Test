@@ -9,24 +9,18 @@
   <PropertyGroup>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>Parser</PackageId>
-    <Version>1.1.0</Version>
+    <Version>1.2.1</Version>
     <Authors>Tomas Lundqvist</Authors>
-    <Company></Company>
+    <PackageReadmeFile>Readme.md</PackageReadmeFile>
   </PropertyGroup>
 
-
   <ItemGroup>
-    <!-- Kopiera alla JSON-filer i Resources och undermappar -->
-    <Content Include="Resources\**\*.json" CopyToOutputDirectory="PreserveNewest" />
-
-    <!-- Kopiera alla JSON-filer i Data och undermappar -->
-    <Content Include="Data\**\*.json" CopyToOutputDirectory="PreserveNewest" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <ProjectReference Include="..\Logging\Logging.csproj" />
-    <ProjectReference Include="..\Transport\Transport.csproj" />
+    <PackageReference
+        Include="Logging"
+        Version="1.2.1" />
+    <PackageReference
+        Include="Transport"
+        Version="1.2.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,4 +38,34 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <!-- Endast None, med rätt case och Pack=true -->
+  <ItemGroup>
+    <None
+        Include="Data\**\*.*"
+        Pack="true"
+        PackagePath="contentFiles\any\any\data"
+        PackageCopyToOutput="true"
+        CopyToOutputDirectory="PreserveNewest" />
+
+    <None
+        Include="Resources\**\*.*"
+        Pack="true"
+        PackagePath="contentFiles\any\any\resources"
+        PackageCopyToOutput="true"
+        CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None
+        Include="buildTransitive\Parser.targets"
+        Pack="true"
+        PackagePath="buildTransitive\Parser.targets" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 ﻿using PrimS.Telnet;
-using Serilog;
 using System.Text;
+using Logging;
 
 namespace Transport
 {
@@ -72,7 +72,7 @@ namespace Transport
             }
             catch (Exception ex)
             {
-                Log.Logger.Error($"WriteAsync exception {ex}");
+                this.LogErr($"WriteAsync exception {ex}");
                 OnDisconnected();
                 return;
             }
@@ -90,7 +90,7 @@ namespace Transport
                         if (_client != null) response = await _client.ReadAsync();
                         if (response == null)
                         {
-                            Log.Logger.Error("Servern stängde anslutningen.");
+                            this.LogErr("Servern stängde anslutningen.");
                             OnDisconnected();
                             break; // Avsluta loopen
                         }
@@ -107,19 +107,19 @@ namespace Transport
                     }
                     catch (InvalidOperationException)
                     {
-                        Log.Logger.Error("Invalid Operation Exception");
+                        this.LogErr("Invalid Operation Exception");
                         OnDisconnected();
                         return;
                     }
                     catch (OperationCanceledException)
                     {
-                        Log.Logger.Error("Operation Cancelled Exception");
+                        this.LogErr("Operation Cancelled Exception");
                         OnDisconnected();
                         break;
                     }
                     catch (Exception ex)
                     {
-                        Log.Logger.Error($"ReadAsync exception {ex}");
+                        this.LogErr($"ReadAsync exception {ex}");
                         OnDisconnected();
                         break;
                     }
@@ -132,7 +132,7 @@ namespace Transport
         {
             if (!_disconnected)
             {
-                Log.Logger.Error($"Disconnected event triggered");
+                this.LogErr($"Disconnected event triggered");
                 Disconnected?.Invoke();
                 _disconnected = true;
             }
