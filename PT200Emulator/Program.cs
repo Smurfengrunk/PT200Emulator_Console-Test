@@ -1,12 +1,12 @@
-﻿using InputHandler;
-using Parser;
-using Rendering;
+﻿using PT200_InputHandler;
+using PT200_Parser;
 using Serilog;
 using System;
 using System.Runtime.CompilerServices;
 using System.Text;
-using Transport;
-using Logging;
+using PT200_Transport;
+using PT200_Logging;
+using PT200_Rendering;
 
 namespace PT200Emulator
 {
@@ -22,22 +22,22 @@ namespace PT200Emulator
         private static ModeManager modeManager = new ModeManager(_localization);
         private static TerminalControl _terminal = new();
         private static TerminalParser _parser;
-        private static ConsoleRenderer renderer = new();
         private static IInputMapper _mapper;
-
+        private static RenderCore renderer = new RenderCore();
+        private static IRenderTarget renderTarget = new ConsoleRenderTarget();
         private static async Task Main(string[] args)
         {
             _state.screenFormat = TerminalState.ScreenFormat.S80x24;
             _state.SetScreenFormat();
             _parser = new TerminalParser(_basePath, _state, modeManager, _terminal);
-            _mapper = new InputHandler.InputHandler().inputMapper;
+            _mapper = new PT200_InputHandler.PT200_InputHandler().inputMapper;
             var adapter = new ConsoleAdapter(_mapper, bytes => _stream.WriteAsync(bytes), _parser.Screenbuffer);
-            Log.Logger = LoggingConfiguration.CreateLogger();
+            Log.Logger = PT200_LoggingConfiguration.CreateLogger();
 
-            _parser.Screenbuffer.BufferUpdated += () => renderer.Render(_parser.Screenbuffer, _parser.inEmacs);
+            _parser.Screenbuffer.BufferUpdated += () => renderer.Render(_parser.Screenbuffer, renderTarget);
             _parser.DcsResponse += (bytes) => _stream.WriteAsync(bytes);
             _parser.Screenbuffer.Scrolled += () => renderer.ForceFullRender();
-            _parser.Screenbuffer.AttachCaretController(new ConsoleCaretController());
+            _parser.Screenbuffer.AttachCaretController(new CaretController());
             await Connect(cts.Token);
 
             _stream.Disconnected += async () =>

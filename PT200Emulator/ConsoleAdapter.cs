@@ -1,8 +1,6 @@
-﻿using InputHandler;
-using System.Text;
-using Transport;
-using Parser;
-using Logging;
+﻿using System.Text;
+using PT200_Parser;
+using PT200_InputHandler;
 
 public class ConsoleAdapter
 {

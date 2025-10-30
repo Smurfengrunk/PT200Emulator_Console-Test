@@ -11,22 +11,22 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "PT200Emulato
 		{C9EDCAB2-B3F1-4E99-A818-041973E1CE35} = {C9EDCAB2-B3F1-4E99-A818-041973E1CE35}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transport", "Transport\Transport.csproj", "{4FA239FC-2761-4D62-B554-5F10A139AF83}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PT200_Transport", "PT200_Transport\PT200_Transport.csproj", "{4FA239FC-2761-4D62-B554-5F10A139AF83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parser", "Parser\Parser.csproj", "{7B261E02-1DB1-49AE-8EF5-D9338C377B92}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PT200_Parser", "PT200_Parser\PT200_Parser.csproj", "{7B261E02-1DB1-49AE-8EF5-D9338C377B92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rendering", "Rendering\Rendering.csproj", "{C9EDCAB2-B3F1-4E99-A818-041973E1CE35}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PT200_Rendering", "PT200_Rendering\PT200_Rendering.csproj", "{C9EDCAB2-B3F1-4E99-A818-041973E1CE35}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Util", "Util\Util.csproj", "{1561A1DF-30A4-4138-981C-563A357CA629}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InputHandler", "InputHandler\InputHandler.csproj", "{C2079E6B-7A11-448E-93F6-CFE4DD18A6A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PT200_InputHandler", "PT200_InputHandler\PT200_InputHandler.csproj", "{C2079E6B-7A11-448E-93F6-CFE4DD18A6A6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
 	ProjectSection(SolutionItems) = preProject
 		ChangeLog.md = ChangeLog.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging", "Logging\Logging.csproj", "{CB5E07E5-5770-4092-9203-3AF94747D14B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PT200_Logging", "PT200_Logging\PT200_Logging.csproj", "{CB5E07E5-5770-4092-9203-3AF94747D14B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

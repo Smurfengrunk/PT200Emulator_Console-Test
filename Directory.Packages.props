@@ -1,0 +1,28 @@
+<Project>
+    <ItemGroup>
+        <!-- Dina egna paket -->
+        <PackageVersion
+                Include="PT200_Parser"
+                Version="1.2.1" />
+        <PackageVersion
+                Include="PT200_Transport"
+                Version="1.2.1" />
+        <PackageVersion
+                Include="PT200_Logging"
+                Version="1.2.1" />
+        <PackageVersion
+                Include="PT200_InputHandler"
+                Version="1.2.1" />
+        <PackageVersion
+                Include="PT200_Rendering"
+                Version="1.2.1" />
+
+        <!-- Externa paket -->
+        <PackageVersion
+                Include="Serilog"
+                Version="3.1.1" />
+        <PackageVersion
+                Include="Telnet"
+                Version="0.13.1" />
+    </ItemGroup>
+</Project>
