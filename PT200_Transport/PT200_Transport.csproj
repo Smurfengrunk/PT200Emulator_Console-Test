@@ -16,45 +16,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference
-        Include="PT200_InputHandler"
-        Version="1.2.1" />
-    <PackageReference
-        Include="PT200_Logging"
-        Version="1.2.1" />
-    <PackageReference
-        Include="PT200_Parser"
-        Version="1.2.1" />
-    <PackageReference
-        Include="PT200_Rendering"
-        Version="1.2.1" />
-    <PackageReference
-        Include="Telnet"
-        Version="0.13.1" />
+    <PackageReference Include="PT200_InputHandler" Version="1.2.1" />
+    <PackageReference Include="PT200_Logging" Version="1.2.1" />
+    <PackageReference Include="PT200_Parser" Version="1.2.2" />
+    <PackageReference Include="PT200_Rendering" Version="1.2.2" />
+    <PackageReference Include="Telnet" Version="0.13.1" />
   </ItemGroup>
 
   <!-- Endast None, med rätt case och Pack=true -->
   <ItemGroup>
-    <None
-        Include="Data\**\*.*"
-        Pack="true"
-        PackagePath="contentFiles\any\any\data"
-        PackageCopyToOutput="true"
-        CopyToOutputDirectory="PreserveNewest" />
+    <None Include="Data\**\*.*" Pack="true" PackagePath="contentFiles\any\any\data" PackageCopyToOutput="true" CopyToOutputDirectory="PreserveNewest" />
 
-    <None
-        Include="Resources\**\*.*"
-        Pack="true"
-        PackagePath="contentFiles\any\any\resources"
-        PackageCopyToOutput="true"
-        CopyToOutputDirectory="PreserveNewest" />
+    <None Include="Resources\**\*.*" Pack="true" PackagePath="contentFiles\any\any\resources" PackageCopyToOutput="true" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>
-    <None
-        Include="buildTransitive\PT200_Transport.targets"
-        Pack="true"
-        PackagePath="buildTransitive\PT200_Transport.targets" />
+    <None Include="buildTransitive\PT200_Transport.targets" Pack="true" PackagePath="buildTransitive\PT200_Transport.targets" />
   </ItemGroup>
 
   <ItemGroup>

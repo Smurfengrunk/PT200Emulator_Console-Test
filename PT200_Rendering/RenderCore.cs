@@ -23,6 +23,7 @@ namespace PT200_Rendering
 
         public void Render(ScreenBuffer buffer, IRenderTarget target)
         {
+            IRenderTarget.CursorStyle style = IRenderTarget.CursorStyle.Block;
             if (buffer.clearScreen)
             {
                 _initialized = false;
@@ -106,7 +107,7 @@ namespace PT200_Rendering
             buffer.forceRedraw = false;
             buffer.ClearDirty();
 
-            target.SetCaret(buffer.CursorRow, buffer.CursorCol);
+            target.SetCaret(buffer.CursorRow, buffer.CursorCol, true, style);
         }
 
         private static ConsoleColor MapToConsoleColor(StyleInfo.Color color)

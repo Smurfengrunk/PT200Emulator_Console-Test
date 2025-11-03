@@ -75,30 +75,70 @@ namespace PT200_Parser
         }
         public void Resize(int rows, int cols)
         {
-            _mainBuffer = new ScreenCell[rows, cols];
+            if (rows <= 0 || cols <= 0)
+                throw new ArgumentOutOfRangeException();
 
-            if (rows <= 0 || cols <= 0) throw new ArgumentOutOfRangeException();
+            var oldChars = _chars;
+            var oldMain = _mainBuffer;
+            var oldStyles = ZoneAttributes;
 
+            int oldRows = oldChars?.GetLength(0) ?? 0;
+            int oldCols = oldChars?.GetLength(1) ?? 0;
+
+            var newMain = new ScreenCell[rows, cols];
             var newChars = new char[rows, cols];
             var newStyles = new StyleInfo[rows, cols];
 
-            // Kopiera så mycket som får plats från gamla bufferten
-            for (int r = 0; r < Math.Min(Rows, rows); r++)
-                for (int c = 0; c < Math.Min(Cols, cols); c++)
+            // Behåll nedersta raderna om vi minskar
+            int rowOffset = oldRows > rows ? oldRows - rows : 0;
+            int colOffset = oldCols > cols ? oldCols - cols : 0;
+
+            int copyRows = Math.Min(oldRows, rows);
+            int copyCols = Math.Min(oldCols, cols);
+
+            for (int r = 0; r < copyRows; r++)
+            {
+                for (int c = 0; c < copyCols; c++)
                 {
-                    newChars[r, c] = _chars[r, c];
-                    newStyles[r, c] = _mainBuffer[r, c].Style;
+                    int oldR = r + rowOffset;
+                    int oldC = c + colOffset;
+
+                    newChars[r, c] = oldChars[oldR, oldC];
+
+                    StyleInfo style = null;
+                    if (oldMain != null)
+                        style = oldMain[oldR, oldC].Style;
+                    else if (oldStyles != null)
+                        style = oldStyles[oldR, oldC];
+
+                    newStyles[r, c] = style ?? new StyleInfo();
+                    newMain[r, c] = new ScreenCell { Style = newStyles[r, c] };
                 }
-            // Kopiera så mycket som får plats från gamla bufferten
+            }
+
+            // Fyll resten med blanks
             for (int r = 0; r < rows; r++)
+            {
                 for (int c = 0; c < cols; c++)
                 {
+                    if (newChars[r, c] == '\0')
+                        newChars[r, c] = ' ';
                     if (newStyles[r, c] == null)
-                        _mainBuffer[r, c].Style = new StyleInfo();
-                        ZoneAttributes[r, c] = new StyleInfo();
-                }
+                        newStyles[r, c] = new StyleInfo();
 
+                    newMain[r, c] = new ScreenCell
+                    {
+                        Char = newChars[r, c],
+                        Foreground = newStyles[r, c].Foreground,
+                        Background = newStyles[r, c].Background,
+                        Style = newStyles[r, c]
+                    };
+                }
+            }
+
+            _mainBuffer = newMain;
             _chars = newChars;
+            ZoneAttributes = newStyles;
 
             CursorRow = Math.Min(CursorRow, rows - 1);
             CursorCol = Math.Min(CursorCol, cols - 1);
@@ -384,6 +424,7 @@ namespace PT200_Parser
         public void MarkDirty()
         {
             _dirty = true;
+            BufferUpdated?.Invoke();
         }
 
         public void ClearDirty()

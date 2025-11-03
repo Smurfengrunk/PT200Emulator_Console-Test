@@ -9,7 +9,7 @@
   <PropertyGroup>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>PT200_Parser</PackageId>
-    <Version>1.2.2</Version>
+    <Version>1.2.5</Version>
     <Authors>Tomas Lundqvist</Authors>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
   </PropertyGroup>

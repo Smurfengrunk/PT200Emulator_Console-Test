@@ -10,8 +10,15 @@ namespace PT200_Rendering
 
     public interface IRenderTarget
     {
+        public enum CursorStyle
+        {
+            Block,
+            HorizontalBar,
+            VerticalBar
+        }
+
         void Clear();
         void DrawRun(RenderRun run);
-        void SetCaret(int row, int col);
+        void SetCaret(int row, int col, bool visible, CursorStyle style);
     }
 }

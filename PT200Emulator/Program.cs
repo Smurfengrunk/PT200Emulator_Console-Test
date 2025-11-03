@@ -20,11 +20,13 @@ namespace PT200Emulator
         private static DataPathProvider _basePath = new(AppDomain.CurrentDomain.BaseDirectory);
         private static LocalizationProvider _localization = new();
         private static ModeManager modeManager = new ModeManager(_localization);
-        private static TerminalControl _terminal = new();
         private static TerminalParser _parser;
         private static IInputMapper _mapper;
         private static RenderCore renderer = new RenderCore();
         private static IRenderTarget renderTarget = new ConsoleRenderTarget();
+        private static ICaretController caretController = new ConsoleCaretController(renderTarget);
+        private static ICaretController _terminal = new CaretController(caretController);
+
         private static async Task Main(string[] args)
         {
             _state.screenFormat = TerminalState.ScreenFormat.S80x24;
@@ -37,7 +39,7 @@ namespace PT200Emulator
             _parser.Screenbuffer.BufferUpdated += () => renderer.Render(_parser.Screenbuffer, renderTarget);
             _parser.DcsResponse += (bytes) => _stream.WriteAsync(bytes);
             _parser.Screenbuffer.Scrolled += () => renderer.ForceFullRender();
-            _parser.Screenbuffer.AttachCaretController(new CaretController());
+            _parser.Screenbuffer.AttachCaretController(new CaretController(caretController));
             await Connect(cts.Token);
 
             _stream.Disconnected += async () =>

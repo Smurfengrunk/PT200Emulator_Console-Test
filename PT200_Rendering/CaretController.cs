@@ -7,6 +7,15 @@ namespace PT200_Rendering
         public int Row { get; private set; }
         public int Col { get; private set; }
         public bool Visible { get; private set; }
+        private ICaretController target;
+
+        public CaretController(ICaretController target)
+        {
+            this.target = target;
+            Row = 0;
+            Col = 0;
+            Visible = false;
+        }
 
         public void SetCaretPosition(int row, int col)
         {

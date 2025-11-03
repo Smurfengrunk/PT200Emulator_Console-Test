@@ -17,7 +17,7 @@ namespace PT200_InputHandler
             {
                 PropertyNameCaseInsensitive = true
             };
-            var wrapper = JsonSerializer.Deserialize<KeyMap>(File.ReadAllText(Path.Combine(_basePath, "Data", "keymap.json")), options);
+            var wrapper = JsonSerializer.Deserialize<KeyMap>(json, options);
             inputMapper = new InputMapper(wrapper);
 
         }
