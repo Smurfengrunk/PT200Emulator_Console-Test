@@ -9,7 +9,7 @@
   <PropertyGroup>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>PT200_Parser</PackageId>
-    <Version>1.2.5</Version>
+    <Version>1.2.9.3</Version>
     <Authors>Tomas Lundqvist</Authors>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
   </PropertyGroup>
@@ -41,8 +41,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="PT200_InputHandler" Version="1.2.1" />
-    <PackageReference Include="PT200_Logging" Version="1.2.1" />
+    <ProjectReference Include="..\PT200_InputHandler\PT200_InputHandler.csproj" />
+    <ProjectReference Include="..\PT200_Logging\PT200_Logging.csproj" />
   </ItemGroup>
 
   <ItemGroup>

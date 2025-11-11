@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
+using PT200_Logging;
 
 namespace PT200_Rendering
 {
@@ -12,8 +14,23 @@ namespace PT200_Rendering
     {
         private RenderSnapshot[,] _lastFrame;
         private bool _initialized;
+        private char RawChar;
+        private Color Fg, Bg;
 
-        private record struct RenderSnapshot(char Char, ConsoleColor Fg, ConsoleColor Bg);
+        private record struct RenderSnapshot(char RawChar, char OutChar, Color Fg, Color Bg)
+        {
+            public bool Equals(RenderSnapshot other)
+            {
+                return RawChar == other.RawChar &&
+                       Fg == other.Fg &&
+                       Bg == other.Bg;
+            }
+
+            public override int GetHashCode()
+            {
+                return HashCode.Combine(RawChar, Fg, Bg);
+            }
+        }
 
         public void ForceFullRender()
         {
@@ -23,7 +40,6 @@ namespace PT200_Rendering
 
         public void Render(ScreenBuffer buffer, IRenderTarget target)
         {
-            IRenderTarget.CursorStyle style = IRenderTarget.CursorStyle.Block;
             if (buffer.clearScreen)
             {
                 _initialized = false;
@@ -57,8 +73,9 @@ namespace PT200_Rendering
                         else fg = fg.MakeDim();
                     }
 
+                    var rawChar = cell.Char;
                     var outCh = cell.Char == '\0' ? ' ' : cell.Char;
-                    var snap = new RenderSnapshot(outCh, MapToConsoleColor(fg), MapToConsoleColor(bg));
+                    var snap = new RenderSnapshot(rawChar, outCh, TranslateColor(fg), TranslateColor(bg));
 
                     if (!_initialized || !_lastFrame[row, col].Equals(snap))
                     {
@@ -84,7 +101,7 @@ namespace PT200_Rendering
                             }
 
                             var ch = c.Char == '\0' ? ' ' : c.Char;
-                            var s = new RenderSnapshot(ch, MapToConsoleColor(f), MapToConsoleColor(b));
+                            var s = new RenderSnapshot(rawChar, ch, TranslateColor(f), TranslateColor(b));
 
                             if (!_initialized && col == runStart) { }
                             else if (!s.Equals(snap)) break;
@@ -106,22 +123,27 @@ namespace PT200_Rendering
             _initialized = true;
             buffer.forceRedraw = false;
             buffer.ClearDirty();
-
-            target.SetCaret(buffer.CursorRow, buffer.CursorCol, true, style);
+            target.SetCaret(buffer.CursorRow, buffer.CursorCol);
         }
 
-        private static ConsoleColor MapToConsoleColor(StyleInfo.Color color)
+        private static Color TranslateColor(StyleInfo.Color color) => color switch
         {
-            if (color.Equals(StyleInfo.Color.Black) || color.Equals(StyleInfo.Color.Black_Low)) return ConsoleColor.Black;
-            if (color.Equals(StyleInfo.Color.White)) return ConsoleColor.White;
-            if (color.Equals(StyleInfo.Color.White_Low)) return ConsoleColor.Gray;
-            if (color.Equals(StyleInfo.Color.Green)) return ConsoleColor.Green;
-            if (color.Equals(StyleInfo.Color.Green_Low)) return ConsoleColor.DarkGreen;
-            if (color.Equals(StyleInfo.Color.DarkYellow)) return ConsoleColor.DarkYellow;
-            if (color.Equals(StyleInfo.Color.DarkYellow_Low)) return ConsoleColor.Yellow;
-            if (color.Equals(StyleInfo.Color.Blue)) return ConsoleColor.Blue;
-            if (color.Equals(StyleInfo.Color.Blue_Low)) return ConsoleColor.DarkBlue;
-            return ConsoleColor.White;
-        }
+            StyleInfo.Color.Black => Color.Black,
+            StyleInfo.Color.DarkBlue => Color.DarkBlue,
+            StyleInfo.Color.DarkGreen => Color.DarkGreen,
+            StyleInfo.Color.DarkCyan => Color.DarkCyan,
+            StyleInfo.Color.DarkRed => Color.DarkRed,
+            StyleInfo.Color.DarkMagenta => Color.DarkMagenta,
+            StyleInfo.Color.DarkYellow => Color.FromArgb(128, 128, 0),
+            StyleInfo.Color.Gray => Color.Gray,
+            StyleInfo.Color.Blue => Color.Blue,
+            StyleInfo.Color.Green => Color.LimeGreen,
+            StyleInfo.Color.Cyan => Color.Cyan,
+            StyleInfo.Color.Red => Color.Red,
+            StyleInfo.Color.Magenta => Color.Magenta,
+            StyleInfo.Color.Yellow => Color.Yellow,
+            StyleInfo.Color.White => Color.White,
+            _ => Color.Wheat
+        };
     }
 }

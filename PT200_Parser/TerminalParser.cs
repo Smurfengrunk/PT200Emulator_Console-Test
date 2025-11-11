@@ -38,7 +38,7 @@ namespace PT200_Parser
         private readonly StringBuilder seqBuffer = new();
         private readonly Dictionary<string, CsiCommandDefinition> _definitions;
 
-        public TerminalParser(DataPathProvider paths, TerminalState state, ModeManager modeManager, ICaretController terminal)
+        public TerminalParser(DataPathProvider paths, TerminalState state, ModeManager modeManager)
         {
             var g0Path = Path.Combine(paths.CharTablesPath, "G0.json");
             var g1Path = Path.Combine(paths.CharTablesPath, "G1.json");
@@ -61,7 +61,7 @@ namespace PT200_Parser
             visualAttributeManager = new VisualAttributeManager();
 
             charTables = new CharTableManager(g0Path, g1Path);
-            escHandler = new EscapeSequenceHandler(charTables, Screenbuffer, terminal, termState);
+            escHandler = new EscapeSequenceHandler(charTables, Screenbuffer, termState);
 
             _csiHandler = new CsiSequenceHandler(new CsiCommandTable(definitions, modeManager, visualAttributeManager, Screenbuffer, termState), modeManager);
             _dcsHandler = new DcsSequenceHandler(state, (Path.Combine(paths.BasePath, "Data", "DcsBitGroups.json")));

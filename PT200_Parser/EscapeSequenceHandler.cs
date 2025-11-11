@@ -10,7 +10,6 @@ namespace PT200_Parser
     {
         private readonly CharTableManager charTableManager;
         private readonly ScreenBuffer _buffer;
-        private readonly ICaretController _terminal;
         private readonly TerminalState _termState;
         private CompressedCommandDecoder _commandDecoder;
 
@@ -18,11 +17,10 @@ namespace PT200_Parser
         public bool inEmacs { get; private set; }
 
 #pragma warning disable CS0219
-        public EscapeSequenceHandler(CharTableManager charTables, ScreenBuffer buffer, ICaretController terminal, TerminalState termstate)
+        public EscapeSequenceHandler(CharTableManager charTables, ScreenBuffer buffer, TerminalState termstate)
         {
             this.charTableManager = charTables ?? throw new ArgumentNullException(nameof(charTables));
             _buffer = buffer;
-            _terminal = terminal;
             _termState = termstate;
             _commandDecoder = new CompressedCommandDecoder(buffer);
         }

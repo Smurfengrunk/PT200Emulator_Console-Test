@@ -31,7 +31,7 @@ namespace PT200Emulator
         {
             _state.screenFormat = TerminalState.ScreenFormat.S80x24;
             _state.SetScreenFormat();
-            _parser = new TerminalParser(_basePath, _state, modeManager, _terminal);
+            _parser = new TerminalParser(_basePath, _state, modeManager);
             _mapper = new PT200_InputHandler.PT200_InputHandler().inputMapper;
             var adapter = new ConsoleAdapter(_mapper, bytes => _stream.WriteAsync(bytes), _parser.Screenbuffer);
             Log.Logger = PT200_LoggingConfiguration.CreateLogger();

@@ -9,16 +9,13 @@
   <PropertyGroup>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>PT200_Rendering</PackageId>
-    <Version>1.2.3</Version>
+    <Version>1.2.7</Version>
     <Authors>Tomas Lundqvist</Authors>
     <Company></Company>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PT200_InputHandler" Version="1.2.1" />
-    <PackageReference Include="PT200_Logging" Version="1.2.1" />
-    <PackageReference Include="PT200_Parser" Version="1.2.2" />
     <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
     <PackageReference Include="Telnet" Version="0.13.1" />
   </ItemGroup>
@@ -32,6 +29,12 @@
 
   <ItemGroup>
     <None Include="buildTransitive\PT200_Rendering.targets" Pack="true" PackagePath="buildTransitive\PT200_Rendering.targets" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PT200_InputHandler\PT200_InputHandler.csproj" />
+    <ProjectReference Include="..\PT200_Logging\PT200_Logging.csproj" />
+    <ProjectReference Include="..\PT200_Parser\PT200_Parser.csproj" />
   </ItemGroup>
 
   <ItemGroup>

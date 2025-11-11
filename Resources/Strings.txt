@@ -1,0 +1,66 @@
+ this.LogDebug($"Försöker ansluta till {host}:{port}...");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\Transport.cs	54	28
+ this.LogDebug($"Ansluten till {host}:{port}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\Transport.cs	61	32
+ if (byteStream == null) throw new InvalidOperationException("byteStream is null in Connect");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\Transport.cs	62	77
+ this.LogDebug($"Registrerar mottagningshanterare. byteStream {byteStream}:{byteStream.GetHashCode()}, parser {_parser}:{_parser.GetHashCode()}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\Transport.cs	63	32
+ this.LogDebug($"Screenbuffer {_parser.Screenbuffer}:{_parser.Screenbuffer.GetHashCode()}, Size {_parser.Screenbuffer.Cols}x{_parser.Screenbuffer.Rows}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\Transport.cs	64	32
+ var parser = _parser ?? throw new InvalidOperationException("_parser is null when handling data");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\Transport.cs	69	85
+ this.LogDebug($"Mottagna data: längd {bytes.Length}, data \"{Encoding.ASCII.GetString(bytes)}\", bytes {BitConverter.ToString(bytes)}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\Transport.cs	70	40
+ this.LogErr($"Fel vid mottagning av data: {ex}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\Transport.cs	76	34
+ this.LogDebug("Startar mottagningsloop...");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\Transport.cs	78	31
+ this.LogErr($"Fel vid start av mottagningsloop: {ex}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\Transport.cs	86	34
+ this.LogDebug("Mottagningsloop startad.");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\Transport.cs	90	27
+ this.LogErr("byteStream är null vid försök att skicka data.");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\Transport.cs	97	29
+ this.LogDebug($"Skickar data: \"{Encoding.ASCII.GetString(data)}\" {BitConverter.ToString(data)}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\Transport.cs	100	28
+ this.LogWarning("Disconnect hängde, fortsätter ändå...");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\Transport.cs	111	37
+ this.LogErr($"Frånkoppling misslyckades: {ex}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\Transport.cs	116	30
+ var msgboxText = connected ? $"Anslutningen till {_host}:{_port} har brutits. Programmet stängs ner." : $"Kunde inte ansluta till {_host}:{_port}. Programmet stängs ner.";	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\Transport.cs	122	43
+ MessageBox.Show(msgboxText, "Nedkoppling", MessageBoxButtons.OK, MessageBoxIcon.Error);	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\Transport.cs	123	41
+ this.LogInformation($"Försöker återansluta till {_host}:{_port}...");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\Transport.cs	130	34
+ this.LogDebug("Buffer is null, skipping OnPaint");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\WinForms_RenderTarget.cs	201	31
+ e.Graphics.DrawString($"Size: {Width}x{Height}, Chars: {_buffer.Rows}x{_buffer.Cols}", this.Font, overlayBrush, new PointF(2, 2));	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\WinForms_RenderTarget.cs	224	40
+ this.LogDebug($"ChangeFormat called: cols={cols}, rows={rows}, content of buffer cell (1,1)='{_buffer.GetCell(1, 1).Char}'. Calling this.PerformLayout.");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\WinForms_RenderTarget.cs	232	28
+ this.LogDebug($"charWidth: {_charWidth}, charHeight: {_charHeight}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\WinForms_RenderTarget.cs	235	28
+ this.LogDebug($"Expected size: {_charWidth * cols} x {_charHeight * rows}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\WinForms_RenderTarget.cs	236	28
+ this.LogDebug($"Actual ClientSize: {this.ClientSize.Width} x {this.ClientSize.Height}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\WinForms_RenderTarget.cs	237	28
+ this.LogDebug($"Actual Size: {this.Size.Width} x {this.Size.Height}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\WinForms_RenderTarget.cs	238	28
+ this.LogDebug("No mapping found – sending fallback for Up");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\WinForms_RenderTarget.cs	297	43
+ this.LogDebug($"Mapped to bytes: {(bytes != null ? BitConverter.ToString(bytes) : "null")}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\WinForms_RenderTarget.cs	303	32
+ this.LogDebug($"[TerminalCtrl.OnKeyDown] KeyValue: {e.KeyValue}, KeyData {e.KeyData}, Key event: scan code {keyEvent.ScanCode}, Modifiers {keyEvent.Modifiers}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\WinForms_RenderTarget.cs	306	32
+ this.LogDebug($"Buffer resized to {cols}x{rows} based on ClientSize {this.ClientSize.Width}x{this.ClientSize.Height}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\WinForms_RenderTarget.cs	344	28
+ if (_font != null) this.LogDebug($"WinFormsRenderTarget initialized with char size {_charWidth}x{_charHeight} and Font {_font.Name} size {_font.Size}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\WinForms_RenderTarget.cs	409	47
+ else this.LogWarning("Font is null in WinFormsRenderTarget constructor!");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\WinForms_RenderTarget.cs	410	34
+ this.LogDebug($"[WinFormsCaretController] Cursor style {_style}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\WinForms_RenderTarget.cs	551	28
+ this.LogDebug($"[SetCaretPosition] Cursor style {_style}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\WinForms_RenderTarget.cs	560	28
+ this.LogDebug($"[SetCursorStyle] Cursor style {_style}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\WinForms_RenderTarget.cs	576	28
+ this.LogDebug($"[MoveCaret] Cursor style {_style}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\WinForms_RenderTarget.cs	585	28
+ this.LogDebug($"[Show] Cursor style {_style}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\WinForms_RenderTarget.cs	591	28
+ this.LogDebug($"[Hide] Cursor style {_style}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\Engine\WinForms_RenderTarget.cs	599	28
+ this.LogDebug($"Config path {Path.Combine(Application.UserAppDataPath, "config")}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.cs	93	28
+ this.LogDebug("Terminal Control initialized and buffer attached.");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.cs	112	27
+ this.LogErr($"Terminal Control margin set to: {terminalCtrl.Margin}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.cs	113	26
+ this.LogDebug("Terminal Control size set to: {Size}", terminalCtrl.Size);	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.cs	129	27
+ this.LogDebug($"MainForm ClientSize: {this.ClientSize}, SidePanel: {SidePanel.Size}, statusLine: {statusLine.Size}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.cs	130	28
+ this.LogDebug("Terminal Control location set to: {Location}", terminalCtrl.Location);	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.cs	131	27
+ this.LogDebug("MainForm KeyUp event handler attached.");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.cs	135	27
+ this.LogDebug($"Screen format changed to {format}, terminal resized to {terminalCtrl.Size}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.cs	235	32
+ this.LogDebug($"Drew line at {r.Left},{r.Top} to {r.Left},{r.Bottom - 1} with Pen {Pens.Black.Color}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.cs	316	36
+ this.LogDebug("Form loaded, starting transport connection...");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.cs	323	27
+ this.LogDebug("Closing application");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.cs	338	27
+ this.LogDebug($"MainForm shown. ClientSize: {this.ClientSize}, layoutPanel size: {layoutPanel.Size}, terminalCtrl size: {terminalCtrl.Size}");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.cs	348	28
+ this.LogDebug($"Resized window to fit {cols}x{rows} chars → {totalWidth}x{totalHeight}px");	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.cs	366	28
+ this.LogDebug("Connect button clicked at {Time}", DateTime.Now);	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.cs	371	27
+ this.LogDebug("Disconnect button clicked at {Time}", DateTime.Now);	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.cs	378	27
+ this.LogDebug("Reconnect button clicked at {Time}", DateTime.Now);	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.cs	390	27
+ BlinkBox.Text = "Blink";	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.Designer.cs	113	29
+ ReconnectButton.Text = "Reconnect";	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.Designer.cs	125	36
+ FullRedrawButton.Text = "Full redraw";	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.Designer.cs	137	37
+ DiagButton.Name = "DiagButton";	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.Designer.cs	145	31
+ DiagButton.Text = "Diag overlay";	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.Designer.cs	149	31
+ DisconnectButton.Text = "Disconnect";	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.Designer.cs	161	37
+ ConnectButton.Text = "Connect";	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.Designer.cs	172	34
+ ScreenFormatCombo.Name = "ScreenFormatCombo";	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.Designer.cs	213	38
+ rbGreen.Text = "Green";	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.Designer.cs	242	28
+ rbColor.Text = "Color";	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.Designer.cs	253	28
+ rbBlue.Text = "Blue";	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.Designer.cs	265	27
+ rbAmber.Text = "Amber";	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.Designer.cs	277	28
+ rbWhite.Text = "White";	D:\vsproj\c#\PT200Emulator_WinForms\PT200Emulator_WinForms\PT200.Designer.cs	289	28

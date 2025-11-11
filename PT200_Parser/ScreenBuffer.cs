@@ -26,6 +26,7 @@ namespace PT200_Parser
         public void ScreenCleared() => clearScreen = false;
         private bool _updating;
         private bool _dirty;
+        public bool _bsflag;
 
         public struct ScreenCell
         {
@@ -91,7 +92,8 @@ namespace PT200_Parser
 
             // Behåll nedersta raderna om vi minskar
             int rowOffset = oldRows > rows ? oldRows - rows : 0;
-            int colOffset = oldCols > cols ? oldCols - cols : 0;
+            int colOffset = 0; // Behåll tecknen längst till vänster istället för att klippa bort de 52 första
+            //int colOffset = oldCols > cols ? oldCols - cols : 0;
 
             int copyRows = Math.Min(oldRows, rows);
             int copyCols = Math.Min(oldCols, cols);
@@ -190,6 +192,11 @@ namespace PT200_Parser
             var style = CurrentStyle.Clone();
 
             if (ch == '\x1B') return;
+            if (ch == '\b')
+            {
+                Backspace();
+                return;
+            }
 
             if (_inSystemLine)
             {
@@ -251,11 +258,13 @@ namespace PT200_Parser
 
         public void Backspace()
         {
-            var ccol = 0;
             if (CursorCol > 0)
             {
                 CursorCol--;
-                ccol = CursorCol;
+
+                // Radera tecknet vid den nya cursorpositionen
+                _chars[CursorRow, CursorCol] = '\0';
+                _mainBuffer[CursorRow, CursorCol].Char = '\0';
 
                 // Flytta hela svansen åt vänster
                 for (int i = CursorCol; i < Cols - 1; i++)
@@ -268,7 +277,9 @@ namespace PT200_Parser
                 _chars[CursorRow, Cols - 1] = ' ';
                 _mainBuffer[CursorRow, Cols - 1].Char = ' ';
 
+                _bsflag = true;
                 MarkDirty();
+                forceRedraw = true;
             }
         }
 

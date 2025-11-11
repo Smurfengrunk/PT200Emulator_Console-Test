@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace PT200_Rendering
 {
-    public record RenderRun(int Row, int StartCol, ConsoleColor Fg, ConsoleColor Bg, char[] Chars);
+    public record RenderRun(int Row, int StartCol, Color Fg, Color Bg, char[] Chars);
 
     public interface IRenderTarget
     {
@@ -19,6 +15,6 @@ namespace PT200_Rendering
 
         void Clear();
         void DrawRun(RenderRun run);
-        void SetCaret(int row, int col, bool visible, CursorStyle style);
+        void SetCaret(int row, int col);
     }
 }
