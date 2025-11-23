@@ -1,0 +1,43 @@
+\doxysection{PT200\+\_\+\+Input\+Handler Directory Reference}
+\hypertarget{dir_029d0ce4e0f00158ad58b19b0c7945f5}{}\label{dir_029d0ce4e0f00158ad58b19b0c7945f5}\index{PT200\_InputHandler Directory Reference@{PT200\_InputHandler Directory Reference}}
+
+
+/// Mappar en tangenttryckning (scancode + modifiers) till en escape-\/sekvens. /// Returnerar null om ingen mappning finns. ///  
+
+
+\doxysubsubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{_i_input_handler_8cs}{IInput\+Handler.\+cs}}
+\item 
+file \mbox{\hyperlink{_i_input_mapper_8cs}{IInput\+Mapper.\+cs}}
+\item 
+file \mbox{\hyperlink{_input_handler_8cs}{Input\+Handler.\+cs}}
+\item 
+file \mbox{\hyperlink{_input_mapper_8cs}{Input\+Mapper.\+cs}}
+\item 
+file \mbox{\hyperlink{_key_definition_8cs}{Key\+Definition.\+cs}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+/// Mappar en tangenttryckning (scancode + modifiers) till en escape-\/sekvens. /// Returnerar null om ingen mappning finns. /// 
+
+\hypertarget{dir_029d0ce4e0f00158ad58b19b0c7945f5_autotoc_md0}{}\doxysubsection{\texorpdfstring{Input\+Handler‑modulen}{Input\+Handler‑modulen}}\label{dir_029d0ce4e0f00158ad58b19b0c7945f5_autotoc_md0}
+Input\+Handler ansvarar för att ta emot tangenttryckningar och översätta dem till de byte‑sekvenser som terminalen förväntar sig. ~\newline
+ Modulen är frikopplad från specifika UI‑ramverk (t.\+ex. WPF eller Console) och exponerar ett neutralt API.
+
+\DoxyHorRuler{0}
+\hypertarget{dir_029d0ce4e0f00158ad58b19b0c7945f5_autotoc_md2}{}\doxysubsection{\texorpdfstring{Publikt API}{Publikt API}}\label{dir_029d0ce4e0f00158ad58b19b0c7945f5_autotoc_md2}
+\hypertarget{dir_029d0ce4e0f00158ad58b19b0c7945f5_autotoc_md3}{}\doxysubsubsection{\texorpdfstring{Interface\+: {\ttfamily IInput\+Handler}}{Interface\+: {\ttfamily IInput\+Handler}}}\label{dir_029d0ce4e0f00158ad58b19b0c7945f5_autotoc_md3}
+\`{}\`{}\`{}csharp public interface IInput\+Handler \{ Task Start\+Async(\+Cancellation\+Token cancellation\+Token); \} namespace Input\+Handler \{ public interface IInput\+Mapper \{ /// byte\mbox{[}\mbox{]}? Map\+Key(\+Key\+Event e);
+
+///
+
+/// Mappar en textsträng till motsvarande byte-\/sekvens (UTF-\/8). /// byte\mbox{[}\mbox{]}? Map\+Text(string text); \} \} public class Key\+Event \{ public int Scan\+Code \{ get; \} public Key\+Modifiers Modifiers \{ get; \}
+
+public Key\+Event(int scan\+Code, Key\+Modifiers modifiers) \{ Scan\+Code = scan\+Code; Modifiers = modifiers; \} \}
+
+\mbox{[}Flags\mbox{]} public enum Key\+Modifiers \{ None = 0, Shift = 1, Ctrl = 2, Alt = 3, Alt\+Gr = 4 \}
+
+public enum Terminal\+Modes \{ Default \} 

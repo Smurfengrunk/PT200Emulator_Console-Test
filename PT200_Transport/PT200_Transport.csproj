@@ -9,29 +9,40 @@
   <PropertyGroup>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>PT200_Transport</PackageId>
-    <Version>1.2.1</Version>
+    <Version>1.3.0</Version>
     <Authors>Tomas Lundqvist</Authors>
     <Company></Company>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PT200_InputHandler" Version="1.2.1" />
-    <PackageReference Include="PT200_Logging" Version="1.2.1" />
-    <PackageReference Include="PT200_Parser" Version="1.2.2" />
-    <PackageReference Include="PT200_Rendering" Version="1.2.2" />
     <PackageReference Include="Telnet" Version="0.13.1" />
   </ItemGroup>
 
   <!-- Endast None, med rätt case och Pack=true -->
   <ItemGroup>
     <None Include="Data\**\*.*" Pack="true" PackagePath="contentFiles\any\any\data" PackageCopyToOutput="true" CopyToOutputDirectory="PreserveNewest" />
-
-    <None Include="Resources\**\*.*" Pack="true" PackagePath="contentFiles\any\any\resources" PackageCopyToOutput="true" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="C:\Users\tomas\.nuget\packages\pt200_inputhandler\1.2.1\contentFiles\any\any\resources\Strings.en.json" />
+    <None Remove="C:\Users\tomas\.nuget\packages\pt200_inputhandler\1.2.1\contentFiles\any\any\resources\Strings.sv.json" />
+    <None Remove="C:\Users\tomas\.nuget\packages\pt200_logging\1.2.1\contentFiles\any\any\resources\Strings.en.json" />
+    <None Remove="C:\Users\tomas\.nuget\packages\pt200_logging\1.2.1\contentFiles\any\any\resources\Strings.sv.json" />
+    <None Remove="C:\Users\tomas\.nuget\packages\pt200_parser\1.2.2\contentFiles\any\any\resources\Strings.en.json" />
+    <None Remove="C:\Users\tomas\.nuget\packages\pt200_parser\1.2.2\contentFiles\any\any\resources\Strings.sv.json" />
+    <None Remove="C:\Users\tomas\.nuget\packages\pt200_rendering\1.2.2\contentFiles\any\any\resources\Strings.en.json" />
+    <None Remove="C:\Users\tomas\.nuget\packages\pt200_rendering\1.2.2\contentFiles\any\any\resources\Strings.sv.json" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="buildTransitive\PT200_Transport.targets" Pack="true" PackagePath="buildTransitive\PT200_Transport.targets" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PT200_InputHandler\PT200_InputHandler.csproj" />
+    <ProjectReference Include="..\PT200_Logging\PT200_Logging.csproj" />
+    <ProjectReference Include="..\PT200_Parser\PT200_Parser.csproj" />
+    <ProjectReference Include="..\PT200_Rendering\PT200_Rendering.csproj" />
   </ItemGroup>
 
   <ItemGroup>

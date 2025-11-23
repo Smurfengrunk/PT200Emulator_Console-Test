@@ -1,0 +1,32 @@
+\doxysection{PT200\+\_\+\+Rendering Directory Reference}
+\hypertarget{dir_aa89dabc71bfa686c9d5aeb1dc8875c2}{}\label{dir_aa89dabc71bfa686c9d5aeb1dc8875c2}\index{PT200\_Rendering Directory Reference@{PT200\_Rendering Directory Reference}}
+\doxysubsubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{_caret_controller_8cs}{Caret\+Controller.\+cs}}
+\item 
+file \mbox{\hyperlink{_i_render_target_8cs}{IRender\+Target.\+cs}}
+\item 
+file \mbox{\hyperlink{_render_core_8cs}{Render\+Core.\+cs}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\hypertarget{dir_aa89dabc71bfa686c9d5aeb1dc8875c2_autotoc_md9}{}\doxysubsection{\texorpdfstring{Rendering‑modulen}{Rendering‑modulen}}\label{dir_aa89dabc71bfa686c9d5aeb1dc8875c2_autotoc_md9}
+Rendering‑modulen ansvarar för att visualisera terminalens skärmbuffert. ~\newline
+ Den tar emot ett {\ttfamily Screen\+Buffer} från Parser och ritar ut innehållet i en konsol, inklusive text, färger, attribut och caret‑position.
+
+\DoxyHorRuler{0}
+\hypertarget{dir_aa89dabc71bfa686c9d5aeb1dc8875c2_autotoc_md11}{}\doxysubsection{\texorpdfstring{Publika klasser}{Publika klasser}}\label{dir_aa89dabc71bfa686c9d5aeb1dc8875c2_autotoc_md11}
+\hypertarget{dir_aa89dabc71bfa686c9d5aeb1dc8875c2_autotoc_md12}{}\doxysubsubsection{\texorpdfstring{{\ttfamily Console\+Renderer}}{{\ttfamily Console\+Renderer}}}\label{dir_aa89dabc71bfa686c9d5aeb1dc8875c2_autotoc_md12}
+\`{}\`{}\`{}csharp public class Console\+Renderer \{ public bool Connected \{ get; set; \} public bool in\+Emacs \{ get; set; \}
+
+public void Force\+Full\+Render(); public void Render(\+Screen\+Buffer buffer, bool in\+Emacs); \}
+
+public class Caret\+Controller \+: ICaret\+Controller \{ public int Row \{ get; private set; \} public int Col \{ get; private set; \} public bool Visible \{ get; private set; \}
+
+public void Set\+Caret\+Position(int row, int col); public void Move\+Caret(int row\+Delta, int col\+Delta); public void Show(); public void Hide(); \}
+
+public class Console\+Caret\+Controller \+: ICaret\+Controller \{ public void Set\+Caret\+Position(int row, int col); public void Move\+Caret(int d\+Row, int d\+Col); public void Show(); public void Hide(); \}\hypertarget{dir_aa89dabc71bfa686c9d5aeb1dc8875c2_autotoc_md13}{}\doxysubsection{\texorpdfstring{Status}{Status}}\label{dir_aa89dabc71bfa686c9d5aeb1dc8875c2_autotoc_md13}
+För närvarande används {\ttfamily Console\+Renderer} som en test‑ och referensimplementation. ~\newline
+ Den är inte avsedd att ingå i den färdiga produkten, utan fungerar som ett verktyg för att verifiera Parser och Screen\+Buffer under utveckling. 

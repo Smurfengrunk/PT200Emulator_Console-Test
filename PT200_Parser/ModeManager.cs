@@ -38,7 +38,7 @@ namespace PT200_Parser
         };
 
             // Initiera med default states
-            foreach (var def in definitions.Values)
+            foreach (ModeDefinition def in definitions.Values)
             {
                 if (def.DefaultSet)
                     activeModes.Add(def.Id);
@@ -60,9 +60,9 @@ namespace PT200_Parser
         public void Dump()
         {
             this.LogDebug(loc.Get("mode.dump.header"));
-            foreach (var def in definitions.Values.OrderBy(d => d.Id))
+            foreach (ModeDefinition def in definitions.Values.OrderBy(d => d.Id))
             {
-                var status = (IsSet(def.Id)) ? loc.Get("mode.status.on") : loc.Get("mode.status.off");
+                string status = (IsSet(def.Id)) ? loc.Get("mode.status.on") : loc.Get("mode.status.off");
                 this.LogDebug(loc.Get("mode.dump.line", def.Id, status, def.Name));
             }
         }

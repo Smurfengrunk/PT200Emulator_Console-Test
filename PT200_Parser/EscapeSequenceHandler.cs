@@ -1,4 +1,5 @@
 ﻿using System.Text;
+
 using PT200_Logging;
 
 namespace PT200_Parser

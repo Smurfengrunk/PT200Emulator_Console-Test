@@ -10,7 +10,7 @@ namespace PT200_InputHandler
         {
             _lookup = new();
 
-            foreach (var def in keyMap.Keys)
+            foreach (KeyDefinition def in keyMap.Keys)
             {
                 int sc = def.ScanCode; // redan int i KeyDefinitions
 

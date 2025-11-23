@@ -1,6 +1,6 @@
 ﻿
-using PT200_Parser;
-using System.Diagnostics;
+using System.Text;
+
 using PT200_Logging;
 
 namespace PT200_Parser
@@ -70,8 +70,8 @@ namespace PT200_Parser
             for (int c = 0; c < cols; c++) _systemLineBuffer[c] = new ScreenCell();
 
             if (rows <= 0 || cols <= 0) throw new ArgumentOutOfRangeException();
-            var g0path = Path.Combine(basePath, "data", "chartables", "g0.json");
-            var g1path = Path.Combine(basePath, "data", "chartables", "g1.json");
+            string g0path = Path.Combine(basePath, "data", "chartables", "g0.json");
+            string g1path = Path.Combine(basePath, "data", "chartables", "g1.json");
             charTableManager = new CharTableManager(g0path, g1path);
         }
         public void Resize(int rows, int cols)
@@ -79,16 +79,16 @@ namespace PT200_Parser
             if (rows <= 0 || cols <= 0)
                 throw new ArgumentOutOfRangeException();
 
-            var oldChars = _chars;
-            var oldMain = _mainBuffer;
-            var oldStyles = ZoneAttributes;
+            char[,] oldChars = _chars;
+            ScreenCell[,] oldMain = _mainBuffer;
+            StyleInfo[,] oldStyles = ZoneAttributes;
 
             int oldRows = oldChars?.GetLength(0) ?? 0;
             int oldCols = oldChars?.GetLength(1) ?? 0;
 
-            var newMain = new ScreenCell[rows, cols];
-            var newChars = new char[rows, cols];
-            var newStyles = new StyleInfo[rows, cols];
+            ScreenCell[,] newMain = new ScreenCell[rows, cols];
+            char[,] newChars = new char[rows, cols];
+            StyleInfo[,] newStyles = new StyleInfo[rows, cols];
 
             // Behåll nedersta raderna om vi minskar
             int rowOffset = oldRows > rows ? oldRows - rows : 0;
@@ -155,7 +155,7 @@ namespace PT200_Parser
 
         public char GetChar(int row, int col)
         {
-            var ch = _chars[row, col];
+            char ch = _chars[row, col];
 
             return ((uint)row >= (uint)Rows || (uint)col >= (uint)Cols || ch == '\0') ? ' ' : _chars[row, col];
         }
@@ -185,11 +185,10 @@ namespace PT200_Parser
 
         public void WriteChar(char ch)
         {
-
-            var wroteRow = CursorRow;
-            var wroteCol = CursorCol;
-            var cell = _mainBuffer[wroteRow, wroteCol];
-            var style = CurrentStyle.Clone();
+            int wroteRow = CursorRow;
+            int wroteCol = CursorCol;
+            ScreenCell cell = _mainBuffer[wroteRow, wroteCol];
+            StyleInfo style = CurrentStyle.Clone();
 
             if (ch == '\x1B') return;
             if (ch == '\b')
@@ -227,7 +226,8 @@ namespace PT200_Parser
                 _mainBuffer[wroteRow, wroteCol] = cell;
                 _chars[wroteRow, wroteCol] = ch;
 
-                AdvanceCursor();
+                if (!_bsflag) AdvanceCursor();
+                else _bsflag = false;
             }
             MarkDirty();
             if (!_updating) BufferUpdated.Invoke();
@@ -262,11 +262,16 @@ namespace PT200_Parser
             {
                 CursorCol--;
 
+                // Flytta hela svansen åt vänster
+                StringBuilder sb = new StringBuilder(Cols);
+                for (int c = 0; c < Cols; c++)
+                    sb.Append(_chars[CursorRow, c]);
+                string charRow = sb.ToString();
+
                 // Radera tecknet vid den nya cursorpositionen
                 _chars[CursorRow, CursorCol] = '\0';
                 _mainBuffer[CursorRow, CursorCol].Char = '\0';
 
-                // Flytta hela svansen åt vänster
                 for (int i = CursorCol; i < Cols - 1; i++)
                 {
                     _chars[CursorRow, i] = _chars[CursorRow, i + 1];
@@ -277,21 +282,24 @@ namespace PT200_Parser
                 _chars[CursorRow, Cols - 1] = ' ';
                 _mainBuffer[CursorRow, Cols - 1].Char = ' ';
 
-                _bsflag = true;
                 MarkDirty();
                 forceRedraw = true;
+                _bsflag = true;
             }
         }
 
-        public void Delete()
+        public void Delete(int scope)
         {
             if (CursorCol < Cols) // så länge vi inte står längst till höger
             {
                 // Flytta hela svansen åt vänster från cursorpositionen
-                for (int i = CursorCol; i < Cols - 1; i++)
+                for (int j = 0; j < scope; j++)
                 {
-                    _chars[CursorRow, i] = _chars[CursorRow, i + 1];
-                    _mainBuffer[CursorRow, i].Char = _chars[CursorRow, i];
+                    for (int i = CursorCol; i < Cols - 1; i++)
+                    {
+                        _chars[CursorRow, i] = _chars[CursorRow, i + 1];
+                        _mainBuffer[CursorRow, i].Char = _chars[CursorRow, i];
+                    }
                 }
 
                 // Sätt sista cellen till blank
@@ -344,7 +352,6 @@ namespace PT200_Parser
                     break;
             }
         }
-
         private void ClearCell(int row, int col)
         {
             _chars[row, col] = ' ';
@@ -370,13 +377,20 @@ namespace PT200_Parser
 
         private void ScrollUp()
         {
-
             // Flytta upp alla rader
             for (int r = 1; r < Rows; r++)
             {
                 for (int c = 0; c < Cols; c++)
                 {
-                    _mainBuffer[r - 1, c] = _mainBuffer[r, c];   // kopiera hela cellen
+                    _mainBuffer[r - 1, c] = new ScreenCell
+                    {
+                        Char = _mainBuffer[r, c].Char,
+                        Foreground = _mainBuffer[r, c].Foreground,
+                        Background = _mainBuffer[r, c].Background,
+                        Style = _mainBuffer[r, c].Style
+                    };
+                    _chars[r - 1, c] = _chars[r, c];
+                    ZoneAttributes[r - 1, c] = ZoneAttributes[r, c];
                 }
             }
 
@@ -390,12 +404,12 @@ namespace PT200_Parser
                     Background = CurrentStyle.Background,
                     Style = ZoneAttributes[Rows - 1, c] ?? new StyleInfo()
                 };
+                _chars[Rows - 1, c] = ' ';
+                ZoneAttributes[Rows - 1, c] = new StyleInfo();
             }
 
             // Markera hela bufferten som ändrad
-            for (int r = 0; r < Rows; r++)
-                for (int c = 0; c < Cols; c++)
-                    MarkDirty();
+            MarkDirty();
 
             CursorRow = Rows - 1;
             Scrolled?.Invoke();
@@ -454,9 +468,9 @@ namespace PT200_Parser
             sca.col = CursorCol;
 
             // Gör en riktig kopia av bufferten
-            var rows = _mainBuffer.GetLength(0);
-            var cols = _mainBuffer.GetLength(1);
-            var bufferCopy = new ScreenCell[rows, cols];
+            int rows = _mainBuffer.GetLength(0);
+            int cols = _mainBuffer.GetLength(1);
+            ScreenCell[,] bufferCopy = new ScreenCell[rows, cols];
             for (int r = 0; r < rows; r++)
                 for (int c = 0; c < cols; c++)
                     bufferCopy[r, c] = _mainBuffer[r, c];
@@ -464,7 +478,7 @@ namespace PT200_Parser
             sca.cell = bufferCopy;
 
             // Gör en riktig kopia av zoneAttributes
-            var zoneCopy = new StyleInfo[rows, cols];
+            StyleInfo[,] zoneCopy = new StyleInfo[rows, cols];
             for (int r = 0; r < rows; r++)
                 for (int c = 0; c < cols; c++)
                     zoneCopy[r, c] = ZoneAttributes[r, c]?.Clone();
@@ -635,7 +649,7 @@ namespace PT200_Parser
 
         public void LogLockedRows()
         {
-            var locked = GetLockedRows().ToList();
+            List<int> locked = GetLockedRows().ToList();
             if (locked.Count == 0)
                 this.LogDebug("[RowLockManager] Inga låsta rader");
             else

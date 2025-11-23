@@ -11,13 +11,13 @@ namespace PT200_InputHandler
 
         public PT200_InputHandler()
         {
-            var json = File.ReadAllText(Path.Combine(_basePath, "Data", "keymap.json"));
-            var doc = JsonDocument.Parse(json);
-            var options = new JsonSerializerOptions
+            string json = File.ReadAllText(Path.Combine(_basePath, "Data", "keymap.json"));
+            JsonDocument doc = JsonDocument.Parse(json);
+            JsonSerializerOptions options = new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true
             };
-            var wrapper = JsonSerializer.Deserialize<KeyMap>(json, options);
+            KeyMap? wrapper = JsonSerializer.Deserialize<KeyMap>(json, options);
             inputMapper = new InputMapper(wrapper);
 
         }
@@ -28,7 +28,7 @@ namespace PT200_InputHandler
             {
                 if (reader.TokenType == JsonTokenType.String)
                 {
-                    var s = reader.GetString();
+                    string? s = reader.GetString();
                     if (s != null && s.StartsWith("0x", StringComparison.OrdinalIgnoreCase))
                         return Convert.ToInt32(s, 16);
                     return int.Parse(s);

@@ -1,0 +1,79 @@
+\doxysection{PT200\+\_\+\+Parser.\+Row\+Lock\+Manager Class Reference}
+\hypertarget{class_p_t200___parser_1_1_row_lock_manager}{}\label{class_p_t200___parser_1_1_row_lock_manager}\index{PT200\_Parser.RowLockManager@{PT200\_Parser.RowLockManager}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+IEnumerable$<$ int $>$ \mbox{\hyperlink{class_p_t200___parser_1_1_row_lock_manager_a4848ec8e5c0fc484621d322e1fd6c388}{Get\+Locked\+Rows}} ()
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_row_lock_manager_ab45b0df13a6987f306ae1f7b601980bb}{Lock}} (int row)
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_row_lock_manager_ac17e0ae61a0922c0efb2e2d5f2afd2e0}{Unlock}} (int row)
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_row_lock_manager_ab4e2114139349dec23c28c6074da40d6}{Lock\+System\+Lines}} (int top, int bottom)
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_row_lock_manager_a073f4e9b804a573ecdf550fddc0d9cad}{Is\+Locked}} (int row)
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_row_lock_manager_a996f2e2eaf3fa6c1526922796e235137}{Ignore\+Locks\+Temporarily}} ()
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_row_lock_manager_a721cd2146c97969ad5afbb19f1271d18}{Restore\+Lock\+Enforcement}} ()
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_row_lock_manager_a2c5a23dc78b61edc5d8434f784cd50ff}{Log\+Locked\+Rows}} ()
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_p_t200___parser_1_1_row_lock_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_p_t200___parser_1_1_row_lock_manager_a4848ec8e5c0fc484621d322e1fd6c388}\index{PT200\_Parser.RowLockManager@{PT200\_Parser.RowLockManager}!GetLockedRows@{GetLockedRows}}
+\index{GetLockedRows@{GetLockedRows}!PT200\_Parser.RowLockManager@{PT200\_Parser.RowLockManager}}
+\doxysubsubsection{\texorpdfstring{GetLockedRows()}{GetLockedRows()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_row_lock_manager_a4848ec8e5c0fc484621d322e1fd6c388} 
+IEnumerable$<$ int $>$ PT200\+\_\+\+Parser.\+Row\+Lock\+Manager.\+Get\+Locked\+Rows (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_p_t200___parser_1_1_row_lock_manager_a996f2e2eaf3fa6c1526922796e235137}\index{PT200\_Parser.RowLockManager@{PT200\_Parser.RowLockManager}!IgnoreLocksTemporarily@{IgnoreLocksTemporarily}}
+\index{IgnoreLocksTemporarily@{IgnoreLocksTemporarily}!PT200\_Parser.RowLockManager@{PT200\_Parser.RowLockManager}}
+\doxysubsubsection{\texorpdfstring{IgnoreLocksTemporarily()}{IgnoreLocksTemporarily()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_row_lock_manager_a996f2e2eaf3fa6c1526922796e235137} 
+void PT200\+\_\+\+Parser.\+Row\+Lock\+Manager.\+Ignore\+Locks\+Temporarily (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_row_lock_manager_a073f4e9b804a573ecdf550fddc0d9cad}\index{PT200\_Parser.RowLockManager@{PT200\_Parser.RowLockManager}!IsLocked@{IsLocked}}
+\index{IsLocked@{IsLocked}!PT200\_Parser.RowLockManager@{PT200\_Parser.RowLockManager}}
+\doxysubsubsection{\texorpdfstring{IsLocked()}{IsLocked()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_row_lock_manager_a073f4e9b804a573ecdf550fddc0d9cad} 
+bool PT200\+\_\+\+Parser.\+Row\+Lock\+Manager.\+Is\+Locked (\begin{DoxyParamCaption}\item[{int}]{row}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_row_lock_manager_ab45b0df13a6987f306ae1f7b601980bb}\index{PT200\_Parser.RowLockManager@{PT200\_Parser.RowLockManager}!Lock@{Lock}}
+\index{Lock@{Lock}!PT200\_Parser.RowLockManager@{PT200\_Parser.RowLockManager}}
+\doxysubsubsection{\texorpdfstring{Lock()}{Lock()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_row_lock_manager_ab45b0df13a6987f306ae1f7b601980bb} 
+void PT200\+\_\+\+Parser.\+Row\+Lock\+Manager.\+Lock (\begin{DoxyParamCaption}\item[{int}]{row}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_p_t200___parser_1_1_row_lock_manager_ab4e2114139349dec23c28c6074da40d6}\index{PT200\_Parser.RowLockManager@{PT200\_Parser.RowLockManager}!LockSystemLines@{LockSystemLines}}
+\index{LockSystemLines@{LockSystemLines}!PT200\_Parser.RowLockManager@{PT200\_Parser.RowLockManager}}
+\doxysubsubsection{\texorpdfstring{LockSystemLines()}{LockSystemLines()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_row_lock_manager_ab4e2114139349dec23c28c6074da40d6} 
+void PT200\+\_\+\+Parser.\+Row\+Lock\+Manager.\+Lock\+System\+Lines (\begin{DoxyParamCaption}\item[{int}]{top}{, }\item[{int}]{bottom}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_row_lock_manager_a2c5a23dc78b61edc5d8434f784cd50ff}\index{PT200\_Parser.RowLockManager@{PT200\_Parser.RowLockManager}!LogLockedRows@{LogLockedRows}}
+\index{LogLockedRows@{LogLockedRows}!PT200\_Parser.RowLockManager@{PT200\_Parser.RowLockManager}}
+\doxysubsubsection{\texorpdfstring{LogLockedRows()}{LogLockedRows()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_row_lock_manager_a2c5a23dc78b61edc5d8434f784cd50ff} 
+void PT200\+\_\+\+Parser.\+Row\+Lock\+Manager.\+Log\+Locked\+Rows (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_row_lock_manager_a721cd2146c97969ad5afbb19f1271d18}\index{PT200\_Parser.RowLockManager@{PT200\_Parser.RowLockManager}!RestoreLockEnforcement@{RestoreLockEnforcement}}
+\index{RestoreLockEnforcement@{RestoreLockEnforcement}!PT200\_Parser.RowLockManager@{PT200\_Parser.RowLockManager}}
+\doxysubsubsection{\texorpdfstring{RestoreLockEnforcement()}{RestoreLockEnforcement()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_row_lock_manager_a721cd2146c97969ad5afbb19f1271d18} 
+void PT200\+\_\+\+Parser.\+Row\+Lock\+Manager.\+Restore\+Lock\+Enforcement (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_row_lock_manager_ac17e0ae61a0922c0efb2e2d5f2afd2e0}\index{PT200\_Parser.RowLockManager@{PT200\_Parser.RowLockManager}!Unlock@{Unlock}}
+\index{Unlock@{Unlock}!PT200\_Parser.RowLockManager@{PT200\_Parser.RowLockManager}}
+\doxysubsubsection{\texorpdfstring{Unlock()}{Unlock()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_row_lock_manager_ac17e0ae61a0922c0efb2e2d5f2afd2e0} 
+void PT200\+\_\+\+Parser.\+Row\+Lock\+Manager.\+Unlock (\begin{DoxyParamCaption}\item[{int}]{row}{}\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+PT200\+\_\+\+Parser/\mbox{\hyperlink{_screen_buffer_8cs}{Screen\+Buffer.\+cs}}\end{DoxyCompactItemize}

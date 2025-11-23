@@ -1,0 +1,444 @@
+\doxysection{PT200\+\_\+\+Parser.\+Terminal\+State Class Reference}
+\hypertarget{class_p_t200___parser_1_1_terminal_state}{}\label{class_p_t200___parser_1_1_terminal_state}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a040b28ade30c566e07777ca575b3a3c5}{Screen\+Format}} \{ \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a040b28ade30c566e07777ca575b3a3c5a721dc04dd17e3fd0470b4031262a01d6}{S80x24}}
+, \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a040b28ade30c566e07777ca575b3a3c5a6936d398398dcb298b477a0767739921}{S80x48}}
+, \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a040b28ade30c566e07777ca575b3a3c5a589de68eccbe0242f3b9fe4fe77ebf64}{S132x27}}
+, \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a040b28ade30c566e07777ca575b3a3c5afd31b1ee0d731acd09c0841ef301669e}{S160x24}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6}{Display\+Type}} \{ \newline
+\mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6a25a81701fbfa4a1efdf660a950c1d006}{White}}
+, \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6a9594eec95be70e7b1710f730fdda33d9}{Blue}}
+, \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6ad382816a3cbeed082c9e216e7392eed1}{Green}}
+, \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6a88068e33c78eb72f1b371c7110846085}{Amber}}
+, \newline
+\mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6a6c606c5fec9c37090471b449fb2bcfb5}{Full\+Color}}
+, \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6a7a1920d61156abc05a60135aefe8bc67}{Default}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_p_t200___parser_1_1_style_info_a5a708428d5707308bdb4e832eda3b7e3}{Style\+Info.\+Color}} \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a0728c95cbd374a46c614313163a5f59f}{Display\+Type\+To\+Brush}} (\mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6}{Display\+Type}} display)
+\item 
+\mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a91364a47d5275cfc86e1eddb13751a36}{Terminal\+State}} (\mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a040b28ade30c566e07777ca575b3a3c5}{Screen\+Format}} screen\+Format, \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6}{Display\+Type}} display\+Type)
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_aaae04c0050a0e462a7f34ae7a02348dd}{Set\+Screen\+Format}} ()
+\item 
+string \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_abd36703ded205c2e4d210518013aa6c7}{Build\+Dcs}} (string json\+Path)
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_ad27d2c6451b21dcd0243889c3bf58daf}{Read\+Dcs}} (string json\+Path, string dcs\+String)
+\item 
+string \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_aefd558f7eae0a5aa751d88cc4a440c73}{Get\+Current\+Dcs\+String\+For\+Debug}} (string json\+Path)
+\item 
+int int \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_abe572d600aa2725d0a1f07b65483131e}{Rows}} \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_af4ad57936eb61a661cd4de58276dc59d}{Get\+Dimensions}} ()
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_ac6c551942a9d8e1de07156c6dd121f79}{Display\+DCS}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_abe572d600aa2725d0a1f07b65483131e}{Rows}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+int \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_ad42e9ffee307d5623cd1c5cc6ef55984}{Columns}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+\mbox{\hyperlink{class_p_t200___parser_1_1_style_info_a5a708428d5707308bdb4e832eda3b7e3}{Style\+Info.\+Color}} \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_aae76dbf18ce9315dbb2621b1cfc4fd92}{Global\+Color\+Override}} = \mbox{\hyperlink{class_p_t200___parser_1_1_style_info_a5a708428d5707308bdb4e832eda3b7e3a7a1920d61156abc05a60135aefe8bc67}{Style\+Info.\+Color.\+Default}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_ac2584774aef4dfc8bf3e20273803f8f1}{Is\+Online}} = true\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a7fe5dbffcd4047cde993b30ca791eb93}{Is\+Block\+Mode}} = false\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a9856adfb3ce962318af66d1578aa9f10}{Is\+Line\+Mode}} = true\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a134132870b567185ed3d1134592463b6}{Is\+Soft\+Scroll}} = false\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a040b28ade30c566e07777ca575b3a3c5}{Screen\+Format}} \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_aa845f897d04e4767d0d0f33f73b27509}{\+\_\+screen\+Format}} = \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a040b28ade30c566e07777ca575b3a3c5a721dc04dd17e3fd0470b4031262a01d6}{Screen\+Format.\+S80x24}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+byte \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_acde45c8d1b0e9f28f82772f6752a80b6}{Keyboard\+Repeat\+Rate}} = 0b010\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_af009038d5bc0d527d34ef957e730a62c}{Keyboard\+Click}} = false\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a5a872dc64d4afee1c8d8c94f6c3f2678}{Reverse\+Video}} = false\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_aedfdaa42ca75e06548d8b17154c79700}{Control\+Representation}} = false\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a78a7afd813aa7a7b2246364ea5353a4b}{Dsc\+Mode}} = false\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a15f05f5bee8046a050edafd4d39d3679}{Soft\+Lock}} = false\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_ab0c4deed1443932139ad1e74a25c00ec}{Function\+Termination}} = false\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a5efb497c01bf135ddfbf81c698b1f24d}{Send\+Tabs}} = true\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a72db249ac1377733b4daf264a5a034f9}{Function\+Keypad}} = false\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a18e836af8a0ea805c80ed68b4481f04e}{Margin\+Bell}} = false\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+byte \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a2f67e832187b59d2955b2782b36bbb30}{Host\+Baud\+Rate}} = 0b1110\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+byte \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_aa40e4cc24d9f5db7ec642eb3bb95a386}{Aux\+Baud\+Rate}} = 0b1110\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_aa215c8b41139e91fbad668b9998f25f8}{Two\+Stop\+Bits}} = false\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a1f6636e0a06048f9cbbab8dec595b758}{Rollover}} = false\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+byte \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a6bee1bc4a63ac4f47ac416f739796e44}{Parity}} = 0b100\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_aa4c32221ee5603a6cb3526e2f92f234b}{Is\+Color}} = false\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a879d2398b2090f8524cdbdbdf10e832e}{Cursor\+Blink}} = true\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a0c10fee0208438b6378595b0bf6b5370}{Status\+Bar\+Visible}} = true\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a1c75407bc92c7d650b07bd0ae89dc852}{Auto\+Line\+Feed}} = false\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_aecccc72d874a7f27353b19d0194f1978}{Logical\+Attributes}} = false\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a776c57566d670ed105d2c887ec0fdf70}{Use\+Space\+As\+Pad}} = false\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a672ae851c50165e8314ae1319a321372}{Screen\+Wrap}} = false\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_afe3bb1a916df531491388fcb9e6835a9}{Transmit\+Modified\+Only}} = false\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_aa61375b3d607827803a0180941dc16a6}{Two\+Page\+Boundary}} = false\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6}{Display\+Type}} \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_adc197ab72874c4b15603ea56d9ccf2b9}{Display}} = \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6ad382816a3cbeed082c9e216e7392eed1}{Display\+Type.\+Green}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_ae44b18f215c112112c95f1f73502ad55}{Print\+Mode}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-enum-members}
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_doc-enum-members}
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!DisplayType@{DisplayType}}
+\index{DisplayType@{DisplayType}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{DisplayType}{DisplayType}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6} 
+enum \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6}{PT200\+\_\+\+Parser.\+Terminal\+State.\+Display\+Type}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{White@{White}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!White@{White}}}\Hypertarget{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6a25a81701fbfa4a1efdf660a950c1d006}\label{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6a25a81701fbfa4a1efdf660a950c1d006} 
+White&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Blue@{Blue}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!Blue@{Blue}}}\Hypertarget{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6a9594eec95be70e7b1710f730fdda33d9}\label{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6a9594eec95be70e7b1710f730fdda33d9} 
+Blue&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Green@{Green}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!Green@{Green}}}\Hypertarget{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6ad382816a3cbeed082c9e216e7392eed1}\label{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6ad382816a3cbeed082c9e216e7392eed1} 
+Green&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Amber@{Amber}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!Amber@{Amber}}}\Hypertarget{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6a88068e33c78eb72f1b371c7110846085}\label{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6a88068e33c78eb72f1b371c7110846085} 
+Amber&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FullColor@{FullColor}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!FullColor@{FullColor}}}\Hypertarget{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6a6c606c5fec9c37090471b449fb2bcfb5}\label{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6a6c606c5fec9c37090471b449fb2bcfb5} 
+Full\+Color&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Default@{Default}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!Default@{Default}}}\Hypertarget{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6a7a1920d61156abc05a60135aefe8bc67}\label{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6a7a1920d61156abc05a60135aefe8bc67} 
+Default&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_a040b28ade30c566e07777ca575b3a3c5}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!ScreenFormat@{ScreenFormat}}
+\index{ScreenFormat@{ScreenFormat}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{ScreenFormat}{ScreenFormat}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_a040b28ade30c566e07777ca575b3a3c5} 
+enum \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a040b28ade30c566e07777ca575b3a3c5}{PT200\+\_\+\+Parser.\+Terminal\+State.\+Screen\+Format}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S80x24@{S80x24}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!S80x24@{S80x24}}}\Hypertarget{class_p_t200___parser_1_1_terminal_state_a040b28ade30c566e07777ca575b3a3c5a721dc04dd17e3fd0470b4031262a01d6}\label{class_p_t200___parser_1_1_terminal_state_a040b28ade30c566e07777ca575b3a3c5a721dc04dd17e3fd0470b4031262a01d6} 
+S80x24&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S80x48@{S80x48}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!S80x48@{S80x48}}}\Hypertarget{class_p_t200___parser_1_1_terminal_state_a040b28ade30c566e07777ca575b3a3c5a6936d398398dcb298b477a0767739921}\label{class_p_t200___parser_1_1_terminal_state_a040b28ade30c566e07777ca575b3a3c5a6936d398398dcb298b477a0767739921} 
+S80x48&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S132x27@{S132x27}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!S132x27@{S132x27}}}\Hypertarget{class_p_t200___parser_1_1_terminal_state_a040b28ade30c566e07777ca575b3a3c5a589de68eccbe0242f3b9fe4fe77ebf64}\label{class_p_t200___parser_1_1_terminal_state_a040b28ade30c566e07777ca575b3a3c5a589de68eccbe0242f3b9fe4fe77ebf64} 
+S132x27&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S160x24@{S160x24}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!S160x24@{S160x24}}}\Hypertarget{class_p_t200___parser_1_1_terminal_state_a040b28ade30c566e07777ca575b3a3c5afd31b1ee0d731acd09c0841ef301669e}\label{class_p_t200___parser_1_1_terminal_state_a040b28ade30c566e07777ca575b3a3c5afd31b1ee0d731acd09c0841ef301669e} 
+S160x24&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-constructors}
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_a91364a47d5275cfc86e1eddb13751a36}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!TerminalState@{TerminalState}}
+\index{TerminalState@{TerminalState}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{TerminalState()}{TerminalState()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_a91364a47d5275cfc86e1eddb13751a36} 
+PT200\+\_\+\+Parser.\+Terminal\+State.\+Terminal\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a040b28ade30c566e07777ca575b3a3c5}{Screen\+Format}}}]{screen\+Format}{, }\item[{\mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6}{Display\+Type}}}]{display\+Type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_abd36703ded205c2e4d210518013aa6c7}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!BuildDcs@{BuildDcs}}
+\index{BuildDcs@{BuildDcs}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{BuildDcs()}{BuildDcs()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_abd36703ded205c2e4d210518013aa6c7} 
+string PT200\+\_\+\+Parser.\+Terminal\+State.\+Build\+Dcs (\begin{DoxyParamCaption}\item[{string}]{json\+Path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_ac6c551942a9d8e1de07156c6dd121f79}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!DisplayDCS@{DisplayDCS}}
+\index{DisplayDCS@{DisplayDCS}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{DisplayDCS()}{DisplayDCS()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_ac6c551942a9d8e1de07156c6dd121f79} 
+void PT200\+\_\+\+Parser.\+Terminal\+State.\+Display\+DCS (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_a0728c95cbd374a46c614313163a5f59f}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!DisplayTypeToBrush@{DisplayTypeToBrush}}
+\index{DisplayTypeToBrush@{DisplayTypeToBrush}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{DisplayTypeToBrush()}{DisplayTypeToBrush()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_a0728c95cbd374a46c614313163a5f59f} 
+\mbox{\hyperlink{class_p_t200___parser_1_1_style_info_a5a708428d5707308bdb4e832eda3b7e3}{Style\+Info.\+Color}} PT200\+\_\+\+Parser.\+Terminal\+State.\+Display\+Type\+To\+Brush (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6}{Display\+Type}}}]{display}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_aefd558f7eae0a5aa751d88cc4a440c73}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!GetCurrentDcsStringForDebug@{GetCurrentDcsStringForDebug}}
+\index{GetCurrentDcsStringForDebug@{GetCurrentDcsStringForDebug}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{GetCurrentDcsStringForDebug()}{GetCurrentDcsStringForDebug()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_aefd558f7eae0a5aa751d88cc4a440c73} 
+string PT200\+\_\+\+Parser.\+Terminal\+State.\+Get\+Current\+Dcs\+String\+For\+Debug (\begin{DoxyParamCaption}\item[{string}]{json\+Path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_af4ad57936eb61a661cd4de58276dc59d}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!GetDimensions@{GetDimensions}}
+\index{GetDimensions@{GetDimensions}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{GetDimensions()}{GetDimensions()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_af4ad57936eb61a661cd4de58276dc59d} 
+int int \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_abe572d600aa2725d0a1f07b65483131e}{Rows}} PT200\+\_\+\+Parser.\+Terminal\+State.\+Get\+Dimensions (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_ad27d2c6451b21dcd0243889c3bf58daf}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!ReadDcs@{ReadDcs}}
+\index{ReadDcs@{ReadDcs}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{ReadDcs()}{ReadDcs()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_ad27d2c6451b21dcd0243889c3bf58daf} 
+void PT200\+\_\+\+Parser.\+Terminal\+State.\+Read\+Dcs (\begin{DoxyParamCaption}\item[{string}]{json\+Path}{, }\item[{string}]{dcs\+String}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_aaae04c0050a0e462a7f34ae7a02348dd}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!SetScreenFormat@{SetScreenFormat}}
+\index{SetScreenFormat@{SetScreenFormat}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{SetScreenFormat()}{SetScreenFormat()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_aaae04c0050a0e462a7f34ae7a02348dd} 
+void PT200\+\_\+\+Parser.\+Terminal\+State.\+Set\+Screen\+Format (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-property-members}
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_aa845f897d04e4767d0d0f33f73b27509}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!\_screenFormat@{\_screenFormat}}
+\index{\_screenFormat@{\_screenFormat}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{\_screenFormat}{\_screenFormat}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_aa845f897d04e4767d0d0f33f73b27509} 
+\mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a040b28ade30c566e07777ca575b3a3c5}{Screen\+Format}} PT200\+\_\+\+Parser.\+Terminal\+State.\+\_\+screen\+Format = \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a040b28ade30c566e07777ca575b3a3c5a721dc04dd17e3fd0470b4031262a01d6}{Screen\+Format.\+S80x24}}\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_a1c75407bc92c7d650b07bd0ae89dc852}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!AutoLineFeed@{AutoLineFeed}}
+\index{AutoLineFeed@{AutoLineFeed}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{AutoLineFeed}{AutoLineFeed}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_a1c75407bc92c7d650b07bd0ae89dc852} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Auto\+Line\+Feed = false\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_aa40e4cc24d9f5db7ec642eb3bb95a386}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!AuxBaudRate@{AuxBaudRate}}
+\index{AuxBaudRate@{AuxBaudRate}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{AuxBaudRate}{AuxBaudRate}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_aa40e4cc24d9f5db7ec642eb3bb95a386} 
+byte PT200\+\_\+\+Parser.\+Terminal\+State.\+Aux\+Baud\+Rate = 0b1110\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_ad42e9ffee307d5623cd1c5cc6ef55984}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!Columns@{Columns}}
+\index{Columns@{Columns}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{Columns}{Columns}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_ad42e9ffee307d5623cd1c5cc6ef55984} 
+int PT200\+\_\+\+Parser.\+Terminal\+State.\+Columns\hspace{0.3cm}{\ttfamily [get]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_aedfdaa42ca75e06548d8b17154c79700}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!ControlRepresentation@{ControlRepresentation}}
+\index{ControlRepresentation@{ControlRepresentation}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{ControlRepresentation}{ControlRepresentation}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_aedfdaa42ca75e06548d8b17154c79700} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Control\+Representation = false\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_a879d2398b2090f8524cdbdbdf10e832e}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!CursorBlink@{CursorBlink}}
+\index{CursorBlink@{CursorBlink}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{CursorBlink}{CursorBlink}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_a879d2398b2090f8524cdbdbdf10e832e} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Cursor\+Blink = true\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_adc197ab72874c4b15603ea56d9ccf2b9}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!Display@{Display}}
+\index{Display@{Display}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{Display}{Display}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_adc197ab72874c4b15603ea56d9ccf2b9} 
+\mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6}{Display\+Type}} PT200\+\_\+\+Parser.\+Terminal\+State.\+Display = \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state_a9632142d2e6bc636fbf07d5f78a0aed6ad382816a3cbeed082c9e216e7392eed1}{Display\+Type.\+Green}}\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_a78a7afd813aa7a7b2246364ea5353a4b}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!DscMode@{DscMode}}
+\index{DscMode@{DscMode}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{DscMode}{DscMode}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_a78a7afd813aa7a7b2246364ea5353a4b} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Dsc\+Mode = false\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_a72db249ac1377733b4daf264a5a034f9}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!FunctionKeypad@{FunctionKeypad}}
+\index{FunctionKeypad@{FunctionKeypad}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{FunctionKeypad}{FunctionKeypad}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_a72db249ac1377733b4daf264a5a034f9} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Function\+Keypad = false\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_ab0c4deed1443932139ad1e74a25c00ec}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!FunctionTermination@{FunctionTermination}}
+\index{FunctionTermination@{FunctionTermination}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{FunctionTermination}{FunctionTermination}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_ab0c4deed1443932139ad1e74a25c00ec} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Function\+Termination = false\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_aae76dbf18ce9315dbb2621b1cfc4fd92}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!GlobalColorOverride@{GlobalColorOverride}}
+\index{GlobalColorOverride@{GlobalColorOverride}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{GlobalColorOverride}{GlobalColorOverride}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_aae76dbf18ce9315dbb2621b1cfc4fd92} 
+\mbox{\hyperlink{class_p_t200___parser_1_1_style_info_a5a708428d5707308bdb4e832eda3b7e3}{Style\+Info.\+Color}} PT200\+\_\+\+Parser.\+Terminal\+State.\+Global\+Color\+Override = \mbox{\hyperlink{class_p_t200___parser_1_1_style_info_a5a708428d5707308bdb4e832eda3b7e3a7a1920d61156abc05a60135aefe8bc67}{Style\+Info.\+Color.\+Default}}\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_a2f67e832187b59d2955b2782b36bbb30}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!HostBaudRate@{HostBaudRate}}
+\index{HostBaudRate@{HostBaudRate}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{HostBaudRate}{HostBaudRate}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_a2f67e832187b59d2955b2782b36bbb30} 
+byte PT200\+\_\+\+Parser.\+Terminal\+State.\+Host\+Baud\+Rate = 0b1110\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_a7fe5dbffcd4047cde993b30ca791eb93}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!IsBlockMode@{IsBlockMode}}
+\index{IsBlockMode@{IsBlockMode}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{IsBlockMode}{IsBlockMode}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_a7fe5dbffcd4047cde993b30ca791eb93} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Is\+Block\+Mode = false\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_aa4c32221ee5603a6cb3526e2f92f234b}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!IsColor@{IsColor}}
+\index{IsColor@{IsColor}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{IsColor}{IsColor}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_aa4c32221ee5603a6cb3526e2f92f234b} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Is\+Color = false\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_a9856adfb3ce962318af66d1578aa9f10}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!IsLineMode@{IsLineMode}}
+\index{IsLineMode@{IsLineMode}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{IsLineMode}{IsLineMode}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_a9856adfb3ce962318af66d1578aa9f10} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Is\+Line\+Mode = true\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_ac2584774aef4dfc8bf3e20273803f8f1}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!IsOnline@{IsOnline}}
+\index{IsOnline@{IsOnline}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{IsOnline}{IsOnline}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_ac2584774aef4dfc8bf3e20273803f8f1} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Is\+Online = true\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_a134132870b567185ed3d1134592463b6}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!IsSoftScroll@{IsSoftScroll}}
+\index{IsSoftScroll@{IsSoftScroll}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{IsSoftScroll}{IsSoftScroll}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_a134132870b567185ed3d1134592463b6} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Is\+Soft\+Scroll = false\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_af009038d5bc0d527d34ef957e730a62c}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!KeyboardClick@{KeyboardClick}}
+\index{KeyboardClick@{KeyboardClick}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{KeyboardClick}{KeyboardClick}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_af009038d5bc0d527d34ef957e730a62c} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Keyboard\+Click = false\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_acde45c8d1b0e9f28f82772f6752a80b6}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!KeyboardRepeatRate@{KeyboardRepeatRate}}
+\index{KeyboardRepeatRate@{KeyboardRepeatRate}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{KeyboardRepeatRate}{KeyboardRepeatRate}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_acde45c8d1b0e9f28f82772f6752a80b6} 
+byte PT200\+\_\+\+Parser.\+Terminal\+State.\+Keyboard\+Repeat\+Rate = 0b010\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_aecccc72d874a7f27353b19d0194f1978}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!LogicalAttributes@{LogicalAttributes}}
+\index{LogicalAttributes@{LogicalAttributes}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{LogicalAttributes}{LogicalAttributes}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_aecccc72d874a7f27353b19d0194f1978} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Logical\+Attributes = false\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_a18e836af8a0ea805c80ed68b4481f04e}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!MarginBell@{MarginBell}}
+\index{MarginBell@{MarginBell}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{MarginBell}{MarginBell}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_a18e836af8a0ea805c80ed68b4481f04e} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Margin\+Bell = false\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_a6bee1bc4a63ac4f47ac416f739796e44}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!Parity@{Parity}}
+\index{Parity@{Parity}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{Parity}{Parity}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_a6bee1bc4a63ac4f47ac416f739796e44} 
+byte PT200\+\_\+\+Parser.\+Terminal\+State.\+Parity = 0b100\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_ae44b18f215c112112c95f1f73502ad55}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!PrintMode@{PrintMode}}
+\index{PrintMode@{PrintMode}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{PrintMode}{PrintMode}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_ae44b18f215c112112c95f1f73502ad55} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Print\+Mode\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_a5a872dc64d4afee1c8d8c94f6c3f2678}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!ReverseVideo@{ReverseVideo}}
+\index{ReverseVideo@{ReverseVideo}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{ReverseVideo}{ReverseVideo}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_a5a872dc64d4afee1c8d8c94f6c3f2678} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Reverse\+Video = false\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_a1f6636e0a06048f9cbbab8dec595b758}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!Rollover@{Rollover}}
+\index{Rollover@{Rollover}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{Rollover}{Rollover}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_a1f6636e0a06048f9cbbab8dec595b758} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Rollover = false\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_abe572d600aa2725d0a1f07b65483131e}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!Rows@{Rows}}
+\index{Rows@{Rows}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{Rows}{Rows}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_abe572d600aa2725d0a1f07b65483131e} 
+int PT200\+\_\+\+Parser.\+Terminal\+State.\+Rows\hspace{0.3cm}{\ttfamily [get]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_a672ae851c50165e8314ae1319a321372}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!ScreenWrap@{ScreenWrap}}
+\index{ScreenWrap@{ScreenWrap}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{ScreenWrap}{ScreenWrap}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_a672ae851c50165e8314ae1319a321372} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Screen\+Wrap = false\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_a5efb497c01bf135ddfbf81c698b1f24d}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!SendTabs@{SendTabs}}
+\index{SendTabs@{SendTabs}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{SendTabs}{SendTabs}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_a5efb497c01bf135ddfbf81c698b1f24d} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Send\+Tabs = true\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_a15f05f5bee8046a050edafd4d39d3679}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!SoftLock@{SoftLock}}
+\index{SoftLock@{SoftLock}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{SoftLock}{SoftLock}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_a15f05f5bee8046a050edafd4d39d3679} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Soft\+Lock = false\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_a0c10fee0208438b6378595b0bf6b5370}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!StatusBarVisible@{StatusBarVisible}}
+\index{StatusBarVisible@{StatusBarVisible}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{StatusBarVisible}{StatusBarVisible}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_a0c10fee0208438b6378595b0bf6b5370} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Status\+Bar\+Visible = true\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_afe3bb1a916df531491388fcb9e6835a9}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!TransmitModifiedOnly@{TransmitModifiedOnly}}
+\index{TransmitModifiedOnly@{TransmitModifiedOnly}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{TransmitModifiedOnly}{TransmitModifiedOnly}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_afe3bb1a916df531491388fcb9e6835a9} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Transmit\+Modified\+Only = false\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_aa61375b3d607827803a0180941dc16a6}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!TwoPageBoundary@{TwoPageBoundary}}
+\index{TwoPageBoundary@{TwoPageBoundary}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{TwoPageBoundary}{TwoPageBoundary}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_aa61375b3d607827803a0180941dc16a6} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Two\+Page\+Boundary = false\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_aa215c8b41139e91fbad668b9998f25f8}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!TwoStopBits@{TwoStopBits}}
+\index{TwoStopBits@{TwoStopBits}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{TwoStopBits}{TwoStopBits}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_aa215c8b41139e91fbad668b9998f25f8} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Two\+Stop\+Bits = false\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_state_a776c57566d670ed105d2c887ec0fdf70}\index{PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}!UseSpaceAsPad@{UseSpaceAsPad}}
+\index{UseSpaceAsPad@{UseSpaceAsPad}!PT200\_Parser.TerminalState@{PT200\_Parser.TerminalState}}
+\doxysubsubsection{\texorpdfstring{UseSpaceAsPad}{UseSpaceAsPad}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_state_a776c57566d670ed105d2c887ec0fdf70} 
+bool PT200\+\_\+\+Parser.\+Terminal\+State.\+Use\+Space\+As\+Pad = false\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+PT200\+\_\+\+Parser/\mbox{\hyperlink{_terminal_state_8cs}{Terminal\+State.\+cs}}\end{DoxyCompactItemize}

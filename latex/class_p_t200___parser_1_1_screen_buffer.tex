@@ -1,0 +1,395 @@
+\doxysection{PT200\+\_\+\+Parser.\+Screen\+Buffer Class Reference}
+\hypertarget{class_p_t200___parser_1_1_screen_buffer}{}\label{class_p_t200___parser_1_1_screen_buffer}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_p_t200___parser_1_1_screen_buffer_1_1_screen_cell}{Screen\+Cell}}
+\item 
+struct \mbox{\hyperlink{struct_p_t200___parser_1_1_screen_buffer_1_1_s_c_a}{SCA}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_aae4eb09c4ee8b8c6020b8c5e2762be25}{Screen\+Cleared}} ()
+\item 
+\mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a8f9d05cf852fa2a417e2d92a24244424}{Screen\+Buffer}} (int rows, int cols, string base\+Path)
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a08d6f73054659f94537ff3d62777dd68}{Resize}} (int rows, int cols)
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_af8b89b6a6a83fe499ad8925fb9254fcb}{Attach\+Caret\+Controller}} (\mbox{\hyperlink{interface_p_t200___parser_1_1_i_caret_controller}{ICaret\+Controller}} controller)
+\item 
+char \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_af8eed92bd73444ef9b53be99f2f40431}{Get\+Char}} (int row, int col)
+\item 
+char \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a60bd751f79e44efa46fb72c2475f9010}{Get\+System\+Line\+Char}} (int col)
+\item 
+\mbox{\hyperlink{class_p_t200___parser_1_1_style_info}{Style\+Info}} \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a8876bf9ba69d006109e9fcf7df72d7b8}{Get\+Style}} (int row, int col)
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_aeb81ef6305dd03b9331aaccc7f283df4}{Begin\+Update}} ()
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a12624028755ae103a630373286d8ac5b}{End\+Update}} ()
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a28d6705beedcdb231343798a9b552f78}{Write\+Char}} (char ch)
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_ab73340f9dbd2b33fcad2f0beb15adc16}{Set\+Cursor\+Position}} (int row, int col)
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a89cb6cfc6e2c98d2cb4f884b3ae83816}{Carriage\+Return}} ()
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_afbb6e8f4ceb580701432f4b6f248ac8d}{Line\+Feed}} ()
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_ab1a19d2d623c85b3a262f17dcf63d9d2}{Backspace}} ()
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_ac5033c5f24fc550b5f74b6be1bce5b04}{Delete}} (int scope)
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_aa348a8727d103c34d3f7fe9e2f501ca9}{Tab}} ()
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_ad60b2114eaf5526e7deb14bab4f93e3e}{Clear\+Screen}} ()
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a89ceb7534745fae064bc6b32af9be3fc}{Clear\+Line}} (int scope)
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a8009be4f72b74d6e3256691cfd45ab59}{Set\+Scroll\+Region}} (int top, int bottom)
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a5d72d2555d32b9b7cd37672616f814b6}{Reset\+Scroll\+Region}} ()
+\item 
+\mbox{\hyperlink{struct_p_t200___parser_1_1_screen_buffer_1_1_screen_cell}{Screen\+Cell}} \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a95e0115c37bd29c73ccdd3592c2a9693}{Get\+Cell}} (int row, int col)
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_af4b8f425d6cd0d09102d57af43ab7a15}{Set\+Cell}} (int row, int col, \mbox{\hyperlink{struct_p_t200___parser_1_1_screen_buffer_1_1_screen_cell}{Screen\+Cell}} cell)
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a4de7d6f3376604b2d1518e3087bdae03}{Set\+Style}} (int row, int col, \mbox{\hyperlink{class_p_t200___parser_1_1_style_info}{Style\+Info}} style)
+\item 
+int \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a0a9075f5d84937986caef2ac22c7e99a}{Get\+Cursor\+Position}} ()
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_ad1bde0eb266a2af30c40bb2c930a085d}{In\+System\+Line}} ()
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a73580f72a11f0affeedbcf33d4209697}{Mark\+Dirty}} ()
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_ae366aa230e74deebd6961025d4df1733}{Clear\+Dirty}} ()
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a06deecb4fd3dccb4df8b032d60a3072b}{Get\+Dirty}} ()
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a2bc767a26e742527ea94b288f94b867c}{set\+CA}} ()
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a1143278b657a381c42128fa64e15dfb0}{get\+CA}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a3ed0aaf0fc902a642b5658c2f2da579d}{\+\_\+bsflag}}
+\item 
+readonly \mbox{\hyperlink{struct_p_t200___parser_1_1_screen_buffer_1_1_screen_cell}{Screen\+Cell}}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a23e04ff83b2df5265574d992f3a7e275}{\+\_\+system\+Line\+Buffer}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_abe4567642a3c51b8d40cfb826eb2d058}{Rows}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+int \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a1fe6a864d6d33c85823e9eb9cf8d71cb}{Cols}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+int \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_ab6c8282a2a9dcde8156839123484e85b}{Cursor\+Row}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+int \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_ad54ddb4ee4dbb95a0e1588b360fd20cf}{Cursor\+Col}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_af5c307ff463515b1354ed3d619237a4b}{clear\+Screen}} = false\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_ac557f46a22d5897fe59bcc043d9fed75}{force\+Redraw}} = false\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\mbox{\hyperlink{class_p_t200___parser_1_1_style_info}{Style\+Info}}\mbox{[},\mbox{]} \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a51277afd365edb5b75cb895f73fd4fd8}{Zone\+Attributes}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+\mbox{\hyperlink{class_p_t200___parser_1_1_row_lock_manager}{Row\+Lock\+Manager}} \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a663850a49254a2a7e4bd1f1c3e407ae9}{Row\+Locks}} = new()\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+\mbox{\hyperlink{class_p_t200___parser_1_1_style_info}{Style\+Info}} \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_aa1da4777690f731974e6c64bb5a8b153}{Current\+Style}} = new \mbox{\hyperlink{class_p_t200___parser_1_1_style_info}{Style\+Info}}()\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+Action \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a91084e7f46567774ddafc24f675818d1}{Buffer\+Updated}}
+\item 
+Action \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer_a863312bebce90277855e29e9a5169ca3}{Scrolled}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a8f9d05cf852fa2a417e2d92a24244424}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!ScreenBuffer@{ScreenBuffer}}
+\index{ScreenBuffer@{ScreenBuffer}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{ScreenBuffer()}{ScreenBuffer()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a8f9d05cf852fa2a417e2d92a24244424} 
+PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Screen\+Buffer (\begin{DoxyParamCaption}\item[{int}]{rows}{, }\item[{int}]{cols}{, }\item[{string}]{base\+Path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_af8b89b6a6a83fe499ad8925fb9254fcb}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!AttachCaretController@{AttachCaretController}}
+\index{AttachCaretController@{AttachCaretController}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{AttachCaretController()}{AttachCaretController()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_af8b89b6a6a83fe499ad8925fb9254fcb} 
+void PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Attach\+Caret\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_p_t200___parser_1_1_i_caret_controller}{ICaret\+Controller}}}]{controller}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_ab1a19d2d623c85b3a262f17dcf63d9d2}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!Backspace@{Backspace}}
+\index{Backspace@{Backspace}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{Backspace()}{Backspace()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_ab1a19d2d623c85b3a262f17dcf63d9d2} 
+void PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Backspace (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_aeb81ef6305dd03b9331aaccc7f283df4}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!BeginUpdate@{BeginUpdate}}
+\index{BeginUpdate@{BeginUpdate}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{BeginUpdate()}{BeginUpdate()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_aeb81ef6305dd03b9331aaccc7f283df4} 
+void PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Begin\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a89cb6cfc6e2c98d2cb4f884b3ae83816}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!CarriageReturn@{CarriageReturn}}
+\index{CarriageReturn@{CarriageReturn}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{CarriageReturn()}{CarriageReturn()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a89cb6cfc6e2c98d2cb4f884b3ae83816} 
+void PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Carriage\+Return (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_ae366aa230e74deebd6961025d4df1733}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!ClearDirty@{ClearDirty}}
+\index{ClearDirty@{ClearDirty}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{ClearDirty()}{ClearDirty()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_ae366aa230e74deebd6961025d4df1733} 
+void PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Clear\+Dirty (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a89ceb7534745fae064bc6b32af9be3fc}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!ClearLine@{ClearLine}}
+\index{ClearLine@{ClearLine}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{ClearLine()}{ClearLine()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a89ceb7534745fae064bc6b32af9be3fc} 
+void PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Clear\+Line (\begin{DoxyParamCaption}\item[{int}]{scope}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_ad60b2114eaf5526e7deb14bab4f93e3e}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!ClearScreen@{ClearScreen}}
+\index{ClearScreen@{ClearScreen}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{ClearScreen()}{ClearScreen()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_ad60b2114eaf5526e7deb14bab4f93e3e} 
+void PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Clear\+Screen (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_ac5033c5f24fc550b5f74b6be1bce5b04}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!Delete@{Delete}}
+\index{Delete@{Delete}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_ac5033c5f24fc550b5f74b6be1bce5b04} 
+void PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Delete (\begin{DoxyParamCaption}\item[{int}]{scope}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a12624028755ae103a630373286d8ac5b}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!EndUpdate@{EndUpdate}}
+\index{EndUpdate@{EndUpdate}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{EndUpdate()}{EndUpdate()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a12624028755ae103a630373286d8ac5b} 
+void PT200\+\_\+\+Parser.\+Screen\+Buffer.\+End\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a1143278b657a381c42128fa64e15dfb0}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!getCA@{getCA}}
+\index{getCA@{getCA}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{getCA()}{getCA()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a1143278b657a381c42128fa64e15dfb0} 
+void PT200\+\_\+\+Parser.\+Screen\+Buffer.\+get\+CA (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a95e0115c37bd29c73ccdd3592c2a9693}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!GetCell@{GetCell}}
+\index{GetCell@{GetCell}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{GetCell()}{GetCell()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a95e0115c37bd29c73ccdd3592c2a9693} 
+\mbox{\hyperlink{struct_p_t200___parser_1_1_screen_buffer_1_1_screen_cell}{Screen\+Cell}} PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Get\+Cell (\begin{DoxyParamCaption}\item[{int}]{row}{, }\item[{int}]{col}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_af8eed92bd73444ef9b53be99f2f40431}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!GetChar@{GetChar}}
+\index{GetChar@{GetChar}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{GetChar()}{GetChar()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_af8eed92bd73444ef9b53be99f2f40431} 
+char PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Get\+Char (\begin{DoxyParamCaption}\item[{int}]{row}{, }\item[{int}]{col}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a0a9075f5d84937986caef2ac22c7e99a}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!GetCursorPosition@{GetCursorPosition}}
+\index{GetCursorPosition@{GetCursorPosition}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{GetCursorPosition()}{GetCursorPosition()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a0a9075f5d84937986caef2ac22c7e99a} 
+int PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Get\+Cursor\+Position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a06deecb4fd3dccb4df8b032d60a3072b}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!GetDirty@{GetDirty}}
+\index{GetDirty@{GetDirty}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{GetDirty()}{GetDirty()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a06deecb4fd3dccb4df8b032d60a3072b} 
+bool PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Get\+Dirty (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a8876bf9ba69d006109e9fcf7df72d7b8}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!GetStyle@{GetStyle}}
+\index{GetStyle@{GetStyle}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{GetStyle()}{GetStyle()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a8876bf9ba69d006109e9fcf7df72d7b8} 
+\mbox{\hyperlink{class_p_t200___parser_1_1_style_info}{Style\+Info}} PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Get\+Style (\begin{DoxyParamCaption}\item[{int}]{row}{, }\item[{int}]{col}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a60bd751f79e44efa46fb72c2475f9010}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!GetSystemLineChar@{GetSystemLineChar}}
+\index{GetSystemLineChar@{GetSystemLineChar}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{GetSystemLineChar()}{GetSystemLineChar()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a60bd751f79e44efa46fb72c2475f9010} 
+char PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Get\+System\+Line\+Char (\begin{DoxyParamCaption}\item[{int}]{col}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_ad1bde0eb266a2af30c40bb2c930a085d}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!InSystemLine@{InSystemLine}}
+\index{InSystemLine@{InSystemLine}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{InSystemLine()}{InSystemLine()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_ad1bde0eb266a2af30c40bb2c930a085d} 
+bool PT200\+\_\+\+Parser.\+Screen\+Buffer.\+In\+System\+Line (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_afbb6e8f4ceb580701432f4b6f248ac8d}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!LineFeed@{LineFeed}}
+\index{LineFeed@{LineFeed}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{LineFeed()}{LineFeed()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_afbb6e8f4ceb580701432f4b6f248ac8d} 
+void PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Line\+Feed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a73580f72a11f0affeedbcf33d4209697}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!MarkDirty@{MarkDirty}}
+\index{MarkDirty@{MarkDirty}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{MarkDirty()}{MarkDirty()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a73580f72a11f0affeedbcf33d4209697} 
+void PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Mark\+Dirty (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a5d72d2555d32b9b7cd37672616f814b6}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!ResetScrollRegion@{ResetScrollRegion}}
+\index{ResetScrollRegion@{ResetScrollRegion}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{ResetScrollRegion()}{ResetScrollRegion()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a5d72d2555d32b9b7cd37672616f814b6} 
+void PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Reset\+Scroll\+Region (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a08d6f73054659f94537ff3d62777dd68}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!Resize@{Resize}}
+\index{Resize@{Resize}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{Resize()}{Resize()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a08d6f73054659f94537ff3d62777dd68} 
+void PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Resize (\begin{DoxyParamCaption}\item[{int}]{rows}{, }\item[{int}]{cols}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_aae4eb09c4ee8b8c6020b8c5e2762be25}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!ScreenCleared@{ScreenCleared}}
+\index{ScreenCleared@{ScreenCleared}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{ScreenCleared()}{ScreenCleared()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_aae4eb09c4ee8b8c6020b8c5e2762be25} 
+void PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Screen\+Cleared (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a2bc767a26e742527ea94b288f94b867c}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!setCA@{setCA}}
+\index{setCA@{setCA}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{setCA()}{setCA()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a2bc767a26e742527ea94b288f94b867c} 
+void PT200\+\_\+\+Parser.\+Screen\+Buffer.\+set\+CA (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_af4b8f425d6cd0d09102d57af43ab7a15}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!SetCell@{SetCell}}
+\index{SetCell@{SetCell}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{SetCell()}{SetCell()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_af4b8f425d6cd0d09102d57af43ab7a15} 
+void PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Set\+Cell (\begin{DoxyParamCaption}\item[{int}]{row}{, }\item[{int}]{col}{, }\item[{\mbox{\hyperlink{struct_p_t200___parser_1_1_screen_buffer_1_1_screen_cell}{Screen\+Cell}}}]{cell}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_ab73340f9dbd2b33fcad2f0beb15adc16}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!SetCursorPosition@{SetCursorPosition}}
+\index{SetCursorPosition@{SetCursorPosition}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{SetCursorPosition()}{SetCursorPosition()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_ab73340f9dbd2b33fcad2f0beb15adc16} 
+void PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Set\+Cursor\+Position (\begin{DoxyParamCaption}\item[{int}]{row}{, }\item[{int}]{col}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a8009be4f72b74d6e3256691cfd45ab59}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!SetScrollRegion@{SetScrollRegion}}
+\index{SetScrollRegion@{SetScrollRegion}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{SetScrollRegion()}{SetScrollRegion()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a8009be4f72b74d6e3256691cfd45ab59} 
+void PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Set\+Scroll\+Region (\begin{DoxyParamCaption}\item[{int}]{top}{, }\item[{int}]{bottom}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a4de7d6f3376604b2d1518e3087bdae03}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!SetStyle@{SetStyle}}
+\index{SetStyle@{SetStyle}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{SetStyle()}{SetStyle()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a4de7d6f3376604b2d1518e3087bdae03} 
+void PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Set\+Style (\begin{DoxyParamCaption}\item[{int}]{row}{, }\item[{int}]{col}{, }\item[{\mbox{\hyperlink{class_p_t200___parser_1_1_style_info}{Style\+Info}}}]{style}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_aa348a8727d103c34d3f7fe9e2f501ca9}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!Tab@{Tab}}
+\index{Tab@{Tab}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{Tab()}{Tab()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_aa348a8727d103c34d3f7fe9e2f501ca9} 
+void PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Tab (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a28d6705beedcdb231343798a9b552f78}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!WriteChar@{WriteChar}}
+\index{WriteChar@{WriteChar}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{WriteChar()}{WriteChar()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a28d6705beedcdb231343798a9b552f78} 
+void PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Write\+Char (\begin{DoxyParamCaption}\item[{char}]{ch}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a3ed0aaf0fc902a642b5658c2f2da579d}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!\_bsflag@{\_bsflag}}
+\index{\_bsflag@{\_bsflag}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{\_bsflag}{\_bsflag}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a3ed0aaf0fc902a642b5658c2f2da579d} 
+bool PT200\+\_\+\+Parser.\+Screen\+Buffer.\+\_\+bsflag}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a23e04ff83b2df5265574d992f3a7e275}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!\_systemLineBuffer@{\_systemLineBuffer}}
+\index{\_systemLineBuffer@{\_systemLineBuffer}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{\_systemLineBuffer}{\_systemLineBuffer}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a23e04ff83b2df5265574d992f3a7e275} 
+readonly \mbox{\hyperlink{struct_p_t200___parser_1_1_screen_buffer_1_1_screen_cell}{Screen\+Cell}} \mbox{[}$\,$\mbox{]} PT200\+\_\+\+Parser.\+Screen\+Buffer.\+\_\+system\+Line\+Buffer}
+
+
+
+\label{doc-property-members}
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_af5c307ff463515b1354ed3d619237a4b}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!clearScreen@{clearScreen}}
+\index{clearScreen@{clearScreen}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{clearScreen}{clearScreen}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_af5c307ff463515b1354ed3d619237a4b} 
+bool PT200\+\_\+\+Parser.\+Screen\+Buffer.\+clear\+Screen = false\hspace{0.3cm}{\ttfamily [get]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a1fe6a864d6d33c85823e9eb9cf8d71cb}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!Cols@{Cols}}
+\index{Cols@{Cols}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{Cols}{Cols}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a1fe6a864d6d33c85823e9eb9cf8d71cb} 
+int PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Cols\hspace{0.3cm}{\ttfamily [get]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_aa1da4777690f731974e6c64bb5a8b153}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!CurrentStyle@{CurrentStyle}}
+\index{CurrentStyle@{CurrentStyle}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{CurrentStyle}{CurrentStyle}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_aa1da4777690f731974e6c64bb5a8b153} 
+\mbox{\hyperlink{class_p_t200___parser_1_1_style_info}{Style\+Info}} PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Current\+Style = new \mbox{\hyperlink{class_p_t200___parser_1_1_style_info}{Style\+Info}}()\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_ad54ddb4ee4dbb95a0e1588b360fd20cf}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!CursorCol@{CursorCol}}
+\index{CursorCol@{CursorCol}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{CursorCol}{CursorCol}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_ad54ddb4ee4dbb95a0e1588b360fd20cf} 
+int PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Cursor\+Col\hspace{0.3cm}{\ttfamily [get]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_ab6c8282a2a9dcde8156839123484e85b}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!CursorRow@{CursorRow}}
+\index{CursorRow@{CursorRow}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{CursorRow}{CursorRow}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_ab6c8282a2a9dcde8156839123484e85b} 
+int PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Cursor\+Row\hspace{0.3cm}{\ttfamily [get]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_ac557f46a22d5897fe59bcc043d9fed75}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!forceRedraw@{forceRedraw}}
+\index{forceRedraw@{forceRedraw}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{forceRedraw}{forceRedraw}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_ac557f46a22d5897fe59bcc043d9fed75} 
+bool PT200\+\_\+\+Parser.\+Screen\+Buffer.\+force\+Redraw = false\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a663850a49254a2a7e4bd1f1c3e407ae9}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!RowLocks@{RowLocks}}
+\index{RowLocks@{RowLocks}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{RowLocks}{RowLocks}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a663850a49254a2a7e4bd1f1c3e407ae9} 
+\mbox{\hyperlink{class_p_t200___parser_1_1_row_lock_manager}{Row\+Lock\+Manager}} PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Row\+Locks = new()\hspace{0.3cm}{\ttfamily [get]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_abe4567642a3c51b8d40cfb826eb2d058}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!Rows@{Rows}}
+\index{Rows@{Rows}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{Rows}{Rows}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_abe4567642a3c51b8d40cfb826eb2d058} 
+int PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Rows\hspace{0.3cm}{\ttfamily [get]}}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a51277afd365edb5b75cb895f73fd4fd8}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!ZoneAttributes@{ZoneAttributes}}
+\index{ZoneAttributes@{ZoneAttributes}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{ZoneAttributes}{ZoneAttributes}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a51277afd365edb5b75cb895f73fd4fd8} 
+\mbox{\hyperlink{class_p_t200___parser_1_1_style_info}{Style\+Info}} \mbox{[},\mbox{]} PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Zone\+Attributes\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+\label{doc-event-members}
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_doc-event-members}
+\doxysubsection{Event Documentation}
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a91084e7f46567774ddafc24f675818d1}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!BufferUpdated@{BufferUpdated}}
+\index{BufferUpdated@{BufferUpdated}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{BufferUpdated}{BufferUpdated}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a91084e7f46567774ddafc24f675818d1} 
+Action PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Buffer\+Updated}
+
+\Hypertarget{class_p_t200___parser_1_1_screen_buffer_a863312bebce90277855e29e9a5169ca3}\index{PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}!Scrolled@{Scrolled}}
+\index{Scrolled@{Scrolled}!PT200\_Parser.ScreenBuffer@{PT200\_Parser.ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{Scrolled}{Scrolled}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_screen_buffer_a863312bebce90277855e29e9a5169ca3} 
+Action PT200\+\_\+\+Parser.\+Screen\+Buffer.\+Scrolled}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+PT200\+\_\+\+Parser/\mbox{\hyperlink{_screen_buffer_8cs}{Screen\+Buffer.\+cs}}\end{DoxyCompactItemize}

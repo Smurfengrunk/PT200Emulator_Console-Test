@@ -1,0 +1,163 @@
+\doxysection{PT200\+\_\+\+Parser.\+Terminal\+Parser Class Reference}
+\hypertarget{class_p_t200___parser_1_1_terminal_parser}{}\label{class_p_t200___parser_1_1_terminal_parser}\index{PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}}
+Inheritance diagram for PT200\+\_\+\+Parser.\+Terminal\+Parser\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_p_t200___parser_1_1_terminal_parser}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_parser_a9ecee0b9b7530a72eb2601e5857df4d0}{Translate}} (byte code)
+\item 
+\mbox{\hyperlink{class_p_t200___parser_1_1_terminal_parser_a53a9893874f500c6607313595a95316e}{Terminal\+Parser}} (\mbox{\hyperlink{class_data_path_provider}{Data\+Path\+Provider}} paths, \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state}{Terminal\+State}} state, \mbox{\hyperlink{class_p_t200___parser_1_1_mode_manager}{Mode\+Manager}} mode\+Manager)
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_parser_a36d2e361561f58ba75881709b43277ea}{Feed}} (byte\mbox{[}$\,$\mbox{]} data)
+\begin{DoxyCompactList}\small\item\em Tar emot inkommande bytes och tolkar dem. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_parser_a40e36d4d13ea50439c00d2923f5150db}{Feed}} (Read\+Only\+Span$<$ byte $>$ data)
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_parser_ac08cbbf5a1c72c1919068980d15eb1fb}{Parse}} (string sequence)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+readonly \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state}{Terminal\+State}} \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_parser_a73370352bce2d67d160bc79b4eb8a024}{term\+State}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_parser_a6f8b97d8842b43fc6d38fd9441f2afe4}{in\+Emacs}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+\mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer}{Screen\+Buffer}} \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_parser_a53477d03c88b4a00ac91406641f9874f}{Screenbuffer}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+\mbox{\hyperlink{class_p_t200___parser_1_1_dcs_sequence_handler}{Dcs\+Sequence\+Handler}} \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_parser_aa4eb99c560b33def906debe9e541ee9b}{\+\_\+dcs\+Handler}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+\mbox{\hyperlink{class_p_t200___parser_1_1_csi_sequence_handler}{Csi\+Sequence\+Handler}} \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_parser_a1dea5105ceecbd7e3832e586402c474e}{\+\_\+csi\+Handler}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+\mbox{\hyperlink{class_p_t200___parser_1_1_visual_attribute_manager}{Visual\+Attribute\+Manager}} \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_parser_afda6e46276833ae05bdbc9e22c2ba82b}{visual\+Attribute\+Manager}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+Action$<$ byte\mbox{[}$\,$\mbox{]}$>$ \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_parser_ad3b2a67e557005e0270059d8590d0329}{Dcs\+Response}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Events inherited from \mbox{\hyperlink{interface_p_t200___parser_1_1_i_terminal_parser}{PT200\+\_\+\+Parser.\+ITerminal\+Parser}}}
+\begin{DoxyCompactItemize}
+\item 
+Action$<$ byte\mbox{[}$\,$\mbox{]}$>$ \mbox{\hyperlink{interface_p_t200___parser_1_1_i_terminal_parser_ab14332185f05e74f6bbfc12397733d38}{Dcs\+Response}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_p_t200___parser_1_1_terminal_parser_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_p_t200___parser_1_1_terminal_parser_a53a9893874f500c6607313595a95316e}\index{PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}!TerminalParser@{TerminalParser}}
+\index{TerminalParser@{TerminalParser}!PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}}
+\doxysubsubsection{\texorpdfstring{TerminalParser()}{TerminalParser()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_parser_a53a9893874f500c6607313595a95316e} 
+PT200\+\_\+\+Parser.\+Terminal\+Parser.\+Terminal\+Parser (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_data_path_provider}{Data\+Path\+Provider}}}]{paths}{, }\item[{\mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state}{Terminal\+State}}}]{state}{, }\item[{\mbox{\hyperlink{class_p_t200___parser_1_1_mode_manager}{Mode\+Manager}}}]{mode\+Manager}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_p_t200___parser_1_1_terminal_parser_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_p_t200___parser_1_1_terminal_parser_a36d2e361561f58ba75881709b43277ea}\index{PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}!Feed@{Feed}}
+\index{Feed@{Feed}!PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}}
+\doxysubsubsection{\texorpdfstring{Feed()}{Feed()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_parser_a36d2e361561f58ba75881709b43277ea} 
+void PT200\+\_\+\+Parser.\+Terminal\+Parser.\+Feed (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Tar emot inkommande bytes och tolkar dem. 
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_parser_a40e36d4d13ea50439c00d2923f5150db}\index{PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}!Feed@{Feed}}
+\index{Feed@{Feed}!PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}}
+\doxysubsubsection{\texorpdfstring{Feed()}{Feed()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_parser_a40e36d4d13ea50439c00d2923f5150db} 
+void PT200\+\_\+\+Parser.\+Terminal\+Parser.\+Feed (\begin{DoxyParamCaption}\item[{Read\+Only\+Span$<$ byte $>$}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implements \mbox{\hyperlink{interface_p_t200___parser_1_1_i_terminal_parser_a148cc7e2a803f82b5d3db5cfe4b72366}{PT200\+\_\+\+Parser.\+ITerminal\+Parser}}.
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_parser_ac08cbbf5a1c72c1919068980d15eb1fb}\index{PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}!Parse@{Parse}}
+\index{Parse@{Parse}!PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}}
+\doxysubsubsection{\texorpdfstring{Parse()}{Parse()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_parser_ac08cbbf5a1c72c1919068980d15eb1fb} 
+void PT200\+\_\+\+Parser.\+Terminal\+Parser.\+Parse (\begin{DoxyParamCaption}\item[{string}]{sequence}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_parser_a9ecee0b9b7530a72eb2601e5857df4d0}\index{PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}!Translate@{Translate}}
+\index{Translate@{Translate}!PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}}
+\doxysubsubsection{\texorpdfstring{Translate()}{Translate()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_parser_a9ecee0b9b7530a72eb2601e5857df4d0} 
+char PT200\+\_\+\+Parser.\+Terminal\+Parser.\+Translate (\begin{DoxyParamCaption}\item[{byte}]{code}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_p_t200___parser_1_1_terminal_parser_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_p_t200___parser_1_1_terminal_parser_a73370352bce2d67d160bc79b4eb8a024}\index{PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}!termState@{termState}}
+\index{termState@{termState}!PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}}
+\doxysubsubsection{\texorpdfstring{termState}{termState}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_parser_a73370352bce2d67d160bc79b4eb8a024} 
+readonly \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state}{Terminal\+State}} PT200\+\_\+\+Parser.\+Terminal\+Parser.\+term\+State}
+
+
+
+\label{doc-property-members}
+\Hypertarget{class_p_t200___parser_1_1_terminal_parser_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_p_t200___parser_1_1_terminal_parser_a1dea5105ceecbd7e3832e586402c474e}\index{PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}!\_csiHandler@{\_csiHandler}}
+\index{\_csiHandler@{\_csiHandler}!PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}}
+\doxysubsubsection{\texorpdfstring{\_csiHandler}{\_csiHandler}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_parser_a1dea5105ceecbd7e3832e586402c474e} 
+\mbox{\hyperlink{class_p_t200___parser_1_1_csi_sequence_handler}{Csi\+Sequence\+Handler}} PT200\+\_\+\+Parser.\+Terminal\+Parser.\+\_\+csi\+Handler\hspace{0.3cm}{\ttfamily [get]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_parser_aa4eb99c560b33def906debe9e541ee9b}\index{PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}!\_dcsHandler@{\_dcsHandler}}
+\index{\_dcsHandler@{\_dcsHandler}!PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}}
+\doxysubsubsection{\texorpdfstring{\_dcsHandler}{\_dcsHandler}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_parser_aa4eb99c560b33def906debe9e541ee9b} 
+\mbox{\hyperlink{class_p_t200___parser_1_1_dcs_sequence_handler}{Dcs\+Sequence\+Handler}} PT200\+\_\+\+Parser.\+Terminal\+Parser.\+\_\+dcs\+Handler\hspace{0.3cm}{\ttfamily [get]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_parser_a6f8b97d8842b43fc6d38fd9441f2afe4}\index{PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}!inEmacs@{inEmacs}}
+\index{inEmacs@{inEmacs}!PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}}
+\doxysubsubsection{\texorpdfstring{inEmacs}{inEmacs}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_parser_a6f8b97d8842b43fc6d38fd9441f2afe4} 
+bool PT200\+\_\+\+Parser.\+Terminal\+Parser.\+in\+Emacs\hspace{0.3cm}{\ttfamily [get]}}
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_parser_a53477d03c88b4a00ac91406641f9874f}\index{PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}!Screenbuffer@{Screenbuffer}}
+\index{Screenbuffer@{Screenbuffer}!PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}}
+\doxysubsubsection{\texorpdfstring{Screenbuffer}{Screenbuffer}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_parser_a53477d03c88b4a00ac91406641f9874f} 
+\mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer}{Screen\+Buffer}} PT200\+\_\+\+Parser.\+Terminal\+Parser.\+Screenbuffer\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Implements \mbox{\hyperlink{interface_p_t200___parser_1_1_i_terminal_parser_a0666078145fb27342fa91a688a5b3418}{PT200\+\_\+\+Parser.\+ITerminal\+Parser}}.
+
+\Hypertarget{class_p_t200___parser_1_1_terminal_parser_afda6e46276833ae05bdbc9e22c2ba82b}\index{PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}!visualAttributeManager@{visualAttributeManager}}
+\index{visualAttributeManager@{visualAttributeManager}!PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}}
+\doxysubsubsection{\texorpdfstring{visualAttributeManager}{visualAttributeManager}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_parser_afda6e46276833ae05bdbc9e22c2ba82b} 
+\mbox{\hyperlink{class_p_t200___parser_1_1_visual_attribute_manager}{Visual\+Attribute\+Manager}} PT200\+\_\+\+Parser.\+Terminal\+Parser.\+visual\+Attribute\+Manager\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+\label{doc-event-members}
+\Hypertarget{class_p_t200___parser_1_1_terminal_parser_doc-event-members}
+\doxysubsection{Event Documentation}
+\Hypertarget{class_p_t200___parser_1_1_terminal_parser_ad3b2a67e557005e0270059d8590d0329}\index{PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}!DcsResponse@{DcsResponse}}
+\index{DcsResponse@{DcsResponse}!PT200\_Parser.TerminalParser@{PT200\_Parser.TerminalParser}}
+\doxysubsubsection{\texorpdfstring{DcsResponse}{DcsResponse}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_terminal_parser_ad3b2a67e557005e0270059d8590d0329} 
+Action$<$byte\mbox{[}$\,$\mbox{]}$>$ PT200\+\_\+\+Parser.\+Terminal\+Parser.\+Dcs\+Response}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+PT200\+\_\+\+Parser/\mbox{\hyperlink{_terminal_parser_8cs}{Terminal\+Parser.\+cs}}\end{DoxyCompactItemize}

@@ -1,6 +1,8 @@
 ﻿using System.Text;
-using PT200_Parser;
+
 using PT200_InputHandler;
+
+using PT200_Parser;
 
 public class ConsoleAdapter
 {
@@ -20,10 +22,10 @@ public class ConsoleAdapter
     {
         while (true)
         {
-          var keyInfo = Console.ReadKey(intercept: true);
+            ConsoleKeyInfo keyInfo = Console.ReadKey(intercept: true);
             if ("åäöÅÄÖ".Contains(keyInfo.KeyChar))
             {
-                var mapped = MapSwedishChar(keyInfo.KeyChar);
+                byte mapped = MapSwedishChar(keyInfo.KeyChar);
                 _send(new byte[] { mapped });
                 continue;
             }
@@ -42,8 +44,8 @@ public class ConsoleAdapter
 
             else if (SpecialKeyMap.TryGetValue(keyInfo.Key, out var scanCode))
             {
-                var ev = new KeyEvent(scanCode, TranslateModifiers(keyInfo.Modifiers));
-                var mapped = _mapper.MapKey(ev);
+                KeyEvent ev = new KeyEvent(scanCode, TranslateModifiers(keyInfo.Modifiers));
+                byte[]? mapped = _mapper.MapKey(ev);
                 if (mapped != null) _send(mapped);
             }
             else

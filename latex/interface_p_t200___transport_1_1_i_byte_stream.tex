@@ -1,0 +1,109 @@
+\doxysection{PT200\+\_\+\+Transport.\+IByte\+Stream Interface Reference}
+\hypertarget{interface_p_t200___transport_1_1_i_byte_stream}{}\label{interface_p_t200___transport_1_1_i_byte_stream}\index{PT200\_Transport.IByteStream@{PT200\_Transport.IByteStream}}
+Inheritance diagram for PT200\+\_\+\+Transport.\+IByte\+Stream\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{interface_p_t200___transport_1_1_i_byte_stream}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ bool $>$ \mbox{\hyperlink{interface_p_t200___transport_1_1_i_byte_stream_a9d4e1cc9506d84fc39d626f5ee3ffa09}{Connect\+Async}} (string host, int port, Cancellation\+Token cancellation\+Token=default)
+\begin{DoxyCompactList}\small\item\em Etablerar en anslutning till given host och port. \end{DoxyCompactList}\item 
+Task \mbox{\hyperlink{interface_p_t200___transport_1_1_i_byte_stream_a3ab3212c14b1b9cc0b292cb39ff0b210}{Disconnect\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Kopplar ned anslutningen. \end{DoxyCompactList}\item 
+Task \mbox{\hyperlink{interface_p_t200___transport_1_1_i_byte_stream_aea61524f10b29d9fa488fdc3b57ab8ec}{Start\+Receive\+Loop}} (Cancellation\+Token cancellation\+Token=default)
+\begin{DoxyCompactList}\small\item\em Startar vänteloop för data från servern. \end{DoxyCompactList}\item 
+Task \mbox{\hyperlink{interface_p_t200___transport_1_1_i_byte_stream_a8757c1bcd5b1b5a51004329340eed187}{Write\+Async}} (byte\mbox{[}$\,$\mbox{]} buffer, Cancellation\+Token cancellation\+Token=default)
+\begin{DoxyCompactList}\small\item\em Skickar data som råa bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+Action$<$ byte\mbox{[}$\,$\mbox{]}$>$ \mbox{\hyperlink{interface_p_t200___transport_1_1_i_byte_stream_a93356760899b2ce7a23459fe5ba96f98}{Data\+Received}}
+\item 
+Action \mbox{\hyperlink{interface_p_t200___transport_1_1_i_byte_stream_ab1aeb29e6995245dd9c6116d890cc262}{Disconnected}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{interface_p_t200___transport_1_1_i_byte_stream_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interface_p_t200___transport_1_1_i_byte_stream_a9d4e1cc9506d84fc39d626f5ee3ffa09}\index{PT200\_Transport.IByteStream@{PT200\_Transport.IByteStream}!ConnectAsync@{ConnectAsync}}
+\index{ConnectAsync@{ConnectAsync}!PT200\_Transport.IByteStream@{PT200\_Transport.IByteStream}}
+\doxysubsubsection{\texorpdfstring{ConnectAsync()}{ConnectAsync()}}
+{\footnotesize\ttfamily \label{interface_p_t200___transport_1_1_i_byte_stream_a9d4e1cc9506d84fc39d626f5ee3ffa09} 
+Task$<$ bool $>$ PT200\+\_\+\+Transport.\+IByte\+Stream.\+Connect\+Async (\begin{DoxyParamCaption}\item[{string}]{host}{, }\item[{int}]{port}{, }\item[{Cancellation\+Token}]{cancellation\+Token}{ = {\ttfamily default}}\end{DoxyParamCaption})}
+
+
+
+Etablerar en anslutning till given host och port. 
+
+
+
+Implemented in \mbox{\hyperlink{class_p_t200___transport_1_1_telnet_byte_stream_afa2410537a5bb752b8ee7c91c0c5e508}{PT200\+\_\+\+Transport.\+Telnet\+Byte\+Stream}}.
+
+\Hypertarget{interface_p_t200___transport_1_1_i_byte_stream_a3ab3212c14b1b9cc0b292cb39ff0b210}\index{PT200\_Transport.IByteStream@{PT200\_Transport.IByteStream}!DisconnectAsync@{DisconnectAsync}}
+\index{DisconnectAsync@{DisconnectAsync}!PT200\_Transport.IByteStream@{PT200\_Transport.IByteStream}}
+\doxysubsubsection{\texorpdfstring{DisconnectAsync()}{DisconnectAsync()}}
+{\footnotesize\ttfamily \label{interface_p_t200___transport_1_1_i_byte_stream_a3ab3212c14b1b9cc0b292cb39ff0b210} 
+Task PT200\+\_\+\+Transport.\+IByte\+Stream.\+Disconnect\+Async (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Kopplar ned anslutningen. 
+
+
+
+Implemented in \mbox{\hyperlink{class_p_t200___transport_1_1_telnet_byte_stream_a12c9795b0ea3331fb919b9bb89028a39}{PT200\+\_\+\+Transport.\+Telnet\+Byte\+Stream}}.
+
+\Hypertarget{interface_p_t200___transport_1_1_i_byte_stream_aea61524f10b29d9fa488fdc3b57ab8ec}\index{PT200\_Transport.IByteStream@{PT200\_Transport.IByteStream}!StartReceiveLoop@{StartReceiveLoop}}
+\index{StartReceiveLoop@{StartReceiveLoop}!PT200\_Transport.IByteStream@{PT200\_Transport.IByteStream}}
+\doxysubsubsection{\texorpdfstring{StartReceiveLoop()}{StartReceiveLoop()}}
+{\footnotesize\ttfamily \label{interface_p_t200___transport_1_1_i_byte_stream_aea61524f10b29d9fa488fdc3b57ab8ec} 
+Task PT200\+\_\+\+Transport.\+IByte\+Stream.\+Start\+Receive\+Loop (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{cancellation\+Token}{ = {\ttfamily default}}\end{DoxyParamCaption})}
+
+
+
+Startar vänteloop för data från servern. 
+
+
+
+Implemented in \mbox{\hyperlink{class_p_t200___transport_1_1_telnet_byte_stream_acc516ec0a325a4cfbd45561ffed28c14}{PT200\+\_\+\+Transport.\+Telnet\+Byte\+Stream}}.
+
+\Hypertarget{interface_p_t200___transport_1_1_i_byte_stream_a8757c1bcd5b1b5a51004329340eed187}\index{PT200\_Transport.IByteStream@{PT200\_Transport.IByteStream}!WriteAsync@{WriteAsync}}
+\index{WriteAsync@{WriteAsync}!PT200\_Transport.IByteStream@{PT200\_Transport.IByteStream}}
+\doxysubsubsection{\texorpdfstring{WriteAsync()}{WriteAsync()}}
+{\footnotesize\ttfamily \label{interface_p_t200___transport_1_1_i_byte_stream_a8757c1bcd5b1b5a51004329340eed187} 
+Task PT200\+\_\+\+Transport.\+IByte\+Stream.\+Write\+Async (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{buffer}{, }\item[{Cancellation\+Token}]{cancellation\+Token}{ = {\ttfamily default}}\end{DoxyParamCaption})}
+
+
+
+Skickar data som råa bytes. 
+
+summary\texorpdfstring{$>$}{>} Event för att slippa loopa i onädan /summary\texorpdfstring{$>$}{>} 
+
+Implemented in \mbox{\hyperlink{class_p_t200___transport_1_1_telnet_byte_stream_a880980a40717bf8b39b4edacc0c59916}{PT200\+\_\+\+Transport.\+Telnet\+Byte\+Stream}}.
+
+
+
+\label{doc-event-members}
+\Hypertarget{interface_p_t200___transport_1_1_i_byte_stream_doc-event-members}
+\doxysubsection{Event Documentation}
+\Hypertarget{interface_p_t200___transport_1_1_i_byte_stream_a93356760899b2ce7a23459fe5ba96f98}\index{PT200\_Transport.IByteStream@{PT200\_Transport.IByteStream}!DataReceived@{DataReceived}}
+\index{DataReceived@{DataReceived}!PT200\_Transport.IByteStream@{PT200\_Transport.IByteStream}}
+\doxysubsubsection{\texorpdfstring{DataReceived}{DataReceived}}
+{\footnotesize\ttfamily \label{interface_p_t200___transport_1_1_i_byte_stream_a93356760899b2ce7a23459fe5ba96f98} 
+Action$<$byte\mbox{[}$\,$\mbox{]}$>$ PT200\+\_\+\+Transport.\+IByte\+Stream.\+Data\+Received}
+
+\Hypertarget{interface_p_t200___transport_1_1_i_byte_stream_ab1aeb29e6995245dd9c6116d890cc262}\index{PT200\_Transport.IByteStream@{PT200\_Transport.IByteStream}!Disconnected@{Disconnected}}
+\index{Disconnected@{Disconnected}!PT200\_Transport.IByteStream@{PT200\_Transport.IByteStream}}
+\doxysubsubsection{\texorpdfstring{Disconnected}{Disconnected}}
+{\footnotesize\ttfamily \label{interface_p_t200___transport_1_1_i_byte_stream_ab1aeb29e6995245dd9c6116d890cc262} 
+Action PT200\+\_\+\+Transport.\+IByte\+Stream.\+Disconnected}
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+PT200\+\_\+\+Transport/\mbox{\hyperlink{_i_byte_stream_8cs}{IByte\+Stream.\+cs}}\end{DoxyCompactItemize}

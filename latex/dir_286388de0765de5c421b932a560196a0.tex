@@ -1,0 +1,45 @@
+\doxysection{PT200\+\_\+\+Parser Directory Reference}
+\hypertarget{dir_286388de0765de5c421b932a560196a0}{}\label{dir_286388de0765de5c421b932a560196a0}\index{PT200\_Parser Directory Reference@{PT200\_Parser Directory Reference}}
+\doxysubsubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{_char_table_manager_8cs}{Char\+Table\+Manager.\+cs}}
+\item 
+file \mbox{\hyperlink{_csi_sequence_handler_8cs}{Csi\+Sequence\+Handler.\+cs}}
+\item 
+file \mbox{\hyperlink{_data_path_provider_8cs}{Data\+Path\+Provider.\+cs}}
+\item 
+file \mbox{\hyperlink{_dcs_sequence_handler_8cs}{Dcs\+Sequence\+Handler.\+cs}}
+\item 
+file \mbox{\hyperlink{_escape_sequence_handler_8cs}{Escape\+Sequence\+Handler.\+cs}}
+\item 
+file \mbox{\hyperlink{_i_caret_controller_8cs}{ICaret\+Controller.\+cs}}
+\item 
+file \mbox{\hyperlink{_i_terminal_parser_8cs}{ITerminal\+Parser.\+cs}}
+\item 
+file \mbox{\hyperlink{_localization_provider_8cs}{Localization\+Provider.\+cs}}
+\item 
+file \mbox{\hyperlink{_mode_manager_8cs}{Mode\+Manager.\+cs}}
+\item 
+file \mbox{\hyperlink{_screen_buffer_8cs}{Screen\+Buffer.\+cs}}
+\item 
+file \mbox{\hyperlink{_terminal_parser_8cs}{Terminal\+Parser.\+cs}}
+\item 
+file \mbox{\hyperlink{_terminal_state_8cs}{Terminal\+State.\+cs}}
+\item 
+file \mbox{\hyperlink{_visual_attribute_manager_8cs}{Visual\+Attribute\+Manager.\+cs}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\hypertarget{dir_286388de0765de5c421b932a560196a0_autotoc_md8}{}\doxysubsection{\texorpdfstring{Parser‑modulen}{Parser‑modulen}}\label{dir_286388de0765de5c421b932a560196a0_autotoc_md8}
+Parsern ansvarar för att tolka inkommande byte‑strömmar och översätta dem till semantiska åtgärder ({\itshape Terminal\+Actions}). ~\newline
+ Den exponerar följande publika API\+:
+
+\`{}\`{}\`{}csharp public interface ITerminal\+Parser \{ void Feed(\+Read\+Only\+Span$<$byte$>$ data);
+
+event Action$<$byte\mbox{[}$\,$\mbox{]}$>$ Dcs\+Response;
+
+Screen\+Buffer Screenbuffer \{ get; \} \}
+
+// Terminal\+Actions public abstract record Terminal\+Action; public record Print\+Text(string Text) \+: Terminal\+Action; public record Move\+Cursor(int Row, int Col) \+: Terminal\+Action; public record Clear\+Screen() \+: Terminal\+Action; public record Set\+Mode\+Action(string Mode) \+: Terminal\+Action; public record Dcs\+Action(string Content) \+: Terminal\+Action; 

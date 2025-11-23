@@ -7,8 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PT200_InputHandler" Version="1.2.1" />
-    <PackageReference Include="PT200_Logging" Version="1.2.1" />
     <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
     <PackageReference Include="System.Text.Json" Version="9.0.10" />
     <PackageReference Include="Telnet" Version="0.13.1" />

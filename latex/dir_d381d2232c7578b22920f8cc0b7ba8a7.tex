@@ -1,0 +1,24 @@
+\doxysection{PT200\+\_\+\+Logging Directory Reference}
+\hypertarget{dir_d381d2232c7578b22920f8cc0b7ba8a7}{}\label{dir_d381d2232c7578b22920f8cc0b7ba8a7}\index{PT200\_Logging Directory Reference@{PT200\_Logging Directory Reference}}
+\doxysubsubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{_log_configuration_8cs}{Log\+Configuration.\+cs}}
+\item 
+file \mbox{\hyperlink{_log_extensions_8cs}{Log\+Extensions.\+cs}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\hypertarget{dir_d381d2232c7578b22920f8cc0b7ba8a7_autotoc_md4}{}\doxysubsection{\texorpdfstring{Logging‑modulen}{Logging‑modulen}}\label{dir_d381d2232c7578b22920f8cc0b7ba8a7_autotoc_md4}
+Logging‑modulen tillhandahåller extension‑metoder för enkel och konsekvent loggning i hela projektet. ~\newline
+ Den bygger på \href{https://serilog.net/}{\texttt{Serilog}} och exponerar ett neutralt API som kan användas från vilken klass som helst.
+
+\DoxyHorRuler{0}
+\hypertarget{dir_d381d2232c7578b22920f8cc0b7ba8a7_autotoc_md6}{}\doxysubsection{\texorpdfstring{Publikt API}{Publikt API}}\label{dir_d381d2232c7578b22920f8cc0b7ba8a7_autotoc_md6}
+\hypertarget{dir_d381d2232c7578b22920f8cc0b7ba8a7_autotoc_md7}{}\doxysubsubsection{\texorpdfstring{Extension‑metoder (klass\+: {\ttfamily Log\+Extensions})}{Extension‑metoder (klass\+: {\ttfamily Log\+Extensions})}}\label{dir_d381d2232c7578b22920f8cc0b7ba8a7_autotoc_md7}
+\`{}\`{}\`{}csharp public static void Log\+Debug(this object \+\_\+, string message, params object\mbox{[}$\,$\mbox{]} args); public static void Log\+Information(this object \+\_\+, string message, params object\mbox{[}$\,$\mbox{]} args); public static void Log\+Warning(this object \+\_\+, string message, params object\mbox{[}$\,$\mbox{]} args); public static void Log\+Err(this object \+\_\+, string message, params object\mbox{[}$\,$\mbox{]} args); public static void Log\+Trace(this object \+\_\+, string message, params object\mbox{[}$\,$\mbox{]} args);
+
+public static void Log\+Stack\+Trace( this object caller, string message = "{}\+Stacktrace"{}, bool include\+Dot\+Net = false, int max\+Frames = 20);
+
+public static class Call\+Origin\+Tracker \{ public static string Get\+Call\+Stack( bool include\+Dot\+Net = false, int max\+Frames = 20); \} 

@@ -1,6 +1,7 @@
-﻿using Serilog;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Text;
+
+using Serilog;
 
 namespace PT200_Logging
 {

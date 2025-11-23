@@ -1,5 +1,6 @@
-﻿using PT200_InputHandler;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
+
+using PT200_InputHandler;
 
 namespace PT200_InputHandler
 {

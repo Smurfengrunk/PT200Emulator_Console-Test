@@ -1,5 +1,7 @@
-﻿using PrimS.Telnet;
-using System.Text;
+﻿using System.Text;
+
+using PrimS.Telnet;
+
 using PT200_Logging;
 
 namespace PT200_Transport
@@ -18,7 +20,7 @@ namespace PT200_Transport
         {
             try
             {
-                var tcpStream = new TcpByteStream(host, port);
+                TcpByteStream tcpStream = new TcpByteStream(host, port);
                 _cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
                 _client = new Client(tcpStream, _cts.Token);
                 await Task.Yield();
@@ -62,7 +64,7 @@ namespace PT200_Transport
             if (_client == null)
                 throw new InvalidOperationException("Not connected.");
 
-            var text = Encoding.ASCII.GetString(buffer);
+            string text = Encoding.ASCII.GetString(buffer);
 
 
             cancellationToken.ThrowIfCancellationRequested();
@@ -101,7 +103,7 @@ namespace PT200_Transport
                         }
                         else
                         {
-                            var bytes = Encoding.ASCII.GetBytes(response);
+                            byte[] bytes = Encoding.ASCII.GetBytes(response);
                             DataReceived?.Invoke(bytes);
                         }
                     }

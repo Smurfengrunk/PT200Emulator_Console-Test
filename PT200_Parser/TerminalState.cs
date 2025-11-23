@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Reflection;
 using System.Text.Json;
+
 using PT200_Logging;
 
 namespace PT200_Parser
@@ -20,6 +21,8 @@ namespace PT200_Parser
         }
         public int Rows { get; private set; }
         public int Columns { get; private set; }
+        public StyleInfo.Color GlobalColorOverride { get; set; } = StyleInfo.Color.Default;
+
 
         public enum DisplayType
         {
@@ -27,7 +30,8 @@ namespace PT200_Parser
             Blue,
             Green,
             Amber,
-            FullColor
+            FullColor,
+            Default
         }
 
         // Exempel på DCS-egenskaper (lägg till alla som finns i din JSON)
@@ -38,7 +42,7 @@ namespace PT200_Parser
         public bool IsBlockMode { get; set; } = false;
         public bool IsLineMode { get; set; } = true;
         public bool IsSoftScroll { get; set; } = false;
-        public ScreenFormat screenFormat { get; set; } = ScreenFormat.S80x24;
+        public ScreenFormat _screenFormat { get; set; } = ScreenFormat.S80x24;
 
 
         // =========================
@@ -114,16 +118,15 @@ namespace PT200_Parser
         }
 
 
-        public TerminalState()
+        public TerminalState(ScreenFormat screenFormat, DisplayType displayType)
         {
-            screenFormat = ScreenFormat.S80x24; // eller default från config
-            Columns = 80;
-            Rows = 24;
+            _screenFormat = screenFormat; // eller default från config
+            (Columns, Rows) = GetDimensions();
         }
 
         public void SetScreenFormat()
         {
-            switch (screenFormat)
+            switch (_screenFormat)
             {
                 case ScreenFormat.S80x24:
                     Columns = 80;
@@ -152,18 +155,18 @@ namespace PT200_Parser
         // Bygger en DCS-sträng: varje gruppbyte + 0x20, separeras med "~"
         public string BuildDcs(string jsonPath)
         {
-            var json = File.ReadAllText(jsonPath);
-            var root = JsonSerializer.Deserialize<DcsBitGroupRoot>(json);
+            string json = File.ReadAllText(jsonPath);
+            DcsBitGroupRoot root = JsonSerializer.Deserialize<DcsBitGroupRoot>(json);
             if (root?.DCSBitGroups == null || root.DCSBitGroups.Count == 0)
                 return string.Empty;
 
-            var groupBytes = new List<byte>();
+            List<byte> groupBytes = new List<byte>();
 
-            foreach (var group in root.DCSBitGroups)
+            foreach (DcsBitGroup group in root.DCSBitGroups)
             {
                 byte b = 0;
 
-                foreach (var bit in group.Bits)
+                foreach (DcsBitMapping bit in group.Bits)
                 {
                     if (string.IsNullOrEmpty(bit.Property))
                         continue;
@@ -171,26 +174,26 @@ namespace PT200_Parser
                     // Försök hantera byte/enum-bitfält
                     if (bit.Property == "screenFormat")
                     {
-                        var val = this.TryGetBitfieldByte("screenFormat");
+                        byte val = this.TryGetBitfieldByte("screenFormat");
                         if ((val & 1 << bit.Bit - 4) != 0) // skifta ner innan maskning
                             b |= (byte)(1 << bit.Bit);
                     }
                     if (bit.Property == "AuxBaudRate")
                     {
-                        var val = this.TryGetBitfieldByte("AuxBaudRate");
+                        byte val = this.TryGetBitfieldByte("AuxBaudRate");
                         if ((val & 1 << bit.Bit - 4) != 0) // skifta ner innan maskning
                             b |= (byte)(1 << bit.Bit);
                     }
                     else if (bit.Property == "Parity")
                     {
-                        var val = this.TryGetBitfieldByte("Parity");
+                        byte val = this.TryGetBitfieldByte("Parity");
                         if ((val & 1 << bit.Bit - 2) != 0) // skifta ner 2 steg
                             b |= (byte)(1 << bit.Bit);
                     }
                     if (bit.Property is "KeyboardRepeatRate" or "HostBaudRate")
                     {
                         // Fallback-namn om JSON: “ScreenFormat” men property heter “screenFormat”
-                        var propName = this.WithFallbackName(bit.Property, char.ToLowerInvariant(bit.Property[0]) + bit.Property[1..]);
+                        string propName = this.WithFallbackName(bit.Property, char.ToLowerInvariant(bit.Property[0]) + bit.Property[1..]);
                         byte val = this.TryGetBitfieldByte(propName);
                         if ((val & 1 << bit.Bit) != 0)
                             b |= (byte)(1 << bit.Bit);
@@ -198,10 +201,10 @@ namespace PT200_Parser
                     else
                     {
                         // Booleans
-                        var propName = this.WithFallbackName(bit.Property, char.ToLowerInvariant(bit.Property[0]) + bit.Property[1..]);
+                        string propName = this.WithFallbackName(bit.Property, char.ToLowerInvariant(bit.Property[0]) + bit.Property[1..]);
                         // Läs bool via reflection
                         bool flag = false;
-                        var p = GetType().GetProperty(propName!, BindingFlags.Public | BindingFlags.Instance);
+                        PropertyInfo p = GetType().GetProperty(propName!, BindingFlags.Public | BindingFlags.Instance);
                         if (p != null && p.PropertyType == typeof(bool))
                             flag = (bool)(p.GetValue(this) ?? false);
                         if (flag)
@@ -214,17 +217,17 @@ namespace PT200_Parser
             }
 
             // Nu grupperar vi: 5 grupper à 2 bytes, 1 grupp à 1 byte
-            var grouped = new List<string>();
+            List<string> grouped = new List<string>();
             for (int i = 0; i < groupBytes.Count;)
             {
                 int groupSize = (i < 10) ? 2 : 1; // 5 grupper = 10 bytes, sen 1 byte
-                var chunk = groupBytes.Skip(i).Take(groupSize).Select(b => (char)b);
+                IEnumerable<char> chunk = groupBytes.Skip(i).Take(groupSize).Select(b => (char)b);
                 grouped.Add(string.Concat(chunk));
                 i += groupSize;
             }
 
-            var payload = string.Join("~", grouped); // 6 grupper, 5 ~
-            var response = "\x1B" + "P" + payload + "\x1B" + "\\";
+            string payload = string.Join("~", grouped); // 6 grupper, 5 ~
+            string response = "\x1B" + "P" + payload + "\x1B" + "\\";
 
             // Validera längd
             if (response.Length != 20)
@@ -236,12 +239,12 @@ namespace PT200_Parser
         // Läser en DCS-sträng: subtraherar 0x20 och applicerar på state
         public void ReadDcs(string jsonPath, string dcsString)
         {
-            var json = File.ReadAllText(jsonPath);
-            var root = JsonSerializer.Deserialize<DcsBitGroupRoot>(json);
+            string json = File.ReadAllText(jsonPath);
+            DcsBitGroupRoot root = JsonSerializer.Deserialize<DcsBitGroupRoot>(json);
             if (root?.DCSBitGroups == null) return;
 
-            var groups = dcsString.Split('~');
-            var bitCache = new Dictionary<string, int>();
+            string[] groups = dcsString.Split('~');
+            Dictionary<string, int> bitCache = new Dictionary<string, int>();
 
             for (int i = 0; i < root.DCSBitGroups.Count && i < groups.Length; i++)
             {
@@ -256,7 +259,7 @@ namespace PT200_Parser
                 // Ta bort offset
                 byte b = (byte)(readable - 0x20);
 
-                foreach (var bit in root.DCSBitGroups[i].Bits)
+                foreach (DcsBitMapping bit in root.DCSBitGroups[i].Bits)
                 {
                     if (string.IsNullOrEmpty(bit.Property))
                         continue;
@@ -307,7 +310,7 @@ namespace PT200_Parser
             }
 
             // Sätt alla bitfält efter att vi läst klart
-            foreach (var kvp in bitCache)
+            foreach (KeyValuePair<string, int> kvp in bitCache)
             {
                 this.TrySetBitfieldByte(kvp.Key, (byte)kvp.Value);
             }
@@ -315,18 +318,18 @@ namespace PT200_Parser
 
         public string GetCurrentDcsStringForDebug(string jsonPath)
         {
-            var json = File.ReadAllText(jsonPath);
-            var root = JsonSerializer.Deserialize<DcsBitGroupRoot>(json);
+            string json = File.ReadAllText(jsonPath);
+            DcsBitGroupRoot root = JsonSerializer.Deserialize<DcsBitGroupRoot>(json);
             if (root?.DCSBitGroups == null || root.DCSBitGroups.Count == 0)
                 return string.Empty;
 
-            var parts = new List<string>();
+            List<string> parts = new List<string>();
 
-            foreach (var group in root.DCSBitGroups)
+            foreach (DcsBitGroup group in root.DCSBitGroups)
             {
                 byte b = 0;
 
-                foreach (var bit in group.Bits)
+                foreach (DcsBitMapping bit in group.Bits)
                 {
                     if (string.IsNullOrEmpty(bit.Property))
                         continue;
@@ -355,7 +358,7 @@ namespace PT200_Parser
 
         public (int Columns, int Rows) GetDimensions()
         {
-            return screenFormat switch
+            return _screenFormat switch
             {
                 ScreenFormat.S80x24 => (80, 24),
                 ScreenFormat.S80x48 => (80, 48),
@@ -376,7 +379,7 @@ namespace PT200_Parser
             this.LogDebug($"IsBlockMode {IsBlockMode}");
             this.LogDebug($"IsLineMode {IsLineMode}");
             this.LogDebug($"IsSoftScroll {IsSoftScroll}");
-            this.LogDebug($"screenFormat {screenFormat}");
+            this.LogDebug($"screenFormat {_screenFormat}");
 
 
             // =========================
@@ -443,7 +446,7 @@ namespace PT200_Parser
             if (target == null || string.IsNullOrEmpty(propertyName))
                 return;
 
-            var prop = target.GetType().GetProperty(propertyName, BindingFlags.Public | BindingFlags.Instance);
+            PropertyInfo prop = target.GetType().GetProperty(propertyName, BindingFlags.Public | BindingFlags.Instance);
             if (prop != null && prop.CanWrite && prop.PropertyType == typeof(T))
             {
                 prop.SetValue(target, value);
@@ -455,10 +458,10 @@ namespace PT200_Parser
             if (target == null || string.IsNullOrEmpty(propertyName))
                 return default!;
 
-            var prop = target.GetType().GetProperty(propertyName, BindingFlags.Public | BindingFlags.Instance);
+            PropertyInfo prop = target.GetType().GetProperty(propertyName, BindingFlags.Public | BindingFlags.Instance);
             if (prop != null && prop.CanRead && prop.PropertyType == typeof(T))
             {
-                var value = prop.GetValue(target);
+                object value = prop.GetValue(target);
                 if (value is T typedValue)
                     return typedValue;
             }
@@ -470,7 +473,7 @@ namespace PT200_Parser
         public static void TrySetBool(this object target, string propertyName, bool value)
         {
             if (target == null || string.IsNullOrEmpty(propertyName)) return;
-            var prop = target.GetType().GetProperty(propertyName, BindingFlags.Public | BindingFlags.Instance);
+            PropertyInfo prop = target.GetType().GetProperty(propertyName, BindingFlags.Public | BindingFlags.Instance);
             if (prop != null && prop.CanWrite && prop.PropertyType == typeof(bool))
                 prop.SetValue(target, value);
         }
@@ -479,11 +482,11 @@ namespace PT200_Parser
         public static byte TryGetBitfieldByte(this object target, string propertyName)
         {
             if (target == null || string.IsNullOrEmpty(propertyName)) return 0;
-            var prop = target.GetType().GetProperty(propertyName, BindingFlags.Public | BindingFlags.Instance);
+            PropertyInfo prop = target.GetType().GetProperty(propertyName, BindingFlags.Public | BindingFlags.Instance);
             if (prop == null || !prop.CanRead) return 0;
 
-            var t = prop.PropertyType;
-            var value = prop.GetValue(target);
+            Type t = prop.PropertyType;
+            object value = prop.GetValue(target);
             if (value == null) return 0;
 
             if (t == typeof(byte)) return (byte)value;
@@ -495,17 +498,17 @@ namespace PT200_Parser
         public static void TrySetBitfieldByte(this object target, string propertyName, byte value)
         {
             if (target == null || string.IsNullOrEmpty(propertyName)) return;
-            var prop = target.GetType().GetProperty(propertyName, BindingFlags.Public | BindingFlags.Instance);
+            PropertyInfo prop = target.GetType().GetProperty(propertyName, BindingFlags.Public | BindingFlags.Instance);
             if (prop == null || !prop.CanWrite) return;
 
-            var t = prop.PropertyType;
+            Type t = prop.PropertyType;
             if (t == typeof(byte))
             {
                 prop.SetValue(target, value);
             }
             else if (t.IsEnum)
             {
-                var enumValue = Enum.ToObject(t, value);
+                object enumValue = Enum.ToObject(t, value);
                 prop.SetValue(target, enumValue);
             }
         }
@@ -514,7 +517,7 @@ namespace PT200_Parser
         public static string WithFallbackName(this object target, string primaryName, string fallbackName = null)
         {
             if (string.IsNullOrEmpty(primaryName)) return fallbackName;
-            var prop = target.GetType().GetProperty(primaryName, BindingFlags.Public | BindingFlags.Instance);
+            PropertyInfo prop = target.GetType().GetProperty(primaryName, BindingFlags.Public | BindingFlags.Instance);
             if (prop != null) return primaryName;
             return fallbackName;
         }
@@ -543,8 +546,8 @@ namespace PT200_Parser
     {
         public static string GetDescription(Enum value)
         {
-            var fi = value.GetType().GetField(value.ToString());
-            var attributes = (DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
+            FieldInfo fi = value.GetType().GetField(value.ToString());
+            DescriptionAttribute[] attributes = (DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
             return (attributes.Length > 0) ? attributes[0].Description : value.ToString();
         }
     }

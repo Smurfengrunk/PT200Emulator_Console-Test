@@ -1,4 +1,5 @@
 ﻿using System.Text;
+
 using PT200_Logging;
 
 namespace PT200_Parser
@@ -25,28 +26,27 @@ namespace PT200_Parser
             if (payload.Length == 0)
             {
                 RaiseStatus("🟡 Väntar på DCS");
-                var dcs = state.BuildDcs(this.jsonPath);
+                string dcs = state.BuildDcs(this.jsonPath);
                 SendDcsResponse(dcs);
                 return;
             }
 
-            var content = Encoding.ASCII.GetString(payload);
+            string content = Encoding.ASCII.GetString(payload);
 
             state.ReadDcs(this.jsonPath, content);
-            var actions = DcsSequenceHandler.Build(content);
-            //ActionsReady?.Invoke(actions);
+            IReadOnlyList<TerminalAction> actions = DcsSequenceHandler.Build(content);
             state.DisplayDCS();
         }
 
         private void SendDcsResponse(string dcs)
         {
-            var bytes = Encoding.ASCII.GetBytes(dcs);
+            byte[] bytes = Encoding.ASCII.GetBytes(dcs);
             this.LogTrace($"[DCS] Using handler hash={this.GetHashCode()}");
             OnDcsResponse?.Invoke(bytes);
         }
         public static IReadOnlyList<TerminalAction> Build(string content)
         {
-            var actions = new List<TerminalAction>();
+            List<TerminalAction> actions = new List<TerminalAction>();
 
             if (content.Contains("BLOCK", StringComparison.OrdinalIgnoreCase))
                 actions.Add(new SetModeAction("BLOCK"));

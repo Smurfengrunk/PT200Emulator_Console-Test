@@ -1,12 +1,16 @@
-﻿using PT200_InputHandler;
-using PT200_Parser;
-using Serilog;
-using System;
-using System.Runtime.CompilerServices;
-using System.Text;
-using PT200_Transport;
+﻿using System.Text;
+
+using PT200_InputHandler;
+
 using PT200_Logging;
+
+using PT200_Parser;
+
 using PT200_Rendering;
+
+using PT200_Transport;
+
+using Serilog;
 
 namespace PT200Emulator
 {
@@ -16,7 +20,7 @@ namespace PT200Emulator
         static IByteStream _stream = new TelnetByteStream();
         public static CancellationTokenSource cts { get; set; } = new CancellationTokenSource();
         public static CancellationTokenSource rcts { get; set; } = CancellationTokenSource.CreateLinkedTokenSource(cts.Token);
-        private static TerminalState _state = new();
+        private static TerminalState _state;
         private static DataPathProvider _basePath = new(AppDomain.CurrentDomain.BaseDirectory);
         private static LocalizationProvider _localization = new();
         private static ModeManager modeManager = new ModeManager(_localization);
@@ -29,11 +33,11 @@ namespace PT200Emulator
 
         private static async Task Main(string[] args)
         {
-            _state.screenFormat = TerminalState.ScreenFormat.S80x24;
+            _state = new TerminalState(TerminalState.ScreenFormat.S80x24, TerminalState.DisplayType.Green);
             _state.SetScreenFormat();
             _parser = new TerminalParser(_basePath, _state, modeManager);
             _mapper = new PT200_InputHandler.PT200_InputHandler().inputMapper;
-            var adapter = new ConsoleAdapter(_mapper, bytes => _stream.WriteAsync(bytes), _parser.Screenbuffer);
+            ConsoleAdapter adapter = new ConsoleAdapter(_mapper, bytes => _stream.WriteAsync(bytes), _parser.Screenbuffer);
             Log.Logger = PT200_LoggingConfiguration.CreateLogger();
 
             _parser.Screenbuffer.BufferUpdated += () => renderer.Render(_parser.Screenbuffer, renderTarget);
@@ -89,8 +93,8 @@ namespace PT200Emulator
         {
             try
             {
-                var disconnectTask = _stream.DisconnectAsync();
-                var completed = await Task.WhenAny(disconnectTask, Task.Delay(2000));
+                Task disconnectTask = _stream.DisconnectAsync();
+                Task completed = await Task.WhenAny(disconnectTask, Task.Delay(2000));
                 if (completed != disconnectTask)
                     Log.Logger.Warning("Disconnect hängde, fortsätter ändå...");
             }
@@ -106,7 +110,7 @@ namespace PT200Emulator
 
             try
             {
-                var bytes = Encoding.ASCII.GetBytes(text);
+                byte[] bytes = Encoding.ASCII.GetBytes(text);
                 await _stream.WriteAsync(bytes, cancellationToken);
                 Log.Logger.Debug($"Skickade {bytes.Length} bytes: \"{text}\"");
                 return true;

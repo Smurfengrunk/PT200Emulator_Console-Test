@@ -9,7 +9,7 @@
   <PropertyGroup>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>PT200_Parser</PackageId>
-    <Version>1.2.9.3</Version>
+    <Version>1.3.0</Version>
     <Authors>Tomas Lundqvist</Authors>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
   </PropertyGroup>
@@ -32,12 +32,10 @@
   <!-- Endast None, med rätt case och Pack=true -->
   <ItemGroup>
     <None Include="Data\**\*.*" Pack="true" PackagePath="contentFiles\any\any\data" PackageCopyToOutput="true" CopyToOutputDirectory="PreserveNewest" />
-
-    <None Include="Resources\**\*.*" Pack="true" PackagePath="contentFiles\any\any\resources" PackageCopyToOutput="true" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="buildTransitive\PT200_Parser.targets" Pack="true" PackagePath="buildTransitive\Parser.targets" />
+    <None Include="buildTransitive\PT200_Parser.targets" Pack="true" PackagePath="buildTransitive\PT200_Parser.targets" />
   </ItemGroup>
 
   <ItemGroup>

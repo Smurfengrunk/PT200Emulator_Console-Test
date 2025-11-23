@@ -1,0 +1,112 @@
+\doxysection{PT200\+\_\+\+Parser.\+Char\+Table\+Manager Class Reference}
+\hypertarget{class_p_t200___parser_1_1_char_table_manager}{}\label{class_p_t200___parser_1_1_char_table_manager}\index{PT200\_Parser.CharTableManager@{PT200\_Parser.CharTableManager}}
+
+
+PT200 har bara två teckentabeller\+: G0 = ASCII, G1 = Special Graphics. GL = G0 eller G1 beroende på active\+GL, GR = alltid G1.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_p_t200___parser_1_1_char_table_manager_a3ae0f47ea6071bf63ba0b8d94465dabc}{Char\+Table\+Manager}} (string g0\+Path, string g1\+Path)
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_char_table_manager_aee26df0b6cc642428a5f55659b0154ff}{Select\+G0}} ()
+\begin{DoxyCompactList}\small\item\em Växla GL till G0 (LS0). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_char_table_manager_af79317a67095365e453b19f8f8f369b4}{Select\+G1}} ()
+\begin{DoxyCompactList}\small\item\em Växla GL till G1 (LS1). \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{class_p_t200___parser_1_1_char_table_manager_a4c5be26dac5eb4980c91167ea8f16e0a}{Translate}} (byte code)
+\begin{DoxyCompactList}\small\item\em Översätt en byte till rätt tecken beroende på GL/\+GR och aktiv tabell. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{class_p_t200___parser_1_1_char_table_manager_a6a56bb777820220c1089daf4e497e06b}{Get\+Glyph\+From\+Table}} (string table\+Name, byte code)
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_char_table_manager_af3da825df81dbf041dfb552d30774859}{Load\+G0\+Ascii}} ()
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_char_table_manager_af7fc4ca45de7af1f3027548f69282655}{Load\+G0\+Graphics}} ()
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_char_table_manager_aed74596b150a8ed287de78fde8315a97}{Load\+G1\+Ascii}} ()
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_char_table_manager_a36b83ae687f7986436198f8dd350f3a3}{Load\+G1\+Graphics}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+PT200 har bara två teckentabeller\+: G0 = ASCII, G1 = Special Graphics. GL = G0 eller G1 beroende på active\+GL, GR = alltid G1. 
+
+\label{doc-constructors}
+\Hypertarget{class_p_t200___parser_1_1_char_table_manager_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_p_t200___parser_1_1_char_table_manager_a3ae0f47ea6071bf63ba0b8d94465dabc}\index{PT200\_Parser.CharTableManager@{PT200\_Parser.CharTableManager}!CharTableManager@{CharTableManager}}
+\index{CharTableManager@{CharTableManager}!PT200\_Parser.CharTableManager@{PT200\_Parser.CharTableManager}}
+\doxysubsubsection{\texorpdfstring{CharTableManager()}{CharTableManager()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_char_table_manager_a3ae0f47ea6071bf63ba0b8d94465dabc} 
+PT200\+\_\+\+Parser.\+Char\+Table\+Manager.\+Char\+Table\+Manager (\begin{DoxyParamCaption}\item[{string}]{g0\+Path}{, }\item[{string}]{g1\+Path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_p_t200___parser_1_1_char_table_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_p_t200___parser_1_1_char_table_manager_a6a56bb777820220c1089daf4e497e06b}\index{PT200\_Parser.CharTableManager@{PT200\_Parser.CharTableManager}!GetGlyphFromTable@{GetGlyphFromTable}}
+\index{GetGlyphFromTable@{GetGlyphFromTable}!PT200\_Parser.CharTableManager@{PT200\_Parser.CharTableManager}}
+\doxysubsubsection{\texorpdfstring{GetGlyphFromTable()}{GetGlyphFromTable()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_char_table_manager_a6a56bb777820220c1089daf4e497e06b} 
+char PT200\+\_\+\+Parser.\+Char\+Table\+Manager.\+Get\+Glyph\+From\+Table (\begin{DoxyParamCaption}\item[{string}]{table\+Name}{, }\item[{byte}]{code}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_char_table_manager_af3da825df81dbf041dfb552d30774859}\index{PT200\_Parser.CharTableManager@{PT200\_Parser.CharTableManager}!LoadG0Ascii@{LoadG0Ascii}}
+\index{LoadG0Ascii@{LoadG0Ascii}!PT200\_Parser.CharTableManager@{PT200\_Parser.CharTableManager}}
+\doxysubsubsection{\texorpdfstring{LoadG0Ascii()}{LoadG0Ascii()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_char_table_manager_af3da825df81dbf041dfb552d30774859} 
+void PT200\+\_\+\+Parser.\+Char\+Table\+Manager.\+Load\+G0\+Ascii (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_p_t200___parser_1_1_char_table_manager_af7fc4ca45de7af1f3027548f69282655}\index{PT200\_Parser.CharTableManager@{PT200\_Parser.CharTableManager}!LoadG0Graphics@{LoadG0Graphics}}
+\index{LoadG0Graphics@{LoadG0Graphics}!PT200\_Parser.CharTableManager@{PT200\_Parser.CharTableManager}}
+\doxysubsubsection{\texorpdfstring{LoadG0Graphics()}{LoadG0Graphics()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_char_table_manager_af7fc4ca45de7af1f3027548f69282655} 
+void PT200\+\_\+\+Parser.\+Char\+Table\+Manager.\+Load\+G0\+Graphics (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_p_t200___parser_1_1_char_table_manager_aed74596b150a8ed287de78fde8315a97}\index{PT200\_Parser.CharTableManager@{PT200\_Parser.CharTableManager}!LoadG1Ascii@{LoadG1Ascii}}
+\index{LoadG1Ascii@{LoadG1Ascii}!PT200\_Parser.CharTableManager@{PT200\_Parser.CharTableManager}}
+\doxysubsubsection{\texorpdfstring{LoadG1Ascii()}{LoadG1Ascii()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_char_table_manager_aed74596b150a8ed287de78fde8315a97} 
+void PT200\+\_\+\+Parser.\+Char\+Table\+Manager.\+Load\+G1\+Ascii (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_p_t200___parser_1_1_char_table_manager_a36b83ae687f7986436198f8dd350f3a3}\index{PT200\_Parser.CharTableManager@{PT200\_Parser.CharTableManager}!LoadG1Graphics@{LoadG1Graphics}}
+\index{LoadG1Graphics@{LoadG1Graphics}!PT200\_Parser.CharTableManager@{PT200\_Parser.CharTableManager}}
+\doxysubsubsection{\texorpdfstring{LoadG1Graphics()}{LoadG1Graphics()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_char_table_manager_a36b83ae687f7986436198f8dd350f3a3} 
+void PT200\+\_\+\+Parser.\+Char\+Table\+Manager.\+Load\+G1\+Graphics (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_p_t200___parser_1_1_char_table_manager_aee26df0b6cc642428a5f55659b0154ff}\index{PT200\_Parser.CharTableManager@{PT200\_Parser.CharTableManager}!SelectG0@{SelectG0}}
+\index{SelectG0@{SelectG0}!PT200\_Parser.CharTableManager@{PT200\_Parser.CharTableManager}}
+\doxysubsubsection{\texorpdfstring{SelectG0()}{SelectG0()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_char_table_manager_aee26df0b6cc642428a5f55659b0154ff} 
+void PT200\+\_\+\+Parser.\+Char\+Table\+Manager.\+Select\+G0 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Växla GL till G0 (LS0). 
+
+\Hypertarget{class_p_t200___parser_1_1_char_table_manager_af79317a67095365e453b19f8f8f369b4}\index{PT200\_Parser.CharTableManager@{PT200\_Parser.CharTableManager}!SelectG1@{SelectG1}}
+\index{SelectG1@{SelectG1}!PT200\_Parser.CharTableManager@{PT200\_Parser.CharTableManager}}
+\doxysubsubsection{\texorpdfstring{SelectG1()}{SelectG1()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_char_table_manager_af79317a67095365e453b19f8f8f369b4} 
+void PT200\+\_\+\+Parser.\+Char\+Table\+Manager.\+Select\+G1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Växla GL till G1 (LS1). 
+
+\Hypertarget{class_p_t200___parser_1_1_char_table_manager_a4c5be26dac5eb4980c91167ea8f16e0a}\index{PT200\_Parser.CharTableManager@{PT200\_Parser.CharTableManager}!Translate@{Translate}}
+\index{Translate@{Translate}!PT200\_Parser.CharTableManager@{PT200\_Parser.CharTableManager}}
+\doxysubsubsection{\texorpdfstring{Translate()}{Translate()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_char_table_manager_a4c5be26dac5eb4980c91167ea8f16e0a} 
+char PT200\+\_\+\+Parser.\+Char\+Table\+Manager.\+Translate (\begin{DoxyParamCaption}\item[{byte}]{code}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Översätt en byte till rätt tecken beroende på GL/\+GR och aktiv tabell. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+PT200\+\_\+\+Parser/\mbox{\hyperlink{_char_table_manager_8cs}{Char\+Table\+Manager.\+cs}}\end{DoxyCompactItemize}

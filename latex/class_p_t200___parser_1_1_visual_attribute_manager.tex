@@ -1,0 +1,101 @@
+\doxysection{PT200\+\_\+\+Parser.\+Visual\+Attribute\+Manager Class Reference}
+\hypertarget{class_p_t200___parser_1_1_visual_attribute_manager}{}\label{class_p_t200___parser_1_1_visual_attribute_manager}\index{PT200\_Parser.VisualAttributeManager@{PT200\_Parser.VisualAttributeManager}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_p_t200___parser_1_1_visual_attribute_manager_1_1_glyph_mode_interpreter}{Glyph\+Mode\+Interpreter}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_p_t200___parser_1_1_visual_attribute_manager_acbd56128ee8e2d51453b855779a12397}{Glyph\+Mode}} \{ \mbox{\hyperlink{class_p_t200___parser_1_1_visual_attribute_manager_acbd56128ee8e2d51453b855779a12397a960b44c579bc2f6818d2daaf9e4c16f0}{Normal}}
+, \mbox{\hyperlink{class_p_t200___parser_1_1_visual_attribute_manager_acbd56128ee8e2d51453b855779a12397a90d9d739140901cd2595d0586797e778}{Line\+Drawing}}
+, \mbox{\hyperlink{class_p_t200___parser_1_1_visual_attribute_manager_acbd56128ee8e2d51453b855779a12397a299e46610e01396bd8492268330da993}{Block\+Drawing}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_visual_attribute_manager_aeef1fa6ba0d04c1b90d89832710d8346}{Change\+Display\+Attributes}} (int scope, string\mbox{[}$\,$\mbox{]} parameters, \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer}{Screen\+Buffer}} buffer, \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state}{Terminal\+State}} terminal)
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_visual_attribute_manager_ac86a4d18b1baffd1b585deb671f57f27}{Apply\+Style\+To\+Scope}} (int scope, \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer}{Screen\+Buffer}} buffer, \mbox{\hyperlink{class_p_t200___parser_1_1_style_info}{Style\+Info}} style)
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_visual_attribute_manager_a30fa16cc3f259f1b2e3714b828f5b80a}{Handle\+SGR}} (string\mbox{[}$\,$\mbox{]} parameters, \mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer}{Screen\+Buffer}} buffer, \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state}{Terminal\+State}} terminal)
+\item 
+void \mbox{\hyperlink{class_p_t200___parser_1_1_visual_attribute_manager_a6f2645284d52ce39c1d5aa6e72a29fda}{Handle\+Color\+Mode\+Command}} (string\mbox{[}$\,$\mbox{]} parameters, \mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state}{Terminal\+State}} terminal)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+Action \mbox{\hyperlink{class_p_t200___parser_1_1_visual_attribute_manager_a16bc8ef160bbe938bddd1746c83df64a}{Display\+Type\+Changed}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-enum-members}
+\Hypertarget{class_p_t200___parser_1_1_visual_attribute_manager_doc-enum-members}
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_p_t200___parser_1_1_visual_attribute_manager_acbd56128ee8e2d51453b855779a12397}\index{PT200\_Parser.VisualAttributeManager@{PT200\_Parser.VisualAttributeManager}!GlyphMode@{GlyphMode}}
+\index{GlyphMode@{GlyphMode}!PT200\_Parser.VisualAttributeManager@{PT200\_Parser.VisualAttributeManager}}
+\doxysubsubsection{\texorpdfstring{GlyphMode}{GlyphMode}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_visual_attribute_manager_acbd56128ee8e2d51453b855779a12397} 
+enum \mbox{\hyperlink{class_p_t200___parser_1_1_visual_attribute_manager_acbd56128ee8e2d51453b855779a12397}{PT200\+\_\+\+Parser.\+Visual\+Attribute\+Manager.\+Glyph\+Mode}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Normal@{Normal}!PT200\_Parser.VisualAttributeManager@{PT200\_Parser.VisualAttributeManager}}\index{PT200\_Parser.VisualAttributeManager@{PT200\_Parser.VisualAttributeManager}!Normal@{Normal}}}\Hypertarget{class_p_t200___parser_1_1_visual_attribute_manager_acbd56128ee8e2d51453b855779a12397a960b44c579bc2f6818d2daaf9e4c16f0}\label{class_p_t200___parser_1_1_visual_attribute_manager_acbd56128ee8e2d51453b855779a12397a960b44c579bc2f6818d2daaf9e4c16f0} 
+Normal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LineDrawing@{LineDrawing}!PT200\_Parser.VisualAttributeManager@{PT200\_Parser.VisualAttributeManager}}\index{PT200\_Parser.VisualAttributeManager@{PT200\_Parser.VisualAttributeManager}!LineDrawing@{LineDrawing}}}\Hypertarget{class_p_t200___parser_1_1_visual_attribute_manager_acbd56128ee8e2d51453b855779a12397a90d9d739140901cd2595d0586797e778}\label{class_p_t200___parser_1_1_visual_attribute_manager_acbd56128ee8e2d51453b855779a12397a90d9d739140901cd2595d0586797e778} 
+Line\+Drawing&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BlockDrawing@{BlockDrawing}!PT200\_Parser.VisualAttributeManager@{PT200\_Parser.VisualAttributeManager}}\index{PT200\_Parser.VisualAttributeManager@{PT200\_Parser.VisualAttributeManager}!BlockDrawing@{BlockDrawing}}}\Hypertarget{class_p_t200___parser_1_1_visual_attribute_manager_acbd56128ee8e2d51453b855779a12397a299e46610e01396bd8492268330da993}\label{class_p_t200___parser_1_1_visual_attribute_manager_acbd56128ee8e2d51453b855779a12397a299e46610e01396bd8492268330da993} 
+Block\+Drawing&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-func-members}
+\Hypertarget{class_p_t200___parser_1_1_visual_attribute_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_p_t200___parser_1_1_visual_attribute_manager_ac86a4d18b1baffd1b585deb671f57f27}\index{PT200\_Parser.VisualAttributeManager@{PT200\_Parser.VisualAttributeManager}!ApplyStyleToScope@{ApplyStyleToScope}}
+\index{ApplyStyleToScope@{ApplyStyleToScope}!PT200\_Parser.VisualAttributeManager@{PT200\_Parser.VisualAttributeManager}}
+\doxysubsubsection{\texorpdfstring{ApplyStyleToScope()}{ApplyStyleToScope()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_visual_attribute_manager_ac86a4d18b1baffd1b585deb671f57f27} 
+void PT200\+\_\+\+Parser.\+Visual\+Attribute\+Manager.\+Apply\+Style\+To\+Scope (\begin{DoxyParamCaption}\item[{int}]{scope}{, }\item[{\mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer}{Screen\+Buffer}}}]{buffer}{, }\item[{\mbox{\hyperlink{class_p_t200___parser_1_1_style_info}{Style\+Info}}}]{style}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_visual_attribute_manager_aeef1fa6ba0d04c1b90d89832710d8346}\index{PT200\_Parser.VisualAttributeManager@{PT200\_Parser.VisualAttributeManager}!ChangeDisplayAttributes@{ChangeDisplayAttributes}}
+\index{ChangeDisplayAttributes@{ChangeDisplayAttributes}!PT200\_Parser.VisualAttributeManager@{PT200\_Parser.VisualAttributeManager}}
+\doxysubsubsection{\texorpdfstring{ChangeDisplayAttributes()}{ChangeDisplayAttributes()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_visual_attribute_manager_aeef1fa6ba0d04c1b90d89832710d8346} 
+void PT200\+\_\+\+Parser.\+Visual\+Attribute\+Manager.\+Change\+Display\+Attributes (\begin{DoxyParamCaption}\item[{int}]{scope}{, }\item[{string\mbox{[}$\,$\mbox{]}}]{parameters}{, }\item[{\mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer}{Screen\+Buffer}}}]{buffer}{, }\item[{\mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state}{Terminal\+State}}}]{terminal}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_visual_attribute_manager_a6f2645284d52ce39c1d5aa6e72a29fda}\index{PT200\_Parser.VisualAttributeManager@{PT200\_Parser.VisualAttributeManager}!HandleColorModeCommand@{HandleColorModeCommand}}
+\index{HandleColorModeCommand@{HandleColorModeCommand}!PT200\_Parser.VisualAttributeManager@{PT200\_Parser.VisualAttributeManager}}
+\doxysubsubsection{\texorpdfstring{HandleColorModeCommand()}{HandleColorModeCommand()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_visual_attribute_manager_a6f2645284d52ce39c1d5aa6e72a29fda} 
+void PT200\+\_\+\+Parser.\+Visual\+Attribute\+Manager.\+Handle\+Color\+Mode\+Command (\begin{DoxyParamCaption}\item[{string\mbox{[}$\,$\mbox{]}}]{parameters}{, }\item[{\mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state}{Terminal\+State}}}]{terminal}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_p_t200___parser_1_1_visual_attribute_manager_a30fa16cc3f259f1b2e3714b828f5b80a}\index{PT200\_Parser.VisualAttributeManager@{PT200\_Parser.VisualAttributeManager}!HandleSGR@{HandleSGR}}
+\index{HandleSGR@{HandleSGR}!PT200\_Parser.VisualAttributeManager@{PT200\_Parser.VisualAttributeManager}}
+\doxysubsubsection{\texorpdfstring{HandleSGR()}{HandleSGR()}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_visual_attribute_manager_a30fa16cc3f259f1b2e3714b828f5b80a} 
+void PT200\+\_\+\+Parser.\+Visual\+Attribute\+Manager.\+Handle\+SGR (\begin{DoxyParamCaption}\item[{string\mbox{[}$\,$\mbox{]}}]{parameters}{, }\item[{\mbox{\hyperlink{class_p_t200___parser_1_1_screen_buffer}{Screen\+Buffer}}}]{buffer}{, }\item[{\mbox{\hyperlink{class_p_t200___parser_1_1_terminal_state}{Terminal\+State}}}]{terminal}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-event-members}
+\Hypertarget{class_p_t200___parser_1_1_visual_attribute_manager_doc-event-members}
+\doxysubsection{Event Documentation}
+\Hypertarget{class_p_t200___parser_1_1_visual_attribute_manager_a16bc8ef160bbe938bddd1746c83df64a}\index{PT200\_Parser.VisualAttributeManager@{PT200\_Parser.VisualAttributeManager}!DisplayTypeChanged@{DisplayTypeChanged}}
+\index{DisplayTypeChanged@{DisplayTypeChanged}!PT200\_Parser.VisualAttributeManager@{PT200\_Parser.VisualAttributeManager}}
+\doxysubsubsection{\texorpdfstring{DisplayTypeChanged}{DisplayTypeChanged}}
+{\footnotesize\ttfamily \label{class_p_t200___parser_1_1_visual_attribute_manager_a16bc8ef160bbe938bddd1746c83df64a} 
+Action PT200\+\_\+\+Parser.\+Visual\+Attribute\+Manager.\+Display\+Type\+Changed}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+PT200\+\_\+\+Parser/\mbox{\hyperlink{_visual_attribute_manager_8cs}{Visual\+Attribute\+Manager.\+cs}}\end{DoxyCompactItemize}

@@ -9,7 +9,7 @@
   <PropertyGroup>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>PT200_Rendering</PackageId>
-    <Version>1.2.7</Version>
+    <Version>1.3.0</Version>
     <Authors>Tomas Lundqvist</Authors>
     <Company></Company>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
@@ -23,8 +23,6 @@
   <!-- Endast None, med rätt case och Pack=true -->
   <ItemGroup>
     <None Include="Data\**\*.*" Pack="true" PackagePath="contentFiles\any\any\data" PackageCopyToOutput="true" CopyToOutputDirectory="PreserveNewest" />
-
-    <None Include="Resources\**\*.*" Pack="true" PackagePath="contentFiles\any\any\resources" PackageCopyToOutput="true" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>

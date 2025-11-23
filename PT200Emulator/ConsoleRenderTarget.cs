@@ -1,7 +1,8 @@
-﻿using System.Timers;
-using System.Drawing;
-using PT200_Rendering;
+﻿using System.Drawing;
+
 using PT200_Parser;
+
+using PT200_Rendering;
 
 namespace PT200Emulator
 {

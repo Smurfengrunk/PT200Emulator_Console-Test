@@ -149,9 +149,9 @@
       "Char": null,
       "ShiftChar": null,
       "AltGrChar": null,
-      "Escape": "\u007F",
-      "ShiftEscape": "\u007F",
-      "CtrlEscape": "\u007F",
+      "Escape": "\b",
+      "ShiftEscape": "\u001B[>10h",
+      "CtrlEscape": "\u001B[>10l",
       "CtrlShiftEscape": "\u007F"
     },
     {
@@ -170,7 +170,7 @@
       "Key": "Q",
       "Char": "q",
       "ShiftChar": "Q",
-      "AltGrChar": "@",
+      "AltGrChar": null,
       "Escape": null,
       "ShiftEscape": null,
       "CtrlEscape": null,
@@ -236,7 +236,7 @@
       "Key": "U",
       "Char": "u",
       "ShiftChar": "U",
-      "AltGrChar": null,
+      "AltGrChar": "µ",
       "Escape": null,
       "ShiftEscape": null,
       "CtrlEscape": null,
@@ -272,7 +272,7 @@
       "AltGrChar": null,
       "Escape": null,
       "ShiftEscape": null,
-      "CtrlEscape": null,
+      "CtrlEscape": "\u0010",
       "CtrlShiftEscape": null
     },
     {
@@ -1049,16 +1049,16 @@
     {
       "ScanCode": "0xE049",
       "Key": "PageUp",
-      "Escape": "\u001B$a",
-      "ShiftEscape": null,
+      "Escape": "\u001B[S",
+      "ShiftEscape": "\u001B$a",
       "CtrlEscape": null,
       "CtrlShiftEscape": null
     },
     {
       "ScanCode": "0xE051",
       "Key": "PageDown",
-      "Escape": "\u001B$b",
-      "ShiftEscape": null,
+      "Escape": "\u001B[T",
+      "ShiftEscape": "\u001B$b",
       "CtrlEscape": null,
       "CtrlShiftEscape": null
     },
@@ -1075,8 +1075,8 @@
       "Key": "End",
       "Escape": "\u001B[F",
       "ShiftEscape": "\u001B[F",
-      "CtrlEscape": "\u001B[F",
-      "CtrlShiftEscape": "\u001B[F"
+      "CtrlEscape": "\u001BNa",
+      "CtrlShiftEscape": "\u001BNb"
     },
     {
       "ScanCode": "0xE052",
@@ -1087,12 +1087,12 @@
       "CtrlShiftEscape": "\u001B[4h"
     },
     {
-      "ScanCode": "0xE053",
+      "ScanCode": "0x106",
       "Key": "Delete",
       "Escape": "\u001B[P",
       "ShiftEscape": "\u001B[M",
-      "CtrlEscape": null,
-      "CtrlShiftEscape": null
+      "CtrlEscape": "\u001BNY",
+      "CtrlShiftEscape": "\u001BNZ"
     },
     {
       "ScanCode": "0xE05B",
@@ -1174,6 +1174,22 @@
       "ShiftEscape": null,
       "CtrlEscape": "\u001BNa",
       "CtrlShiftEscape": "\u001BNb"
+    },
+    {
+      "ScanCode": "0xE053",
+      "Key": "Erase",
+      "Escape": "\u001B[X",
+      "ShiftEscape": "\u001B[K",
+      "CtrlEscape": "\u001B[O",
+      "CtrlShiftEscape": "\u001B[J"
+    },
+    {
+      "ScanCode": "0xE11D",
+      "Key": "Pause",
+      "Escape": "\u0010",
+      "ShiftEscape": "\u0010",
+      "CtrlEscape": null,
+      "CtrlShiftEscape": null
     }
   ]
 }

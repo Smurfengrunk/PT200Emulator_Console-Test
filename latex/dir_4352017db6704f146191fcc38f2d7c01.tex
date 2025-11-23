@@ -1,0 +1,47 @@
+\doxysection{PT200\+\_\+\+Transport Directory Reference}
+\hypertarget{dir_4352017db6704f146191fcc38f2d7c01}{}\label{dir_4352017db6704f146191fcc38f2d7c01}\index{PT200\_Transport Directory Reference@{PT200\_Transport Directory Reference}}
+
+
+/// Etablerar en anslutning till given host och port. ///  
+
+
+\doxysubsubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{_i_byte_stream_8cs}{IByte\+Stream.\+cs}}
+\item 
+file \mbox{\hyperlink{_tel_net_byte_stream_8cs}{Tel\+Net\+Byte\+Stream.\+cs}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+/// Etablerar en anslutning till given host och port. /// 
+
+\hypertarget{dir_4352017db6704f146191fcc38f2d7c01_autotoc_md14}{}\doxysubsection{\texorpdfstring{Transport‑modulen}{Transport‑modulen}}\label{dir_4352017db6704f146191fcc38f2d7c01_autotoc_md14}
+Transport‑modulen ansvarar för att etablera och hantera anslutningar mot en server, samt skicka och ta emot råa byte‑strömmar. ~\newline
+ Den exponerar ett neutralt interface ({\ttfamily IByte\+Stream}) som kan implementeras med olika transportlager (t.\+ex. TCP, seriell port, mock för tester).
+
+\DoxyHorRuler{0}
+\hypertarget{dir_4352017db6704f146191fcc38f2d7c01_autotoc_md16}{}\doxysubsection{\texorpdfstring{Publikt API}{Publikt API}}\label{dir_4352017db6704f146191fcc38f2d7c01_autotoc_md16}
+\hypertarget{dir_4352017db6704f146191fcc38f2d7c01_autotoc_md17}{}\doxysubsubsection{\texorpdfstring{Interface\+: {\ttfamily IByte\+Stream}}{Interface\+: {\ttfamily IByte\+Stream}}}\label{dir_4352017db6704f146191fcc38f2d7c01_autotoc_md17}
+\`{}\`{}\`{}csharp public interface IByte\+Stream \+: IDisposable \{ /// Task$<$bool$>$ Connect\+Async(string host, int port, Cancellation\+Token cancellation\+Token = default);
+
+///
+
+/// Kopplar ned anslutningen. /// Task Disconnect\+Async();
+
+///
+
+/// Startar vänteloop för data från servern. /// Task Start\+Receive\+Loop(Cancellation\+Token cancellation\+Token = default);
+
+///
+
+/// Skickar data som råa bytes. /// Task Write\+Async(byte\mbox{[}\mbox{]} buffer, Cancellation\+Token cancellation\+Token = default);
+
+///
+
+/// Event för inkommande data. /// event Action$<$byte\mbox{[}$\,$\mbox{]}$>$ Data\+Received;
+
+///
+
+/// Event som triggas när anslutningen stängs. /// event Action Disconnected; \} 

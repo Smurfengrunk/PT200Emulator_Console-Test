@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using System.Text.Json;
+
 using PT200_Logging;
 
 namespace PT200_Parser
@@ -10,16 +11,14 @@ namespace PT200_Parser
         private readonly EscapeSequenceHandler escHandler;
         private readonly OscHandler oscHandler;
         private readonly DollarCommandHandler dollarCommandHandler = new();
-        public bool inEmacs => escHandler.inEmacs;
         public ScreenBuffer Screenbuffer { get; private set; }
         private List<byte> dcsBuffer = new();
-        private readonly TerminalState termState;
+        public readonly TerminalState termState;
         private List<byte> _csiBuffer = new();
         public DcsSequenceHandler _dcsHandler { get; private set; }
         public CsiSequenceHandler _csiHandler { get; private set; }
         public VisualAttributeManager visualAttributeManager { get; private set; }
 
-        //public event Action<IReadOnlyList<TerminalAction>> ActionsReady;
         public event Action<byte[]> DcsResponse;
         public char Translate(byte code) => charTables.Translate(code);
         enum ParseState
@@ -40,8 +39,8 @@ namespace PT200_Parser
 
         public TerminalParser(DataPathProvider paths, TerminalState state, ModeManager modeManager)
         {
-            var g0Path = Path.Combine(paths.CharTablesPath, "G0.json");
-            var g1Path = Path.Combine(paths.CharTablesPath, "G1.json");
+            string g0Path = Path.Combine(paths.CharTablesPath, "G0.json");
+            string g1Path = Path.Combine(paths.CharTablesPath, "G1.json");
             Screenbuffer = new(state.Rows, state.Columns, AppDomain.CurrentDomain.BaseDirectory);
 
             var json = File.ReadAllText(Path.Combine(paths.BasePath, "data", "CsiCommands.json"));
@@ -51,7 +50,7 @@ namespace PT200_Parser
             if (root.CSI == null)
                 throw new InvalidOperationException("Kunde inte läsa in CSI-kommandon från JSON.");
 
-            var definitions = root.CSI;
+            List<CsiCommandDefinition> definitions = root.CSI;
             _definitions = definitions.ToDictionary(
                 d => $"{d.Command}:{d.Params}",
                 d => d,
@@ -242,12 +241,6 @@ namespace PT200_Parser
             escHandler.Handle(escSeq);
             seqBuffer.Clear();
             state = ParseState.Normal;
-        }
-
-        private void LogSequence(string label, string seq)
-        {
-            var hex = BitConverter.ToString(seq.Select(c => (byte)c).ToArray());
-            this.LogDebug($"[{label}] \"{seq}\" | HEX: {hex}");
         }
     }
 

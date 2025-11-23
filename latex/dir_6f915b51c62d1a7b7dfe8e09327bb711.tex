@@ -1,0 +1,67 @@
+\doxysection{PT200\+Emulator Directory Reference}
+\hypertarget{dir_6f915b51c62d1a7b7dfe8e09327bb711}{}\label{dir_6f915b51c62d1a7b7dfe8e09327bb711}\index{PT200Emulator Directory Reference@{PT200Emulator Directory Reference}}
+\doxysubsubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{_console_adapter_8cs}{Console\+Adapter.\+cs}}
+\item 
+file \mbox{\hyperlink{_console_render_target_8cs}{Console\+Render\+Target.\+cs}}
+\item 
+file \mbox{\hyperlink{_program_8cs}{Program.\+cs}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\hypertarget{dir_6f915b51c62d1a7b7dfe8e09327bb711_autotoc_md18}{}\doxysubsection{\texorpdfstring{PT200 Emulator}{PT200 Emulator}}\label{dir_6f915b51c62d1a7b7dfe8e09327bb711_autotoc_md18}
+En emulator för PT200-\/terminalen med stöd för klassiska ESC-\/sekvenser, loggning och konfigurerbar UI. ~\newline
+ Projektet är uppdelat i tydliga moduler för att underlätta utveckling, testning och framtida utbyggnad.\hypertarget{dir_6f915b51c62d1a7b7dfe8e09327bb711_autotoc_md19}{}\doxysubsection{\texorpdfstring{Status}{Status}}\label{dir_6f915b51c62d1a7b7dfe8e09327bb711_autotoc_md19}
+
+\begin{DoxyItemize}
+\item {\bfseries{Version\+:}} 1.\+2.\+1 ~\newline
+
+\item {\bfseries{Nytt i denna version\+:}} ~\newline
+
+\begin{DoxyItemize}
+\item README.\+md tillagd ~\newline
+
+\item Config-\/filer markerade som {\itshape Copy Always} för enklare distribution ~\newline
+
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{dir_6f915b51c62d1a7b7dfe8e09327bb711_autotoc_md21}{}\doxysubsection{\texorpdfstring{Arkitektur och moduler}{Arkitektur och moduler}}\label{dir_6f915b51c62d1a7b7dfe8e09327bb711_autotoc_md21}
+\hypertarget{dir_6f915b51c62d1a7b7dfe8e09327bb711_autotoc_md22}{}\doxysubsubsection{\texorpdfstring{Input\+Handler}{Input\+Handler}}\label{dir_6f915b51c62d1a7b7dfe8e09327bb711_autotoc_md22}
+
+\begin{DoxyItemize}
+\item Tar emot tangenttryckningar och översätter dem till PT200-\/sekvenser.
+\item Exponeras via publika metoder för att mata in tecken eller sekvenser.
+\item Används av UI för att skicka input till parsern/transportlagret.
+\end{DoxyItemize}\hypertarget{dir_6f915b51c62d1a7b7dfe8e09327bb711_autotoc_md23}{}\doxysubsubsection{\texorpdfstring{Logging}{Logging}}\label{dir_6f915b51c62d1a7b7dfe8e09327bb711_autotoc_md23}
+
+\begin{DoxyItemize}
+\item Central loggning med stöd för olika nivåer ({\ttfamily Info}, {\ttfamily Debug}, {\ttfamily Trace}).
+\item Loggnivå kan ändras dynamiskt via UI (combo-\/box).
+\item Loggkonsol kan slås på/av.
+\end{DoxyItemize}\hypertarget{dir_6f915b51c62d1a7b7dfe8e09327bb711_autotoc_md24}{}\doxysubsubsection{\texorpdfstring{Parser}{Parser}}\label{dir_6f915b51c62d1a7b7dfe8e09327bb711_autotoc_md24}
+
+\begin{DoxyItemize}
+\item Tolkar inkommande byte-\/strömmar och identifierar ESC-\/sekvenser.
+\item Exponeras via {\ttfamily Feed(byte b)} eller motsvarande.
+\item Kända sekvenser hanteras direkt, okända loggas som {\itshape Other}.
+\end{DoxyItemize}\hypertarget{dir_6f915b51c62d1a7b7dfe8e09327bb711_autotoc_md25}{}\doxysubsubsection{\texorpdfstring{Rendering}{Rendering}}\label{dir_6f915b51c62d1a7b7dfe8e09327bb711_autotoc_md25}
+
+\begin{DoxyItemize}
+\item Ansvarar för att rita text, attribut och färger på skärmen.
+\item Stöd för olika skärmformat (80×24, 132×27 m.\+fl.).
+\item Hanterar färgteman (grön, amber, vit, blå, fullfärg).
+\end{DoxyItemize}\hypertarget{dir_6f915b51c62d1a7b7dfe8e09327bb711_autotoc_md26}{}\doxysubsubsection{\texorpdfstring{Transport}{Transport}}\label{dir_6f915b51c62d1a7b7dfe8e09327bb711_autotoc_md26}
+
+\begin{DoxyItemize}
+\item Hanterar anslutning till host/port via TCP.
+\item Exponeras via {\ttfamily Connect}, {\ttfamily Disconnect}, {\ttfamily Send}, {\ttfamily Receive}.
+\item Konfigureras via {\ttfamily transport\+Config.\+json}.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ 

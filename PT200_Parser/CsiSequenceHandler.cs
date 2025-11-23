@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
-using System.Text;
 using System.Text.RegularExpressions;
+
 using PT200_Logging;
 
 namespace PT200_Parser
@@ -24,7 +24,7 @@ namespace PT200_Parser
             paramStr = string.Empty;
             parameters = new string[0];
             // Exempel: "12;24H"
-            var match = Regex.Match(sequence, @"^([><\?\d;]*)([A-Za-z])$");
+            Match match = Regex.Match(sequence, @"^([><\?\d;]*)([A-Za-z])$");
             if (!match.Success || match.Groups.Count < 2) return;
 
             paramStr = match.Groups[1].Value;
@@ -85,7 +85,7 @@ namespace PT200_Parser
 
                 ["h"] = (p, t, b) =>
                 {
-                    foreach (var mode in p.Where(x => x.StartsWith(">"))
+                    foreach (int? mode in p.Where(x => x.StartsWith(">"))
                                           .Select(x => x.Substring(1))
                                           .Select(s => int.TryParse(s, out var m) ? m : (int?)null)
                                           .Where(m => m.HasValue))
@@ -96,7 +96,7 @@ namespace PT200_Parser
 
                 ["l"] = (p, t, b) =>
                 {
-                    foreach (var mode in p.Where(x => x.StartsWith(">"))
+                    foreach (int? mode in p.Where(x => x.StartsWith(">"))
                                           .Select(x => x.Substring(1))
                                           .Select(s => int.TryParse(s, out var m) ? m : (int?)null)
                                           .Where(m => m.HasValue))
@@ -120,6 +120,11 @@ namespace PT200_Parser
                 {
                     // PT200 Erase line command: 0 -> Cursor to EOL, 1 -> BOL to Cursor, 2 -> Entire line
                     // Current implententation supports only 0
+                    b.Delete(ParseOrDefault(p.ElementAtOrDefault(0), 0));
+                },
+                ["X"] = (p, t, b) =>
+                {
+                    // PT200 Erase character: ESC[nX, n -> number of characters
                     b.ClearLine(ParseOrDefault(p.ElementAtOrDefault(0), 0));
                 }
             };
@@ -162,19 +167,19 @@ namespace PT200_Parser
             {
                 this.LogInformation($"[TryHandle] {def.Name} -> {paramStr} {def.Description}");
             }
-            
+
             else if (IsNumericList(paramStr) && _definitions.TryGetValue($"{command}:n1;n2;...", out def))
             {
                 this.LogInformation($"[TryHandle] {def.Name} -> {paramStr} {def.Description}");
             }
             else if (paramStr.StartsWith(">"))
             {
-                var parts = paramStr.Split(';');
+                string[] parts = paramStr.Split(';');
 
                 if (parts.Length == 1 && parts[0].Length > 1 && parts[0][0] == '>' && parts[0].Substring(1).All(char.IsDigit))
                 {
                     // Single parameter: >n eller >nn...
-                    var digits = parts[0].Substring(1);
+                    string digits = parts[0].Substring(1);
 
                     string key = $"{command}:>n";
 
@@ -210,7 +215,7 @@ namespace PT200_Parser
 
         private static bool IsRowColumn(string paramStr)
         {
-            var parts = paramStr.Split(';');
+            string[] parts = paramStr.Split(';');
             return parts.Length == 2 &&
                    int.TryParse(parts[0], out _) &&
                    int.TryParse(parts[1], out _);
@@ -218,7 +223,7 @@ namespace PT200_Parser
 
         private static bool IsNumericList(string paramStr)
         {
-            var parts = paramStr.Split(';');
+            string[] parts = paramStr.Split(';');
             return parts.All(p => int.TryParse(p, out _));
         }
 
