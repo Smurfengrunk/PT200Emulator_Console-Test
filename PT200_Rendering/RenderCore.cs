@@ -9,21 +9,36 @@ namespace PT200_Rendering
         private RenderSnapshot[,] _lastFrame;
         private bool _initialized;
 
-        private record struct RenderSnapshot(char RawChar, char OutChar, Color Fg, Color Bg)
+        public readonly struct RenderSnapshot : IEquatable<RenderSnapshot>
         {
-            public bool Equals(RenderSnapshot other)
+            public readonly char RawChar;
+            public readonly char OutChar;
+            public readonly Color Fg;
+            public readonly Color Bg;
+
+            public RenderSnapshot(char rawChar, char outChar, Color fg, Color bg)
             {
-                return RawChar == other.RawChar &&
-                       Fg == other.Fg &&
-                       Bg == other.Bg;
+                RawChar = rawChar;
+                OutChar = outChar;
+                Fg = fg;
+                Bg = bg;
             }
 
-            public override int GetHashCode()
-            {
-                return HashCode.Combine(RawChar, Fg, Bg);
-            }
+            public bool Equals(RenderSnapshot other) =>
+                RawChar == other.RawChar &&
+                OutChar == other.OutChar &&
+                Fg == other.Fg &&
+                Bg == other.Bg;
+
+            public override bool Equals(object obj) =>
+                obj is RenderSnapshot other && Equals(other);
+
+            public override int GetHashCode() =>
+                HashCode.Combine(RawChar, OutChar, Fg, Bg);
+
+            public static bool operator ==(RenderSnapshot left, RenderSnapshot right) => left.Equals(right);
+            public static bool operator !=(RenderSnapshot left, RenderSnapshot right) => !left.Equals(right);
         }
-
         public void ForceFullRender()
         {
             _initialized = false;
@@ -45,16 +60,20 @@ namespace PT200_Rendering
                 _initialized = false;
             }
 
+            // Förallokera en buffer per rad (återanvänds varje iteration)
+            char[] runBuffer = new char[buffer.Cols];
+
             for (int row = 0; row < buffer.Rows; row++)
             {
                 int col = 0;
                 while (col < buffer.Cols)
                 {
-                    ScreenBuffer.ScreenCell cell = buffer.GetCell(row, col);
-                    StyleInfo zone = buffer.ZoneAttributes[row, col];
+                    var cell = buffer.GetCell(row, col);
+                    var zone = buffer.ZoneAttributes[row, col];
 
-                    StyleInfo.Color fg = zone?.Foreground ?? cell.Style.Foreground;
-                    StyleInfo.Color bg = zone?.Background ?? cell.Style.Background;
+                    // Beräkna attribut en gång
+                    var fg = zone?.Foreground ?? cell.Style.Foreground;
+                    var bg = zone?.Background ?? cell.Style.Background;
                     bool reverse = zone?.ReverseVideo ?? cell.Style.ReverseVideo;
                     bool lowintensity = zone?.LowIntensity ?? cell.Style.LowIntensity;
 
@@ -66,44 +85,54 @@ namespace PT200_Rendering
                     }
 
                     char rawChar = cell.Char;
-                    char outCh = cell.Char == '\0' ? ' ' : cell.Char;
-                    RenderSnapshot snap = new RenderSnapshot(rawChar, outCh, TranslateColor(fg), TranslateColor(bg));
+                    char outCh = rawChar == '\0' ? ' ' : rawChar;
+
+                    TranslateColor.TryGetValue(fg, out var cfg);
+                    TranslateColor.TryGetValue(bg, out var cbg);
+
+                    var snap = new RenderSnapshot(rawChar, outCh, cfg, cbg);
 
                     if (!_initialized || !_lastFrame[row, col].Equals(snap))
                     {
                         int runStart = col;
                         Color runFg = snap.Fg;
                         Color runBg = snap.Bg;
-                        List<char> runChars = new List<char>();
+                        int runLength = 0;
 
+                        // Bygg run direkt i char[] buffer
                         while (col < buffer.Cols)
                         {
-                            ScreenBuffer.ScreenCell c = buffer.GetCell(row, col);
-                            StyleInfo z = buffer.ZoneAttributes[row, col];
-                            StyleInfo.Color f = z?.Foreground ?? c.Style.Foreground;
-                            StyleInfo.Color b = z?.Background ?? c.Style.Background;
-                            bool r = z?.ReverseVideo ?? c.Style.ReverseVideo;
-                            bool l = z?.LowIntensity ?? c.Style.LowIntensity;
+                            var nextCell = buffer.GetCell(row, col);
+                            var nextZone = buffer.ZoneAttributes[row, col];
 
-                            if (r) (f, b) = (b, f);
-                            if (l)
+                            var nf = nextZone?.Foreground ?? nextCell.Style.Foreground;
+                            var nb = nextZone?.Background ?? nextCell.Style.Background;
+                            bool nr = nextZone?.ReverseVideo ?? nextCell.Style.ReverseVideo;
+                            bool nl = nextZone?.LowIntensity ?? nextCell.Style.LowIntensity;
+
+                            if (nr) (nf, nb) = (nb, nf);
+                            if (nl)
                             {
-                                if (r) b = b.MakeDim();
-                                else f = f.MakeDim();
+                                if (nr) nb = nb.MakeDim();
+                                else nf = nf.MakeDim();
                             }
 
-                            char ch = c.Char == '\0' ? ' ' : c.Char;
-                            RenderSnapshot s = new RenderSnapshot(rawChar, ch, TranslateColor(f), TranslateColor(b));
+                            char nch = nextCell.Char == '\0' ? ' ' : nextCell.Char;
+                            TranslateColor.TryGetValue(nf, out var ncf);
+                            TranslateColor.TryGetValue(nb, out var ncb);
+
+                            var s = new RenderSnapshot(nextCell.Char, nch, ncf, ncb);
 
                             if (!_initialized && col == runStart) { }
                             else if (!s.Equals(snap)) break;
 
-                            runChars.Add(ch);
-                            if (_lastFrame != null) _lastFrame[row, col] = s;
+                            runBuffer[runLength++] = nch;
+                            _lastFrame[row, col] = s;
                             col++;
                         }
 
-                        target.DrawRun(new RenderRun(row, runStart, runFg, runBg, runChars.ToArray()));
+                        // Skicka run som Span istället för ToArray()
+                        target.DrawRun(new RenderRun(row, runStart, runFg, runBg, runBuffer.AsMemory(0, runLength)));
                     }
                     else
                     {
@@ -118,24 +147,24 @@ namespace PT200_Rendering
             target.SetCaret(buffer.CursorRow, buffer.CursorCol);
         }
 
-        public static Color TranslateColor(StyleInfo.Color color) => color switch
+        public static readonly Dictionary<StyleInfo.Color, Color> TranslateColor = new()
         {
-            StyleInfo.Color.Black => Color.Black,
-            StyleInfo.Color.Green => Color.FromArgb(0, 255, 0),
-            StyleInfo.Color.DarkGreen => Color.FromArgb(10, 15, 10),
-            StyleInfo.Color.DarkCyan => Color.DarkCyan,
-            StyleInfo.Color.DarkRed => Color.DarkRed,
-            StyleInfo.Color.DarkMagenta => Color.DarkMagenta,
-            StyleInfo.Color.Blue => Color.FromArgb(234, 242, 255),  // ljus blå text
-            StyleInfo.Color.DarkBlue => Color.FromArgb(12, 12, 30),   // mörk blå bakgrund
-            StyleInfo.Color.Cyan => Color.Cyan,
-            StyleInfo.Color.Red => Color.Red,
-            StyleInfo.Color.Magenta => Color.Magenta,
-            StyleInfo.Color.DarkYellow => Color.FromArgb(26, 18, 8), // bakgrundston
-            StyleInfo.Color.Yellow => Color.FromArgb(255, 191, 0),   // text amber
-            StyleInfo.Color.Gray => Color.FromArgb(24, 24, 24),      // bakgrund
-            StyleInfo.Color.White => Color.White,                    // text
-            _ => Color.Wheat
+            { StyleInfo.Color.Black, Color.Black },
+            { StyleInfo.Color.Green, Color.FromArgb(0, 255, 0) },
+            { StyleInfo.Color.DarkGreen, Color.FromArgb(10, 15, 10) },
+            { StyleInfo.Color.DarkCyan, Color.DarkCyan },
+            { StyleInfo.Color.DarkRed, Color.DarkRed },
+            { StyleInfo.Color.DarkMagenta, Color.DarkMagenta },
+            { StyleInfo.Color.Blue, Color.FromArgb(234, 242, 255) },  // ljus blå text
+            { StyleInfo.Color.DarkBlue, Color.FromArgb(12, 12, 30) },   // mörk blå bakgrund
+            { StyleInfo.Color.Cyan, Color.Cyan },
+            { StyleInfo.Color.Red, Color.Red },
+            { StyleInfo.Color.Magenta, Color.Magenta },
+            { StyleInfo.Color.DarkYellow, Color.FromArgb(26, 18, 8) }, // bakgrundston
+            { StyleInfo.Color.Yellow, Color.FromArgb(255, 191, 0) },   // text amber
+            { StyleInfo.Color.Gray, Color.FromArgb(24, 24, 24) },      // bakgrund
+            { StyleInfo.Color.White, Color.White },                    // text
+            { StyleInfo.Color.Default, Color.Wheat }
         };
     }
 }

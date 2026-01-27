@@ -12,10 +12,8 @@ Den tar emot ett `ScreenBuffer` från Parser och ritar ut innehållet i en konso
 public class ConsoleRenderer
 {
     public bool Connected { get; set; }
-    public bool inEmacs { get; set; }
-
     public void ForceFullRender();
-    public void Render(ScreenBuffer buffer, bool inEmacs);
+    public void Render(ScreenBuffer buffer);
 }
 
 public class CaretController : ICaretController

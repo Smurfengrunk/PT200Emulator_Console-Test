@@ -2,7 +2,7 @@
 
 namespace PT200_Rendering
 {
-    public record RenderRun(int Row, int StartCol, Color Fg, Color Bg, char[] Chars);
+    public record RenderRun(int Row, int StartCol, Color Fg, Color Bg, ReadOnlyMemory<char> Chars);
 
     public interface IRenderTarget
     {

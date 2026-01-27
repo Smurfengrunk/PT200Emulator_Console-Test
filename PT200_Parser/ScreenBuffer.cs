@@ -1,4 +1,6 @@
 ﻿
+using System;
+using System.Diagnostics;
 using System.Text;
 
 using PT200_Logging;
@@ -142,7 +144,8 @@ namespace PT200_Parser
             _chars = newChars;
             ZoneAttributes = newStyles;
 
-            CursorRow = Math.Min(CursorRow, rows - 1);
+            //CursorRow = Math.Min(CursorRow, rows - 1);
+            CursorRow = (int)((double)CursorRow / oldRows * Rows);
             CursorCol = Math.Min(CursorCol, cols - 1);
 
             MarkDirty();

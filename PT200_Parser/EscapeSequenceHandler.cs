@@ -15,7 +15,6 @@ namespace PT200_Parser
         private CompressedCommandDecoder _commandDecoder;
 
         public bool ManualInputEnabled { get; private set; }
-        public bool inEmacs { get; private set; }
 
 #pragma warning disable CS0219
         public EscapeSequenceHandler(CharTableManager charTables, ScreenBuffer buffer, TerminalState termstate)
@@ -70,7 +69,6 @@ namespace PT200_Parser
                     }
                     break;
                 case "`": // ESC `
-                    inEmacs = true;
                     ManualInputEnabled = false;
                     break;
 
